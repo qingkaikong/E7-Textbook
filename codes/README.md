@@ -2,6 +2,21 @@
 
 This folder will contain all the code you contributed and then I will integrate them into the textbook in the notebook folder. 
 
+## Work log:
+* Jennifer
+    * Chapter 2 (done)
+    * Chapter 3 (in Progress)
+* Nick
+    * Chapter 5 (done)
+    * Chapter 6 (In progress)
+    * Chapter 11
+* Austin
+    * Chapter 7
+    * Chapter 8
+* Brian
+    * Chapter 4 (done)
+    * Chapter 14 
+
 Please note the followings when you contribute:
 
 * Each person will work only on one chapter at a time, therefore, we should avoid conflict
