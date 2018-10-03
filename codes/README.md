@@ -5,7 +5,8 @@ This folder will contain all the code you contributed and then I will integrate 
 ## Work log:
 * Jennifer
     * Chapter 2 (done)
-    * Chapter 3 (in Progress)
+    * Chapter 3 (done)
+    * Chapter 16 (In Progress)
 * Nick
     * Chapter 5 (done)
     * Chapter 6 (In progress)
