@@ -9,8 +9,8 @@ This folder will contain all the code you contributed and then I will integrate 
     * Chapter 16 (In Progress)
 * Nick
     * Chapter 5 (done)
-    * Chapter 6 (In progress)
-    * Chapter 11
+    * Chapter 6 (done)
+    * Chapter 11 (in progress)
 * Austin
     * Chapter 7 (done)
     * Chapter 8
