@@ -6,7 +6,8 @@ This folder will contain all the code you contributed and then I will integrate 
 * Jennifer
     * Chapter 2 (done)
     * Chapter 3 (done)
-    * Chapter 16 (In Progress)
+    * Chapter 16 (done)
+    * Chapter 12 (In progress)
 * Nick
     * Chapter 5 (done)
     * Chapter 6 (done)
