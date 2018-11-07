@@ -16,7 +16,7 @@ This folder will contain all the code you contributed and then I will integrate 
 * Austin
     * Chapter 7 (done)
     * Chapter 13 (done)
-    * Chapter 17 (in progress)
+    * Chapter 17 (done)
 * Brian
     * Chapter 4 (done)
     * Chapter 14 (in progress)
