@@ -19,7 +19,30 @@ This folder will contain all the code you contributed and then I will integrate 
     * Chapter 17 (done)
 * Brian
     * Chapter 4 (done)
-    * Chapter 14 (in progress)
+    * Chapter 14 (done)
+    * Chapter 15 (done)
+    
+| Chapter       | Status        | Contributor |
+| ------------- |:-------------:| :-----:     |
+| Chapter 01    | done?         | name      |
+| Chapter 02    | done          | Jennifer  |
+| Chapter 03    | done          | Jennifer  |
+| Chapter 04    | done          | Brian     |
+| Chapter 05    | done          | Nick      |
+| Chapter 06    | done          | Nick      |
+| Chapter 07    | done          | Austin    |
+| Chapter 08    | done?         | name      |
+| Chapter 09    | done?         | name      |
+| Chapter 10    | done?         | name      |
+| Chapter 11    | in progress   | Nick      |
+| Chapter 12    | in progress   | Jennifer  |
+| Chapter 13    | done          | Austin    |
+| Chapter 14    | done          | Brian     |
+| Chapter 15    | done          | Brian     |
+| Chapter 16    | done          | Jennifer  |
+| Chapter 17    | done          | Austin    |
+| Chapter 18    | unassigned?   | name      |
+| Chapter 19    | in progress   | Nick      |
 
 Please note the followings when you contribute:
 
