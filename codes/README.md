@@ -42,7 +42,7 @@ This folder will contain all the code you contributed and then I will integrate 
 | Chapter 15    | done          | Brian     |
 | Chapter 16    | done          | Jennifer  |
 | Chapter 17    | done          | Austin    |
-| Chapter 18    | in progress   | Austin?   |
+| Chapter 18    | done          | Austin    |
 | Chapter 19    | in progress   | Nick      |
 
 Please note the followings when you contribute:
