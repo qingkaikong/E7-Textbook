@@ -10,8 +10,8 @@ This folder will contain all the code you contributed and then I will integrate 
     * Chapter 12 (done)
 * Nick
     * Chapter 5 (done)
-    * Chapter 6 
-    * Chapter 11 (in progress)
+    * Chapter 6 (done)
+    * Chapter 11 (done)
     * Chapter 19
 * Austin
     * Chapter 7 (done)
@@ -35,7 +35,7 @@ This folder will contain all the code you contributed and then I will integrate 
 | Chapter 08    | done?         | name      |
 | Chapter 09    | done          | name      |
 | Chapter 10    | done          | name      |
-| Chapter 11    | in progress   | Nick      |
+| Chapter 11    | done          | Nick      |
 | Chapter 12    | done          | Jennifer  |
 | Chapter 13    | done          | Austin    |
 | Chapter 14    | done          | Brian     |
