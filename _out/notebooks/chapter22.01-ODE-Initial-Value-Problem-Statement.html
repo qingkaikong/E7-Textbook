@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODE Initial Value Problem Statement &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reduction of Order" href="chapter22.02-Reduction-of-Order.html" />
+    <link rel="prev" title="Ordinary Differential Equation - Initial Value Problems" href="chapter22.00-ODE-Initial-Value-Problems.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     ODE Initial Value Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.02-Reduction-of-Order.html">
+     Reduction of Order
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.03-The-Euler-Method.html">
+     The Euler Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html">
+     Numerical Error and Instability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.05-Predictor-Corrector-Methods.html">
+     Predictor-Corrector and Runge Kutta Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html">
+     Python ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.07-Advanced-Topics.html">
+     Advanced Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter22.01-ODE-Initial-Value-Problem-Statement.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html"><span class="doc std std-doc">CHAPTER 22. Ordinary Differential Equations (ODEs): Initial-Value Problems</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter22.02-Reduction-of-Order.html"><span class="doc std std-doc">22.2 Reduction of Order</span></a> &gt;</p>
+<div class="section" id="ode-initial-value-problem-statement">
+<h1>ODE Initial Value Problem Statement<a class="headerlink" href="#ode-initial-value-problem-statement" title="Permalink to this headline">¶</a></h1>
+<p>A <strong>differential equation</strong> is a relationship between a function, <span class="math notranslate nohighlight">\(f(x)\)</span>, its independent variable, <span class="math notranslate nohighlight">\(x\)</span>, and any number of its derivatives. An <strong>ordinary differential equation</strong> or <strong>ODE</strong> is a differential equation where the independent variable, and therefore also the derivatives, is in one dimension. For the purpose of this book, we assume that an ODE can be written</p>
+<div class="math notranslate nohighlight">
+\[
+F\left(x, f(x), \frac{df(x)}{dx}, \frac{d^2f(x)}{dx^2}, \frac{d^3f(x)}{dx^3}, \ldots, \frac{d^{n-1}f(x)}{dx^{n-1}}\right) = \frac{d^{n}f(x)}{dx^{n}},
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is an arbitrary function that incorporates one or all of the input arguments, and <span class="math notranslate nohighlight">\(n\)</span> is the <strong>order</strong> of the differential equation. This equation is referred to as an <strong><span class="math notranslate nohighlight">\(n^{\mathrm{th}}\)</span> order ODE</strong>.</p>
+<img src="images/22.01.01-pendulum.png" alt="Pendulum system" title="Pendulum system." width="200"/>
+<p>To give an example of an ODE, consider a pendulum of length <span class="math notranslate nohighlight">\(l\)</span> with a mass, <span class="math notranslate nohighlight">\(m\)</span>, at its end (see the figure above). The angle the pendulum makes with the vertical axis over time, <span class="math notranslate nohighlight">\(\Theta(t)\)</span>, in the presence of vertical gravity, <span class="math notranslate nohighlight">\(g\)</span>, can be described by the pendulum equation, which is the ODE</p>
+<div class="math notranslate nohighlight">
+\[
+ml\frac{d^2\Theta(t)}{dt^2} = -mg \sin(\Theta(t)).
+\]</div>
+<p>This equation can be derived by summing the forces in the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> direction, and then changing to polar coordinates.</p>
+<p>In contrast, a <strong>partial differential equation</strong> or <strong>PDE</strong> is a general form differential equation where <span class="math notranslate nohighlight">\(x\)</span> is a vector containing the independent variables <span class="math notranslate nohighlight">\(x_1, x_2, x_3, \ldots, x_m\)</span>, and the partial derivatives can be of any order and with respect to any combination of variables. An example of a PDE is the heat equation, which describes the evolution of temperature in space over time:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial u(t, x, y, z)}{\partial t} = \alpha\left(\frac{\partial u(t, x, y, z)}{\partial x} + \frac{\partial u(t, x, y, z)}{\partial y} + \frac{\partial u(t, x, y, z)}{\partial z}\right).
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(u(t, x, y, z)\)</span> is the temperature at <span class="math notranslate nohighlight">\((x,y,z)\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>, and <span class="math notranslate nohighlight">\(\alpha\)</span> is a thermal diffusion constant.</p>
+<p>A <strong>general solution</strong> to a differential equation is a <span class="math notranslate nohighlight">\(g(x)\)</span> that satisfies the differential equation. Although there are usually many solutions to a differential equation, they are still hard to find. For an ODE of order <span class="math notranslate nohighlight">\(n\)</span>, a <strong>particular solution</strong> is a <span class="math notranslate nohighlight">\(p(x)\)</span> that satisfies the differential equation <em>and n</em> explicitly <strong>known values</strong> of the solution, or its derivatives, at certain points. Generally stated, <span class="math notranslate nohighlight">\(p(x)\)</span> must satisfy the differential equation and <span class="math notranslate nohighlight">\(p^{(j)}(x_i) = p_i\)</span>, where <span class="math notranslate nohighlight">\(p^{(j)}\)</span> is the <span class="math notranslate nohighlight">\(j^{\mathrm{th}}\)</span> derivative of <span class="math notranslate nohighlight">\(p\)</span>, for <span class="math notranslate nohighlight">\(n\)</span> triplets, <span class="math notranslate nohighlight">\((j, x_i, p_i)\)</span>. For the purpose of this text, we refer to the particular solution simply as the <strong>solution</strong>.</p>
+<p><strong>TRY IT!</strong> Returning to the pendulum example, if we assume the angles are very small (i.e., <span class="math notranslate nohighlight">\(\sin(\Theta(t)) \approx \Theta(t)\)</span>), then the pendulum equation reduces to</p>
+<div class="math notranslate nohighlight">
+\[
+l\frac{d^2\Theta(t)}{dt^2} = -g\Theta(t).
+\]</div>
+<p>Verify that <span class="math notranslate nohighlight">\(\Theta(t) = \cos\left(\sqrt{\frac{g}{l}}t\right)\)</span> is a general solution to the pendulum equation. If the angle and angular velocities at <span class="math notranslate nohighlight">\(t = 0\)</span> are the known values, <span class="math notranslate nohighlight">\(\Theta_0\)</span> and 0, respectively, verify that <span class="math notranslate nohighlight">\(\Theta(t) = \Theta_0\cos\left(\sqrt{\frac{g}{l}}t\right)\)</span> is a particular solution for these known values.</p>
+<p>For the general solution, the derivatives of <span class="math notranslate nohighlight">\(\Theta(t)\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\Theta(t)}{dt} = -\sqrt{\frac{g}{l}}\sin\left(\sqrt{\frac{g}{l}}t\right)
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d^2\Theta(t)}{dt^2} = -\frac{g}{l}\cos\left(\sqrt{\frac{g}{l}}t\right).
+\]</div>
+<p>By plugging the second derivative back into the differential equation on the left side, it is easy to verify that <span class="math notranslate nohighlight">\(\Theta(t)\)</span> satisfies the equation and so is a general solution.</p>
+<p>For the particular solution, the <span class="math notranslate nohighlight">\(\Theta_0\)</span> coefficient will carry through the derivatives, and it can be verified that the equation is satisfied. <span class="math notranslate nohighlight">\(\Theta(0) = \Theta_0 \cos(0) = \Theta_0\)</span>, and <span class="math notranslate nohighlight">\(0 = -\Theta_0 \sqrt{\frac{g}{l}}\sin(0) = 0\)</span>, therefore the particular solution also satisfies the known values.</p>
+<p>A pendulum swinging at small angles is a very uninteresting pendulum indeed. Unfortunately, there is no explicit solution for the pendulum equation with large angles that is as simple algebraically. Since this system is much simpler than most practical engineering systems and has no obvious analytic solution, the need for numerical solutions to ODEs is clear.</p>
+<p>A common set of known values for an ODE solution is the <strong>initial value</strong>. For an ODE of order <span class="math notranslate nohighlight">\(n\)</span>, the initial value is a known value for the <span class="math notranslate nohighlight">\(0^{\mathrm{th}}\)</span> to <span class="math notranslate nohighlight">\((n-1)^{\mathrm{th}}\)</span> derivatives at <span class="math notranslate nohighlight">\(x = 0, f(0), f^{(1)}(0), f^{(2)}(0),\ldots, f^{(n-1)}(0)\)</span>. For a certain class of ordinary differential equations, the initial value is sufficient to find a unique particular solution. Finding a solution to an ODE given an initial value is called the <strong>initial value problem</strong>. Although the name suggests we will only cover ODEs that evolve in time, initial value problems can also include systems that evolve in other dimensions such as space. Intuitively, the pendulum equation can be solved as an initial value problem because under only the force of gravity, an initial position and velocity should be sufficient to describe the motion of the pendulum for all time afterward.</p>
+<p>The remainder of this chapter covers several methods of numerically approximating the solution to initial value problems on a numerical grid. Although initial value problems encompass more than just differential equations in time, we use time as the independent variable. We also use several notations for the derivative of <span class="math notranslate nohighlight">\(f(t): f^{\prime}(t), f^{(1)}(t), \frac{df(t)}{dt}\)</span>, and <span class="math notranslate nohighlight">\(\dot{f}\)</span>, whichever is most convenient for the context.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html"><span class="doc std std-doc">CHAPTER 22. Ordinary Differential Equations (ODEs): Initial-Value Problems</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter22.02-Reduction-of-Order.html"><span class="doc std std-doc">22.2 Reduction of Order</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter22.00-ODE-Initial-Value-Problems.html" title="previous page">Ordinary Differential Equation - Initial Value Problems</a>
+    <a class='right-next' id="next-link" href="chapter22.02-Reduction-of-Order.html" title="next page">Reduction of Order</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

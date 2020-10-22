@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power Method &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The QR Method" href="chapter15.03-The-QR-Method.html" />
+    <link rel="prev" title="Eigenvalues and Eigenvectors Problem Statement" href="chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.html">
+     Eigenvalues and Eigenvectors Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     The Power Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.03-The-QR-Method.html">
+     The QR Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.html">
+     Eigenvalues and Eigenvectors in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter15.02-The-Power-Method.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#find-the-largest-eigenvalue">
+   Find the largest eigenvalue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-inverse-power-method">
+   The inverse power method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-shifted-power-method">
+   The shifted power method
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <span class="xref myst">15.1 Mathematical Characteristics of Eigen-problems</span> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.03-The-QR-Method.html"><span class="doc std std-doc">15.3 The QR Method</span></a>  &gt;</p>
+<div class="section" id="the-power-method">
+<h1>The Power Method<a class="headerlink" href="#the-power-method" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="find-the-largest-eigenvalue">
+<h2>Find the largest eigenvalue<a class="headerlink" href="#find-the-largest-eigenvalue" title="Permalink to this headline">¶</a></h2>
+<p>In some problems, we only need to find the largest dominant eigenvalue and its corresponding eigenvector. In this case, we can use the power method - a iterative method that will converge to the largest eigenvalue. Let’s see the following how the power method works.</p>
+<p>Consider an <span class="math notranslate nohighlight">\(n\times{n}\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> that has <span class="math notranslate nohighlight">\(n\)</span> linearly independent real eigenvalues <span class="math notranslate nohighlight">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span> and the corresponding eigenvectors <span class="math notranslate nohighlight">\(v_1, v_2, \dots, v_n\)</span>. Since the eigenvalues are scalars, we can rank them so that $|\lambda_1| &gt; |\lambda_2| &gt; \dots &gt; |\lambda_n| $ (actually, we only require <span class="math notranslate nohighlight">\(|\lambda_1| &gt; |\lambda_2|\)</span>, other eigenvalues may be equal to each other).</p>
+<p>Because the eigenvectors are independent, they are a set of basis vectors, which means that any vector that is in the same space can be written as a linear combination of the basis vectors. That is, for any vector <span class="math notranslate nohighlight">\(x_0\)</span>, it can be written as:</p>
+<div class="math notranslate nohighlight">
+\[ x_0 = c_1v_1+c_2v_2+\dots+c_nv_n\]</div>
+<p>where <span class="math notranslate nohighlight">\(c_1\ne0\)</span> is the constraint. If it is zero, then we need to choose another initial vector so that <span class="math notranslate nohighlight">\(c_1\ne0\)</span>.</p>
+<p>Now let’s multiply both sides by <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_0 = c_1Av_1+c_2Av_2+\dots+c_nAv_n\]</div>
+<p>Since <span class="math notranslate nohighlight">\(Av_i = \lambda{v_i}\)</span>, we will have:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_0 = c_1\lambda_1v_1+c_2\lambda_2v_2+\dots+c_n\lambda_nv_n\]</div>
+<p>We can change the above equation to:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_0 = c_1\lambda_1[v_1+\frac{c_2}{c_1}\frac{\lambda_2}{\lambda_1}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n}{\lambda_1}v_n]= c_1\lambda_1x_1\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_1\)</span> is a new vector and <span class="math notranslate nohighlight">\(x_1 = v_1+\frac{c_2}{c_1}\frac{\lambda_2}{\lambda_1}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n}{\lambda_1}v_n\)</span>.</p>
+<p>This finishes the first iteration. And we can multiply <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(x_1\)</span> to start the 2nd iteration:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_1 = \lambda_1{v_1}+\frac{c_2}{c_1}\frac{\lambda_2^2}{\lambda_1}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n^2}{\lambda_1}v_n \]</div>
+<p>Similarly, we can rearrange the above equation to:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_1 = \lambda_1[v_1+\frac{c_2}{c_1}\frac{\lambda_2^2}{\lambda_1^2}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n^2}{\lambda_1^2}v_n] = \lambda_1x_2\]</div>
+<p>where <span class="math notranslate nohighlight">\(x_2\)</span> is another new vector and <span class="math notranslate nohighlight">\(x_2 = v_1+\frac{c_2}{c_1}\frac{\lambda_2^2}{\lambda_1^2}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n^2}{\lambda_1^2}v_n\)</span>.</p>
+<p>We can continue multiply <span class="math notranslate nohighlight">\(A\)</span> with the new vector we get from each iteration <span class="math notranslate nohighlight">\(k\)</span> times:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_{k-1} = \lambda_1[v_1+\frac{c_2}{c_1}\frac{\lambda_2^k}{\lambda_1^k}v_2+\dots+\frac{c_n}{c_1}\frac{\lambda_n^k}{\lambda_1^k}v_n] = \lambda_1x_k\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\lambda_1\)</span> is the largest eigenvalue, therefore, the ratio <span class="math notranslate nohighlight">\(\frac{\lambda_i}{\lambda_1}&lt;1\)</span> for all <span class="math notranslate nohighlight">\(i&gt;1\)</span>. Thus when we increase <span class="math notranslate nohighlight">\(k\)</span> to sufficient large, the ratio of <span class="math notranslate nohighlight">\((\frac{\lambda_n}{\lambda_1})^{k}\)</span> will be close to 0. So that all the terms that contain this ratio can be neglected as <span class="math notranslate nohighlight">\(k\)</span> grows:</p>
+<div class="math notranslate nohighlight">
+\[ Ax_{k-1} = {\lambda_1}v_1 \]</div>
+<p>Essentially, as <span class="math notranslate nohighlight">\(k\)</span> is large enough, we will get the largest eigenvalue and its corresponding eigenvector. When implementing this power method, we usually normalize the resulting vector in each iteration. This can be done by factoring out the largest element in the vector, which will make the largest element in the vector equal to 1. This normalization will get us the largest eigenvalue and its corresponding eigenvector at the same time. Let’s take a look of the following example.</p>
+<p>You may ask when should we stop the iteration? The basic stopping criteria should be one of the three: in the consecutive iterations, (1) the difference between eigenvalues is less than some specified tolerance; (2) the angle between eigenvectors is smaller than a threshold ; or the norm of the residual vector is small enough.</p>
+<p><strong>TRY IT!</strong> We know from last section that the largest eigenvalue is 4 for matrix <span class="math notranslate nohighlight">\(A = \begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}\)</span>, now use the power method to find the largest eigenvalue and the associated eigenvector. You can use the initial vector [1, 1] to start the iteration.</p>
+<p>1st iteration: <span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+1\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\5\\
+\end{bmatrix}
+=5\begin{bmatrix}
+0.4\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>2nd iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.4\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\3.8\\
+\end{bmatrix}
+=3.8\begin{bmatrix}
+0.5263\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>3rd iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.5263\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\ 4.0526\\
+\end{bmatrix}
+= 4.0526\begin{bmatrix}
+0.4935\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>4th iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.4935\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\ 3.987\\
+\end{bmatrix}
+= 3.987\begin{bmatrix}
+0.5016\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>5th iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.5016\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\ 4.0032\\
+\end{bmatrix}
+= 4.0032\begin{bmatrix}
+0.4996\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>6th iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.4996\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\ 3.9992\\
+\end{bmatrix}
+= 3.9992\begin{bmatrix}
+0.5001\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>7th iteration:
+<span class="math notranslate nohighlight">\($
+\begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}
+\begin{bmatrix}
+0.5001\\1\\
+\end{bmatrix}
+=\begin{bmatrix}
+2\\ 4.0002\\
+\end{bmatrix}
+= 4.0002\begin{bmatrix}
+0.5000\\1\\
+\end{bmatrix}
+$\)</span></p>
+<p>We can see after 7 iterations, the eigenvalue converged to 4 with [0.5, 1] as the corresponding eigenvector.</p>
+<p><strong>TRY IT!</strong> Implement the power method in Python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">fac</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">x_n</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fac</span><span class="p">,</span> <span class="n">x_n</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">lambda_1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvalue:&#39;</span><span class="p">,</span> <span class="n">lambda_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvector:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Eigenvalue: 3.999949137887188
+Eigenvector: [0.50000636 1.        ]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-inverse-power-method">
+<h2>The inverse power method<a class="headerlink" href="#the-inverse-power-method" title="Permalink to this headline">¶</a></h2>
+<p>The eigenvalues of the inverse matrix <span class="math notranslate nohighlight">\(A^{-1}\)</span> are the reciprocals of the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>. We can take advantage of this feature as well as the power method to get the smallest eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>, this will be basis of the inverse power method. The steps are very simple, instead of multiplying <span class="math notranslate nohighlight">\(A\)</span> as described above, we just multiply <span class="math notranslate nohighlight">\(A^{-1}\)</span> for our iteration to find the largest value of <span class="math notranslate nohighlight">\(\frac{1}{\lambda_1}\)</span>, which will be the smallest value of the eigenvalues for <span class="math notranslate nohighlight">\(A\)</span>. As for the inverse of the matrix, in practice, we can use the methods we covered in the previous chapter to calculate it. We won’t got to the details here, but let’s see an example.</p>
+<p><strong>TRY IT!</strong> Find the smallest eigenvalue and eigenvector for <span class="math notranslate nohighlight">\(A = \begin{bmatrix}
+0 &amp; 2\\
+2 &amp; 3\\
+\end{bmatrix}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a_inv</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a_inv</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">lambda_1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvalue:&#39;</span><span class="p">,</span> <span class="n">lambda_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Eigenvector:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Eigenvalue: 0.20000000000003912
+Eigenvector: [1. 1.]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-shifted-power-method">
+<h2>The shifted power method<a class="headerlink" href="#the-shifted-power-method" title="Permalink to this headline">¶</a></h2>
+<p>In some cases, we need to find all the eigenvalues and eigenvectors instead of the largest and smallest. One simple but inefficient way is to use the shifted power method (we will introduce you an efficient way in next section). Given <span class="math notranslate nohighlight">\(Ax = \lambda{x}\)</span>, and <span class="math notranslate nohighlight">\(\lambda_1\)</span> is the largest eigenvalue obtained by the power method, then we can have:</p>
+<div class="math notranslate nohighlight">
+\[[A - \lambda_1I]x = \alpha{x}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span>’s are the eigenvalues of the shifted matrix <span class="math notranslate nohighlight">\(A - \lambda_1I\)</span>, which will be <span class="math notranslate nohighlight">\(0, \lambda_2-\lambda_1, \lambda_3-\lambda_1, \dots, \lambda_n-\lambda_1\)</span>.</p>
+<p>Now if we apply the power method to the shifted matrix, then we can determine the largest eigenvalue of the shifted matrix, i.e. <span class="math notranslate nohighlight">\(\alpha_k\)</span>. Since <span class="math notranslate nohighlight">\(\alpha_k = \lambda_k - \lambda_1\)</span>, we can get the eigenvalue <span class="math notranslate nohighlight">\(\lambda_k\)</span> easily. We can repeat this process many times to find the all the other eigenvalues. But you can see that, it involves a lot of work! A better method for finding all the eigenvalues is to use the QR method, let’s see the next section how it works!</p>
+<!--NAVIGATION-->
+<p>&lt; <span class="xref myst">15.1 Mathematical Characteristics of Eigen-problems</span> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.03-The-QR-Method.html"><span class="doc std std-doc">15.3 The QR Method</span></a>  &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.html" title="previous page">Eigenvalues and Eigenvectors Problem Statement</a>
+    <a class='right-next' id="next-link" href="chapter15.03-The-QR-Method.html" title="next page">The QR Method</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

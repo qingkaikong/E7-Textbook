@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Eigenvalues and Eigenvectors" href="chapter15.00-Eigenvalues-and-Eigenvectors.html" />
+    <link rel="prev" title="Matrix Inversion" href="chapter14.06-Matrix-Inversion.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.01-Basics-of-Linear-Algebra.html">
+     Basics of Linear Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.02-Linear-Transformations.html">
+     Linear Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.03-Systems-of-Linear-Equations.html">
+     Systems of Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.04-Solutions-to-Systems-of-Linear-Equations.html">
+     Solutions to Systems of Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.html">
+     Solve Systems of Linear Equations in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.06-Matrix-Inversion.html">
+     Matrix Inversion
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter14.07-Summary-and-Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <span class="xref myst">14.5 Matrix Inversion</span>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html"><span class="doc std std-doc">CHAPTER 15.  Eigenvalues and Eigenvectors</span></a> &gt;</p>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Linear algebra is the foundation of many engineering fields.</p></li>
+<li><p>Vectors can be considered as points in <span class="math notranslate nohighlight">\({\mathbb{R}}^n\)</span>; addition and multiplication are defined on them, although not necessarily the same as for scalars.</p></li>
+<li><p>A set of vectors is linearly independent if none of the vectors can be written as a linear combination of the others.</p></li>
+<li><p>Matrices are tables of numbers. They have several important properties including the determinant, rank, and inverse.</p></li>
+<li><p>A system of linear equations can be represented by the matrix equation <span class="math notranslate nohighlight">\(Ax = y\)</span>.</p></li>
+<li><p>The number of solutions to a system of linear equations is related to the rank(<span class="math notranslate nohighlight">\(A\)</span>) and the rank(<span class="math notranslate nohighlight">\([A,y]\)</span>). It can be zero, one, or infinity.</p></li>
+<li><p>We can solve the equations using Gauss Elimination, Gauss-Jordan Elimination, LU decomposition and Gauss-Seidel method.</p></li>
+<li><p>We introduced methods to find matrix inversion.</p></li>
+</ol>
+</div>
+<div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Show that matrix multiplication distributes over matrix addition: show <span class="math notranslate nohighlight">\(A(B + C) = AB + AC\)</span> assuming that <span class="math notranslate nohighlight">\(A, B\)</span>, and <span class="math notranslate nohighlight">\(C\)</span> are matrices of compatible size.</p></li>
+<li><p>Write a function <em>my_is_orthogonal(v1,v2, tol)</em>, where <span class="math notranslate nohighlight">\(v1\)</span> and <span class="math notranslate nohighlight">\(v2\)</span> are column vectors of the same size and <span class="math notranslate nohighlight">\(tol\)</span> is a scalar value strictly larger than 0. The output should be 1 if the angle between <span class="math notranslate nohighlight">\(v1\)</span> and <span class="math notranslate nohighlight">\(v2\)</span> is within tol of <span class="math notranslate nohighlight">\(\pi/2\)</span>; that is, <span class="math notranslate nohighlight">\(|\pi/2 - \theta| &lt; \text{tol}\)</span>, and 0 otherwise. You may assume that <span class="math notranslate nohighlight">\(v1\)</span> and <span class="math notranslate nohighlight">\(v2\)</span> are column vectors of the same size, and that <span class="math notranslate nohighlight">\(tol\)</span> is a positive scalar.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test cases for problem 2</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.001</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="c1"># output: 1</span>
+<span class="n">my_is_orthogonal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="c1"># output: 0</span>
+<span class="n">my_is_orthogonal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+
+<span class="c1"># output: 0</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">my_is_orthogonal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+
+<span class="c1"># output: 1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">my_is_orthogonal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="mf">1e-10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Write a function <em>my_is_similar(s1,s2,tol)</em> where <span class="math notranslate nohighlight">\(s1\)</span> and <span class="math notranslate nohighlight">\(s2\)</span> are strings, not necessarily the same size, and <span class="math notranslate nohighlight">\(tol\)</span> is a scalar value strictly larger than 0. From <span class="math notranslate nohighlight">\(s1\)</span> and <span class="math notranslate nohighlight">\(s2\)</span>, the function should construct two vectors, <span class="math notranslate nohighlight">\(v1\)</span> and <span class="math notranslate nohighlight">\(v2\)</span>, where <span class="math notranslate nohighlight">\(v1[0]\)</span> is the number of ‘a’s in <span class="math notranslate nohighlight">\(s1\)</span>, <span class="math notranslate nohighlight">\(v1[1]\)</span> is the number ‘b’s in <span class="math notranslate nohighlight">\(s1\)</span>, and so on until <span class="math notranslate nohighlight">\(v1[25]\)</span>, which is the number of ‘z’s in <span class="math notranslate nohighlight">\(v1\)</span>. The vector <span class="math notranslate nohighlight">\(v2\)</span> should be similarly constructed from <span class="math notranslate nohighlight">\(s2\)</span>. The output should be 1 if the absolute value of the angle between <span class="math notranslate nohighlight">\(v1\)</span> and <span class="math notranslate nohighlight">\(v2\)</span> is less than tol; that is, <span class="math notranslate nohighlight">\(|\theta| &lt; \text{tol}\)</span>.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Write a function <em>my_make_lin_ind(A)</em>, where <span class="math notranslate nohighlight">\({A}\)</span> and <span class="math notranslate nohighlight">\({B}\)</span> are matrices. Let the <span class="math notranslate nohighlight">\({rank(A) = n}\)</span>. Then <span class="math notranslate nohighlight">\({B}\)</span> should be a matrix containing the first <span class="math notranslate nohighlight">\(n\)</span> columns of <span class="math notranslate nohighlight">\({A}\)</span> that are all linearly independent. Note that this implies that <span class="math notranslate nohighlight">\({B}\)</span> is full rank.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Test cases for problem 4</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="o">-</span><span class="mi">24</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">15</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">19</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">31</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> 
+              <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">20</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+              <span class="p">[</span><span class="mi">22</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">23</span><span class="p">]])</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">my_make_lin_ind</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1"># B = [[12,11,-24,15],</span>
+<span class="c1">#      [19,10,-31,9],</span>
+<span class="c1">#      [1,21,-5,20],</span>
+<span class="c1">#      [6,13,-10,5],</span>
+<span class="c1">#      [22,2,-12,23]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Cramer’s rule is a method of computing the determinant of a matrix. Consider an <span class="math notranslate nohighlight">\({n} \times {n}\)</span> square matrix <span class="math notranslate nohighlight">\(M\)</span>. Let <span class="math notranslate nohighlight">\(M(i,j)\)</span> be the element of <span class="math notranslate nohighlight">\(M\)</span> in the <span class="math notranslate nohighlight">\(i\)</span>-th row and <span class="math notranslate nohighlight">\(j\)</span>-th column of <span class="math notranslate nohighlight">\(M\)</span>, and let <span class="math notranslate nohighlight">\(m_{i,j}\)</span> be the minor of <span class="math notranslate nohighlight">\(M\)</span> created by removing the <span class="math notranslate nohighlight">\(i\)</span>-th row and <span class="math notranslate nohighlight">\(j\)</span>-th column from <span class="math notranslate nohighlight">\(M\)</span>. Cramer’s rule says that
+<span class="math notranslate nohighlight">\($
+\text{det(M)} = \sum_{i = 1}^{n} (-1)^{i-1} M(1,i) \text{det}(m_{i,j}).
+$\)</span></p></li>
+</ol>
+<p>Write a function <em>my_rec_det(M)</em>, where the output is <span class="math notranslate nohighlight">\(det(M)\)</span>. The function should use Cramer’s rule to compute the determinant, not Numpy’s function.</p>
+<ol class="simple">
+<li><p>What is the complexity of <em>my_rec_det</em> in the previous problem? Do you think this is an effective way of determining if a matrix is singular or not?</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\({p}\)</span> be a vector with length <span class="math notranslate nohighlight">\({L}\)</span> containing the coefficients of a polynomial of order <span class="math notranslate nohighlight">\({L-1}\)</span>. For example, the vector <span class="math notranslate nohighlight">\({p = [1,0,2]}\)</span> is a representation of the polynomial <span class="math notranslate nohighlight">\(f(x) = 1 x^2 + 0 x + 2\)</span>. Write a function <em>my_poly_der_mat(p)</em>, where <span class="math notranslate nohighlight">\({p}\)</span> is the aforementioned vector, and the output <span class="math notranslate nohighlight">\(D\)</span> is the matrix that will return the coefficients of the derivative of <span class="math notranslate nohighlight">\({p}\)</span> when <span class="math notranslate nohighlight">\({p}\)</span> is left multiplied by <span class="math notranslate nohighlight">\({D}\)</span>. For example, the derivative of <span class="math notranslate nohighlight">\(f(x)\)</span> is <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>, and therefore, <span class="math notranslate nohighlight">\(d = Dp\)</span> should yield <span class="math notranslate nohighlight">\({d = [2,0]}\)</span>. Note this implies that the dimension of <span class="math notranslate nohighlight">\(D\)</span> is <span class="math notranslate nohighlight">\({L-1} \times {L}\)</span>. The point of this problem is to show that integrating polynomials is actually a linear transformation.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Use Gauss Elimination to solve the following equations.</p></li>
+</ol>
+<p>\begin{eqnarray*}
+3x_1 - x_2 + 4x_3 &amp;=&amp; 2 \
+17x_1 + 2x_2 + x_3 &amp;=&amp; 14 \
+x_1 + 12x_2 -7z &amp;=&amp; 54 \
+\end{eqnarray*}</p>
+<ol class="simple">
+<li><p>Use Gauss-Jordan Elimination to solve the above equations in problem 8.</p></li>
+<li><p>Get the lower triangular matrix <span class="math notranslate nohighlight">\(L\)</span> and upper triangular matrix <span class="math notranslate nohighlight">\(U\)</span> from the equations in problem 8.</p></li>
+<li><p>Show that the dot product distributes across vector addition, that is, show that <span class="math notranslate nohighlight">\(u \cdot (v + w) = u \cdot v + u \cdot w\)</span>.</p></li>
+<li><p>Consider the following network consisting of two power supply stations denoted by <span class="math notranslate nohighlight">\(S1\)</span> and <span class="math notranslate nohighlight">\(S2\)</span> and five power recipient nodes denoted by <span class="math notranslate nohighlight">\(N1\)</span> to <span class="math notranslate nohighlight">\(N5\)</span>. The nodes are connected by power lines, which are denoted by arrows, and power can flow between nodes along these lines in both directions.</p></li>
+</ol>
+<p>Let <span class="math notranslate nohighlight">\(d_{i}\)</span> be a positive scalar denoting the power demands for node <span class="math notranslate nohighlight">\(i\)</span>, and assume that this demand must be met exactly. The capacity of the power supply stations is denoted by <span class="math notranslate nohighlight">\(S\)</span>. Power supply stations must run at their capacity. For each arrow, let <span class="math notranslate nohighlight">\(f_{j}\)</span> be the power flow along that arrow. Negative flow implies that power is running in the opposite direction of the arrow.</p>
+ <img src="./images/14.01.01-problem_11.png" alt="Problem 11" style="width: 200px;"/>
+<p>Write a function <em>my_flow_calculator(S, d)</em>, where <span class="math notranslate nohighlight">\(S\)</span> is a <span class="math notranslate nohighlight">\(1 \times 2\)</span> vector representing the capacity of each power supply station, and <span class="math notranslate nohighlight">\(d\)</span> is a <span class="math notranslate nohighlight">\(1 \times 5\)</span> row vector representing the demands at each node (i.e., <span class="math notranslate nohighlight">\(d[0]\)</span> is the demand at node 1). The output argument, <span class="math notranslate nohighlight">\(f\)</span>, should be a <span class="math notranslate nohighlight">\(1 \times 7\)</span> row vector denoting the flows in the network (i.e., <span class="math notranslate nohighlight">\(f[0] = f_1\)</span> in the diagram). The flows contained in <span class="math notranslate nohighlight">\(f\)</span> should satisfy all constraints of the system, like power generation and demands. Note that there may be more than one solution to the system of equations.</p>
+<p>The total flow into a node must equal the total flow out of the node plus the demand; that is, for each node <span class="math notranslate nohighlight">\(i, f_{\text{inflow}} = f_{\text{outflow}} + d_{i}\)</span>. You may assume that <span class="math notranslate nohighlight">\(\Sigma{S_j} = \Sigma{d_i}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Test cases for problem 4</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+
+<span class="c1"># f = [[10.0, 4.0, -2.0, 4.5, 5.5, 2.5, 1.5]]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">my_flow_calculator</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<span class="c1"># f = [[10.0, 5.0, -1.0, 4.5, 5.5, 2.5, 1.5]]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">my_flow_calculator</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!--NAVIGATION-->
+<p>&lt; <span class="xref myst">14.5 Matrix Inversion</span>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html"><span class="doc std std-doc">CHAPTER 15.  Eigenvalues and Eigenvectors</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter14.06-Matrix-Inversion.html" title="previous page">Matrix Inversion</a>
+    <a class='right-next' id="next-link" href="chapter15.00-Eigenvalues-and-Eigenvectors.html" title="next page">Eigenvalues and Eigenvectors</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

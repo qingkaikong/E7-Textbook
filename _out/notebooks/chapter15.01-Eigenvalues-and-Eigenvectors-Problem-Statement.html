@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eigenvalues and Eigenvectors Problem Statement &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Power Method" href="chapter15.02-The-Power-Method.html" />
+    <link rel="prev" title="Eigenvalues and Eigenvectors" href="chapter15.00-Eigenvalues-and-Eigenvectors.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Eigenvalues and Eigenvectors Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.02-The-Power-Method.html">
+     The Power Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.03-The-QR-Method.html">
+     The QR Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.html">
+     Eigenvalues and Eigenvectors in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eigenvalues-and-eigenvectors">
+   Eigenvalues and eigenvectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-motivation-behind">
+   The motivation behind
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-characteristic-equation">
+   The characteristic equation
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html"><span class="doc std std-doc">CHAPTER 15.  Eigenvalues and Eigenvectors</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.02-The-Power-Method.html"><span class="doc std std-doc">15.2 The Power Method</span></a>   &gt;</p>
+<div class="section" id="eigenvalues-and-eigenvectors-problem-statement">
+<h1>Eigenvalues and Eigenvectors Problem Statement<a class="headerlink" href="#eigenvalues-and-eigenvectors-problem-statement" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="eigenvalues-and-eigenvectors">
+<h2>Eigenvalues and eigenvectors<a class="headerlink" href="#eigenvalues-and-eigenvectors" title="Permalink to this headline">¶</a></h2>
+<p>We learned from last chapter that matrix <span class="math notranslate nohighlight">\(A\)</span> apply to column vector <span class="math notranslate nohighlight">\(x\)</span>, that is <span class="math notranslate nohighlight">\(Ax\)</span>, is a linear transformation of <span class="math notranslate nohighlight">\(x\)</span>. There is a special transform in the following form:</p>
+<div class="math notranslate nohighlight">
+\[Ax = \lambda{x}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(n\times{n}\)</span> matrix, <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(n\times{1}\)</span> column vector (<span class="math notranslate nohighlight">\(X\neq{0}\)</span>), and <span class="math notranslate nohighlight">\(\lambda\)</span> is some scalar. Any <span class="math notranslate nohighlight">\(\lambda\)</span> that satisfies the above equation is known as an <strong>eigenvalue</strong> of the matrix <span class="math notranslate nohighlight">\(A\)</span>, while the associated vector <span class="math notranslate nohighlight">\(x\)</span> is called an <strong>eigenvector</strong> corresponding to <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+</div>
+<div class="section" id="the-motivation-behind">
+<h2>The motivation behind<a class="headerlink" href="#the-motivation-behind" title="Permalink to this headline">¶</a></h2>
+<p>The motivation behind the eigenvalues and eigenvectors is that, it helps us to understand the characteristics of the linear transformation, thus make things easy. We know that a vector <span class="math notranslate nohighlight">\(x\)</span> can be transformed to a different vector by multiplying <span class="math notranslate nohighlight">\(A\)</span> - <span class="math notranslate nohighlight">\(Ax\)</span>. The effect of the transformation represents a scale of the length of the vector and/or the rotate of the vector. The above equation points out that  for some vectors, the effect of transformation of <span class="math notranslate nohighlight">\(Ax\)</span> is only scale (stretching, compressing, and flipping). The eigenvectors are the vectors have this property and the eigenvalues <span class="math notranslate nohighlight">\(\lambda's\)</span> are the scale factors. Let’s look at the following example.</p>
+<p><strong>TRY IT</strong> Plot the vector <span class="math notranslate nohighlight">\(x\)</span> = [[1], [1]] and the vector <span class="math notranslate nohighlight">\(b = Ax\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> = [[2, 0], [0, 1]]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-poster&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="k">def</span> <span class="nf">plot_vect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">xlim</span><span class="p">,</span> <span class="n">ylim</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    function to plot two vectors, </span>
+<span class="sd">    x - the original vector</span>
+<span class="sd">    b - the transformed vector</span>
+<span class="sd">    xlim - the limit for x</span>
+<span class="sd">    ylim - the limit for y</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>\
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span>\
+        <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>\
+        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original vector&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>\
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span><span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span>\
+        <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>\
+        <span class="n">label</span> <span class="o">=</span><span class="s1">&#39;Transformed vector&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">plot_vect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement_5_0.png" src="../_images/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement_5_0.png" />
+</div>
+</div>
+<p>We can see from the generated figure that the original vector <span class="math notranslate nohighlight">\(x\)</span> is rotated and stretched longer after transformed by <span class="math notranslate nohighlight">\(A\)</span>. The vector [[1], [1]] is transformed to [[2], [1]]. Let’s try to do the same exercise with a different vector [[1], [0]].</p>
+<p><strong>TRY IT!</strong> Plot the vector <span class="math notranslate nohighlight">\(x\)</span> = [[1], [0]] and the vector <span class="math notranslate nohighlight">\(b = Ax\)</span>, where <span class="math notranslate nohighlight">\(A\)</span> = [[2, 0], [0, 1]]</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">plot_vect</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="p">,(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement_7_0.png" src="../_images/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement_7_0.png" />
+</div>
+</div>
+<p>Now we can see that with this new vector, the only thing changed after the transformation is the length of the vector, it is stretched. The new vector is [[2], [0]], therefore, the transform is</p>
+<div class="math notranslate nohighlight">
+\[ Ax = 2x\]</div>
+<p>with <span class="math notranslate nohighlight">\(x\)</span> = [[1], [0]] and <span class="math notranslate nohighlight">\(\lambda=2\)</span>. The direction of the vector doesn’t change at all (no rotation). You can also try that [[0], [1]] is another eigenvector, try to verify by yourself.</p>
+</div>
+<div class="section" id="the-characteristic-equation">
+<h2>The characteristic equation<a class="headerlink" href="#the-characteristic-equation" title="Permalink to this headline">¶</a></h2>
+<p>In order to get the eigenvalues and eigenvectors, from <span class="math notranslate nohighlight">\(Ax=\lambda{x}\)</span>, we can get the following form:</p>
+<div class="math notranslate nohighlight">
+\[(A-\lambda{I})x=0\]</div>
+<p>Where <span class="math notranslate nohighlight">\(I\)</span> is the identify matrix with the same dimensions as <span class="math notranslate nohighlight">\(A\)</span>. If matrix <span class="math notranslate nohighlight">\(A-\lambda{I}\)</span> has an inverse, then multiply both sides with <span class="math notranslate nohighlight">\((A-\lambda{I})^{-1}\)</span>, we get a trivial solution <span class="math notranslate nohighlight">\(x=0\)</span>. Therefore, when <span class="math notranslate nohighlight">\(A-\lambda{I}\)</span> is singular (no inverse exist), we have a nontrivial solution, which means that the determinant is zero:</p>
+<div class="math notranslate nohighlight">
+\[det(A-\lambda{I})=0\]</div>
+<p>this equation is called <strong>characteristic equation</strong>, which will lead to a polynomial equation for <span class="math notranslate nohighlight">\(\lambda\)</span>, then we can solve for the eigenvalues. Let’s look at one example.</p>
+<p><strong>TRY IT!</strong> Get the eigenvalues for matrix [[0, 2], [2, 3]]</p>
+<p>The characteristic equation gives us</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{vmatrix}
+0-\lambda &amp; 2 \\ 
+2 &amp; 3-\lambda
+\end{vmatrix}
+=0
+\end{split}\]</div>
+<p>Therefore, we have</p>
+<div class="math notranslate nohighlight">
+\[-\lambda(3-\lambda)-4 = 0 \Rightarrow \lambda^2-3\lambda-4=0\]</div>
+<p>We get two eigenvalues:</p>
+<div class="math notranslate nohighlight">
+\[\lambda_1 = 4, \lambda_2 = -1\]</div>
+<p><strong>TRY IT!</strong> Get the eigenvectors for the above two eigenvalues.</p>
+<p>Let’s get the first eigenvector when <span class="math notranslate nohighlight">\(\lambda_1 = 4\)</span>, we can simply insert it back to <span class="math notranslate nohighlight">\(A-\lambda{I}=0\)</span>, where we have:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+-4 &amp; 2 \\
+2 &amp; -1 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1\\x_2\\
+\end{bmatrix}
+=\begin{bmatrix}
+0\\0\\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Therefore, we have two equations <span class="math notranslate nohighlight">\(-4x_1+2x_2=0\)</span> and <span class="math notranslate nohighlight">\(2x_1-x_2=0\)</span>, both of them indicate that <span class="math notranslate nohighlight">\(x_2=2x_1\)</span>. Therefore, we can have the first eigenvector as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_1 = k_1\begin{bmatrix}
+1\\2\\
+\end{bmatrix}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(k_1\)</span> is a scalar vector (<span class="math notranslate nohighlight">\(k_1 \neq 0\)</span>), as long as we have the ratio between <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span> as 2, it will be an eigenvector. We can verify the vector [[1], [2]] is an eigenvector by inserting it back:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+0 &amp; 2 \\
+2 &amp; 3 \\
+\end{bmatrix}
+\begin{bmatrix}
+1\\2\\
+\end{bmatrix}
+=\begin{bmatrix}
+4\\8\\
+\end{bmatrix}
+=4\begin{bmatrix}
+1\\2\\
+\end{bmatrix}
+\end{split}\]</div>
+<p>By inserting <span class="math notranslate nohighlight">\(\lambda_2=-1\)</span> similarly as above, we can get the other eigenvector as the following, where <span class="math notranslate nohighlight">\(k_2 \neq 0\)</span>:
+<span class="math notranslate nohighlight">\($x_2 = k_2\begin{bmatrix}
+-2\\1\\
+\end{bmatrix}\)</span>$</p>
+<p>From the above example, we can see how can we get the eigenvalues and eigenvectors from a matrix <span class="math notranslate nohighlight">\(A\)</span>, and the chosen of the eigenvectors for a system is not unique. But things will become really complicated when you have a larger matrix <span class="math notranslate nohighlight">\(A\)</span> when you try to solve the <span class="math notranslate nohighlight">\(n^{th}\)</span> order polynomial characteristic equation. Luckily, there are many different numerical methods have been developed to solve the eigenvalue problems for larger matrices. We will introduce the power method and the QR method in the next two sections.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html"><span class="doc std std-doc">CHAPTER 15.  Eigenvalues and Eigenvectors</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter15.02-The-Power-Method.html"><span class="doc std std-doc">15.2 The Power Method</span></a>   &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter15.00-Eigenvalues-and-Eigenvectors.html" title="previous page">Eigenvalues and Eigenvectors</a>
+    <a class='right-next' id="next-link" href="chapter15.02-The-Power-Method.html" title="next page">The Power Method</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

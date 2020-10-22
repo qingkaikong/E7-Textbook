@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/codes/chapter04_Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-1">
+   Problem 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-cases">
+     Test Cases
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this headline">¶</a></h2>
+<p>Write a function with header <code class="docutils literal notranslate"><span class="pre">myTipCalc(bill,</span> <span class="pre">party)</span></code>, where bill is the total cost of a meal and party is the number of people in the group. The tip should be calculated as 15% for a party strictly less than six people, 18% for a party strictly less than eight, 20% for a party less than 11, and 25% for a party 11 or more.</p>
+<div class="section" id="test-cases">
+<h3>Test Cases<a class="headerlink" href="#test-cases" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># t = 16.3935</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># t = 19.6722</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># t = 21.8580</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="c1"># t = 27.3225</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="alternate-test-cases">
+<h1>Alternate Test Cases<a class="headerlink" href="#alternate-test-cases" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="mf">16.39</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">01</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mf">19.67</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">01</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span> <span class="o">-</span> <span class="mf">21.85</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">01</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">myTipCalc</span><span class="p">(</span><span class="mf">109.29</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="o">-</span> <span class="mf">27.32</span><span class="p">)</span> <span class="o">&lt;</span> <span class="o">.</span><span class="mi">01</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="problem-2">
+<h1>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this headline">¶</a></h1>
+<p>Write a function with header <code class="docutils literal notranslate"><span class="pre">[f]</span> <span class="pre">=</span> <span class="pre">myMultOperation(a,b,operation)</span></code>. The input argument, operation, is a string that is either ‘plus’, ‘minus’, ‘mult’, ‘div’, or ‘pow’, and <code class="docutils literal notranslate"><span class="pre">f</span></code> should be computed as <span class="math notranslate nohighlight">\(a+b\)</span>, <span class="math notranslate nohighlight">\(a-b\)</span>, <span class="math notranslate nohighlight">\(a∗b\)</span>, <span class="math notranslate nohighlight">\(a/b\)</span>, and <span class="math notranslate nohighlight">\(aˆb\)</span> for the respective values for operation. Be sure to make your function vectorized.</p>
+<div class="section" id="id1">
+<h2>Test Cases<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMultOperation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;plus&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMultOperation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;minus&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMultOperation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;mult&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMultOperation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;div&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mf">0.500</span><span class="p">,</span><span class="mf">0.6667</span><span class="p">,</span><span class="mf">0.7500</span><span class="p">,</span><span class="mf">0.800</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMultOperation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;pow&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">1024</span><span class="p">]</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-3">
+<h1>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this headline">¶</a></h1>
+<p>Consider a triangle with vertices at <span class="math notranslate nohighlight">\((0,0)\)</span>, <span class="math notranslate nohighlight">\((1,0)\)</span>, and <span class="math notranslate nohighlight">\((0,1)\)</span>. Write a function with header <code class="docutils literal notranslate"><span class="pre">[S]</span> <span class="pre">=</span> <span class="pre">myInsideTriangle(x,y)</span></code> where <code class="docutils literal notranslate"><span class="pre">S</span></code> is the string ‘outside’ if the point <span class="math notranslate nohighlight">\((x,y)\)</span> is outside of the triangle, ‘border’ if the point is exactly on the border of the triangle, and ‘inside’ if the point is on the inside of the triangle.</p>
+<div class="section" id="id2">
+<h2>Test Cases<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myInsideTriangle</span><span class="p">(</span><span class="o">.</span><span class="mi">5</span><span class="p">,</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;border&#39;</span>
+<span class="k">assert</span> <span class="n">myInsideTriangle</span><span class="p">(</span><span class="o">.</span><span class="mi">25</span><span class="p">,</span><span class="o">.</span><span class="mi">25</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;inside&#39;</span>
+<span class="k">assert</span> <span class="n">myInsideTriangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;outside&#39;</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-4">
+<h1>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this headline">¶</a></h1>
+<p>Write a function with header <code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">=</span> <span class="pre">myMakeSize10(x)</span></code>, where <code class="docutils literal notranslate"><span class="pre">x</span></code> is an array and out is the first 10 elements of <code class="docutils literal notranslate"><span class="pre">x</span></code> if <code class="docutils literal notranslate"><span class="pre">x</span></code> has more than 10 elements, and out is the array <code class="docutils literal notranslate"><span class="pre">x</span></code> padded with enough zeros to make it length 10 if <code class="docutils literal notranslate"><span class="pre">x</span></code> has less than 10 elements.</p>
+<div class="section" id="id3">
+<h2>Test Cases<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-5">
+<h1>Problem 5<a class="headerlink" href="#problem-5" title="Permalink to this headline">¶</a></h1>
+<p>Can you write <code class="docutils literal notranslate"><span class="pre">myMakeSize10</span></code> without using if-statements (i.e., using only logical and array operations)?</p>
+<div class="section" id="id4">
+<h2>Test Cases<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">myMakeSize10</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-6">
+<h1>Problem 6<a class="headerlink" href="#problem-6" title="Permalink to this headline">¶</a></h1>
+<p>Write a function with header <code class="docutils literal notranslate"><span class="pre">[grade]</span> <span class="pre">=</span> <span class="pre">myLetterGrader(percent)</span></code>, where grade is the string ‘A+’ if percent is greater than 97, ‘A’ if percent is greater than 93, ‘A-‘ if percent 7. is greater than 90, ‘B+’ if percent is greater than 87, ‘B’ if percent is greater than 83, ‘B-‘ if percent is greater than 80, ‘C+’ if percent is greater than 77, ‘C’ if percent is greater than 73, ‘C-‘ if percent is greater than 70, ‘D+’ if percent is greater than 67, ‘D’ if percent is greater than 63, ‘D-‘ if percent is greater than 60, and ‘F’ for any percent less than 60. Grades exactly on the division should be included in the higher grade category.</p>
+<div class="section" id="id5">
+<h2>Test Cases<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myLetterGrader</span><span class="p">(</span><span class="mi">97</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;A+&#39;</span>
+<span class="k">assert</span> <span class="n">myLetterGrader</span><span class="p">(</span><span class="mi">84</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;B&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-7">
+<h1>Problem 7<a class="headerlink" href="#problem-7" title="Permalink to this headline">¶</a></h1>
+<p>Most engineering systems have redundancy. That is, an engineering system has more than is required to accomplish its purpose. Consider a nuclear reactor whose temperature is monitored by three sensors. An alarm should go off if any two of the sensor readings disagree. Write a function with header <code class="docutils literal notranslate"><span class="pre">[response]</span> <span class="pre">=</span> <span class="pre">myNukeAlarm(S1,S2,S3)</span></code> where <code class="docutils literal notranslate"><span class="pre">S1</span></code>, <code class="docutils literal notranslate"><span class="pre">S2</span></code>, and <code class="docutils literal notranslate"><span class="pre">S3</span></code> are the temperature readings for sensor 1, sensor 2, and sensor 3, respectively. The output response should be the string <code class="docutils literal notranslate"><span class="pre">alarm!</span></code> if any two of the temperature readings disagree by strictly more than 10 degrees and <code class="docutils literal notranslate"><span class="pre">normal</span></code> otherwise.</p>
+<div class="section" id="id6">
+<h2>Test Cases<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myNukeAlarm</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;normal&#39;</span>
+<span class="k">assert</span> <span class="n">myNukeAlarm</span><span class="p">(</span><span class="mi">94</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;alarm!&#39;</span>
+<span class="k">assert</span> <span class="n">myNukeAlarm</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;normal&#39;</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h1>Problem 7<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<p>Let Q(x) be the quadratic equation <span class="math notranslate nohighlight">\(Q(x) = ax2 + bx + c\)</span> for some scalar values <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span>. A root of <span class="math notranslate nohighlight">\(Q(x)\)</span> is an <span class="math notranslate nohighlight">\(r\)</span> such that <span class="math notranslate nohighlight">\(Q(r) = 0\)</span>. The two roots of a quadratic equation can be described by the quadratic formula, which is
+<span class="math notranslate nohighlight">\(r = \frac{-b+-sqrt(b^2-4ac)}{2a}\)</span>
+A quadratic equation has either two real roots (i.e., <span class="math notranslate nohighlight">\(b2 &gt; 4ac\)</span>), two imaginary roots (i.e., <span class="math notranslate nohighlight">\(b2 &lt; 4ac\)</span>), or one root, <span class="math notranslate nohighlight">\(r = − \frac{b}{2a}\)</span>.
+Write a function with header <code class="docutils literal notranslate"><span class="pre">[nRoots,</span> <span class="pre">r]</span> <span class="pre">=</span> <span class="pre">myNRoots(a,b,c)</span></code> where <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code> are the coefficients of the quadratic <span class="math notranslate nohighlight">\(Q(x)\)</span>, <code class="docutils literal notranslate"><span class="pre">nRoots</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code> if <span class="math notranslate nohighlight">\(Q\)</span> has two real roots, <code class="docutils literal notranslate"><span class="pre">1</span></code> if <span class="math notranslate nohighlight">\(Q\)</span> has one root, <code class="docutils literal notranslate"><span class="pre">−2</span></code> if <span class="math notranslate nohighlight">\(Q\)</span> has two imaginary roots, and <code class="docutils literal notranslate"><span class="pre">r</span></code> is an array containing the roots of <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+<div class="section" id="id8">
+<h2>Test Cases<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">myNRoots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;nRoots&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                            <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]}</span>
+<span class="k">assert</span> <span class="n">myNRoots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;nRoots&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+                            <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.6667</span> <span class="o">+</span> <span class="mf">1.1055</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6667</span> <span class="o">-</span> <span class="mf">1.1055</span><span class="n">i</span><span class="p">]}</span>
+<span class="k">assert</span> <span class="n">myNRoots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s1">&#39;nRoots&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="s1">&#39;r&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-8">
+<h1>Problem 8<a class="headerlink" href="#problem-8" title="Permalink to this headline">¶</a></h1>
+<p>Write a function with header <code class="docutils literal notranslate"><span class="pre">[h]</span> <span class="pre">=</span> <span class="pre">mySplitFunction(f,g,a,b,x)</span></code>, where <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are handles to functions <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span>, respectively. The output argument <code class="docutils literal notranslate"><span class="pre">h</span></code> should be <span class="math notranslate nohighlight">\(f(x)\)</span> if <span class="math notranslate nohighlight">\(x≤a\)</span>, <span class="math notranslate nohighlight">\(g(x)\)</span> if <span class="math notranslate nohighlight">\(x≥b\)</span>, and <span class="math notranslate nohighlight">\(0\)</span> otherwise. You may assume thatb&gt;a.</p>
+<div class="section" id="id9">
+<h2>Test Cases<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mySplitFunction</span><span class="p">(</span><span class="nd">@exp</span><span class="p">,</span> <span class="nd">@sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span><span class="mf">2.713</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mySplitFunction</span><span class="p">(</span><span class="nd">@exp</span><span class="p">,</span> <span class="nd">@sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mySplitFunction</span><span class="p">(</span><span class="nd">@exp</span><span class="p">,</span> <span class="nd">@sin</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-</span><span class="mf">0.9589</span> <span class="o">&lt;</span> <span class="mf">0.001</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./codes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

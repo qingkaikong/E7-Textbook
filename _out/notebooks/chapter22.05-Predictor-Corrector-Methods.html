@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor-Corrector and Runge Kutta Methods &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python ODE Solvers" href="chapter22.06-Python-ODE-Solvers.html" />
+    <link rel="prev" title="Numerical Error and Instability" href="chapter22.04-Numerical-Error-and-Instability.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.01-ODE-Initial-Value-Problem-Statement.html">
+     ODE Initial Value Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.02-Reduction-of-Order.html">
+     Reduction of Order
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.03-The-Euler-Method.html">
+     The Euler Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html">
+     Numerical Error and Instability
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Predictor-Corrector and Runge Kutta Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html">
+     Python ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.07-Advanced-Topics.html">
+     Advanced Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter22.05-Predictor-Corrector-Methods.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predictor-corrector-methods">
+   Predictor-Corrector Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#runge-kutta-methods">
+   Runge Kutta Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#second-order-runge-kutta-method">
+     Second order Runge Kutta method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fourth-order-runge-kutta-method">
+     Fourth-order Runge Kutta method
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html"><span class="doc std std-doc">22.4 Numerical Error and Instability</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html"><span class="doc std std-doc">22.6 Python ODE Solvers</span></a> &gt;</p>
+<div class="section" id="predictor-corrector-and-runge-kutta-methods">
+<h1>Predictor-Corrector and Runge Kutta Methods<a class="headerlink" href="#predictor-corrector-and-runge-kutta-methods" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="predictor-corrector-methods">
+<h2>Predictor-Corrector Methods<a class="headerlink" href="#predictor-corrector-methods" title="Permalink to this headline">¶</a></h2>
+<p>Given any time and state value, the function, <span class="math notranslate nohighlight">\(F(t, S(t))\)</span>, returns the change of state <span class="math notranslate nohighlight">\(\frac{dS(t)}{dt}\)</span>. <strong>Predictor-corrector</strong> methods of solving initial value problems improve the approximation accuracy of non-predictor-corrector methods by querying the <span class="math notranslate nohighlight">\(F\)</span> function several times at different locations (predictions), and then using a weighted average of the results (corrections) to update the state. Essentially, it uses two formulas: the <strong>predictor</strong> and <strong>corrector</strong>. The predictor is an explicit formula and first estimates the solution at <span class="math notranslate nohighlight">\(t_{j+1}\)</span>, i.e. we can use Euler method or some other methods to finish this step. After we obtain the solution <span class="math notranslate nohighlight">\(S(t_{j+1})\)</span>, we can apply the corrector to improve the accuracy. Using the found <span class="math notranslate nohighlight">\(S(t_{j+1})\)</span> on the right-hand side of an otherwise implicit formula, the corrector can calculate a new, more accurate solution.</p>
+<p>The <strong>midpoint method</strong> has a predictor step:</p>
+<div class="math notranslate nohighlight">
+\[
+S\left(t_{j} + \frac{h}{2}\right) = S(t_j) + \frac{h}{2}F(t_j, S(t_j)),
+\]</div>
+<p>which is the prediction of the solution value halfway between <span class="math notranslate nohighlight">\(t_j\)</span> and <span class="math notranslate nohighlight">\(t_{j+1}\)</span>.</p>
+<p>It then computes the corrector step:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t_{j+1}) = S(t_j) + hF\left(t_j + \frac{h}{2}, S\left(t_{j} +
+\frac{h}{2}\right)\right) \]</div>
+<p>which computes the solution at <span class="math notranslate nohighlight">\(S(t_{j+1})\)</span> from <span class="math notranslate nohighlight">\(S(t_j)\)</span> but using the derivative from <span class="math notranslate nohighlight">\(S\left(t_{j} + \frac{h}{2}\right)\)</span>.</p>
+</div>
+<div class="section" id="runge-kutta-methods">
+<h2>Runge Kutta Methods<a class="headerlink" href="#runge-kutta-methods" title="Permalink to this headline">¶</a></h2>
+<p><strong>Runge Kutta</strong> (RK) methods are one of the most widely used methods for solving ODEs. Recall that the Euler method uses the first two terms in Taylor series to approximate the numerical integration, which is linear: <span class="math notranslate nohighlight">\(S(t_{j+1}) = S(t_j + h) = S(t_j) + h \cdot S'(t_j)\)</span>.</p>
+<p>We can greatly improve the accuracy of numerical integration if we keep more terms of the series in</p>
+<div class="math notranslate nohighlight">
+\[S(t_{j+1}) = S(t_j + h) = S(t_j) + S'(t_j)h + \frac{1}{2!}S''(t_j)h^2 + \cdots + \frac{1}{n!}S^{(n)}(t_j)h^n \label{eq:taylor} \tag{1}\]</div>
+<p>In order to get this more accurate solution, we need to derive the expressions of <span class="math notranslate nohighlight">\(S''(t_j), S'''(t_j), \cdots, S^{(n)}(t_j)\)</span>. This extra work can be avoided using the RK methods, which is based on truncated Taylor series, but not require computation of these higher derivatives.</p>
+<div class="section" id="second-order-runge-kutta-method">
+<h3>Second order Runge Kutta method<a class="headerlink" href="#second-order-runge-kutta-method" title="Permalink to this headline">¶</a></h3>
+<p>Let us first derive the second order RK method. Let <span class="math notranslate nohighlight">\(\frac{dS(t)}{dt} = F(t,S(t))\)</span>, then we can assume an integration formula the form of</p>
+<div class="math notranslate nohighlight">
+\[ S(t + h) = S(t) + c_1F(t, S(t))h + c_2F[t+ph, S(t)+qhF(t, S(t))]h \label{eq:integration} \tag{2}\]</div>
+<p>We can attempt to find these parameters <span class="math notranslate nohighlight">\(c_1, c_2, p, q\)</span> by matching the above equation to the second-order Taylor series, which gives us</p>
+<div class="math notranslate nohighlight">
+\[ S(t + h) =  S(t) + S'(t)h + \frac{1}{2!}S''(t)h^2 = S(t) + F(t, S(t))h + \frac{1}{2!}F'(t, S(t))h^2 \label{eq:matching} \tag{3}\]</div>
+<p>Noting that <span class="math notranslate nohighlight">\($F'(t, s(t)) = \frac{\partial F}{\partial t} + \frac{\partial F}{\partial S}\frac{\partial S}{\partial t} = \frac{\partial F}{\partial t} + \frac{\partial F}{\partial S}F\)</span>$</p>
+<p>Therefore, equation <span class="math notranslate nohighlight">\(\eqref{eq:matching}\)</span> can be written as:</p>
+<div class="math notranslate nohighlight">
+\[ S(t + h) = S + Fh + \frac{1}{2!}\Big(\frac{\partial F}{\partial t} + \frac{\partial F}{\partial S}F\Big)h^2 \label{eq:rewrite-matching} \tag{4}\]</div>
+<p>In equation <span class="math notranslate nohighlight">\(\eqref{eq:integration}\)</span>, we can rewrite the last term by applying Taylor series in several variables, which gives us:</p>
+<div class="math notranslate nohighlight">
+\[F[t+ph, S+qhF)] = F + \frac{\partial F}{\partial t}ph + qh\frac{\partial F}{\partial S}F\]</div>
+<p>thus equation <span class="math notranslate nohighlight">\(\eqref{eq:integration}\)</span> becomes:</p>
+<div class="math notranslate nohighlight">
+\[ S(t + h) = S + (c_1+c_2)Fh + c_1\Big[ \frac{\partial F}{\partial t}p + q\frac{\partial F}{\partial S}F \Big]h^2 \label{eq:rewrite-integration} \tag{5}\]</div>
+<p>Comparing equation <span class="math notranslate nohighlight">\(\eqref{eq:rewrite-matching}\)</span> and <span class="math notranslate nohighlight">\(\eqref{eq:rewrite-integration}\)</span>, we can easily obtain:</p>
+<div class="math notranslate nohighlight">
+\[c_1 + c_2 = 1, \space c_2p=\frac{1}{2}, \space c_2q=\frac{1}{2} \label{eq:result} \tag{6}\]</div>
+<p>Because <span class="math notranslate nohighlight">\(\eqref{eq:result}\)</span> has four unknowns and only three equations, we can assign any value to one of the parameters and get the rest of the parameters. One popular choice is:</p>
+<div class="math notranslate nohighlight">
+\[c_1 =\frac{1}{2}, \space c_2 =\frac{1}{2}, \space p =1, \space q=1\]</div>
+<p>We can also define:
+<span class="math notranslate nohighlight">\($
+\begin{eqnarray*}
+k_1 &amp; = &amp; F(t_j,S(t_j))\\
+k_2 &amp; = &amp; F\left(t_j+ph, S(t_j)+qhk_1\right)\\
+\end{eqnarray*}
+$\)</span></p>
+<p>where we will have:</p>
+<div class="math notranslate nohighlight">
+\[S(t_{j+1}) = S(t_j) + \frac{1}{2}(k_1+k_2)h\]</div>
+</div>
+<div class="section" id="fourth-order-runge-kutta-method">
+<h3>Fourth-order Runge Kutta method<a class="headerlink" href="#fourth-order-runge-kutta-method" title="Permalink to this headline">¶</a></h3>
+<p>A classical method for integrating ODEs with a high order of accuracy is the <strong>Fourth Order Runge Kutta</strong> (RK4) method. It is obtained from the Taylor series using similar approach we just discussed in the second-order method. This method uses four points <span class="math notranslate nohighlight">\(k_1, k_2, k_3\)</span>, and <span class="math notranslate nohighlight">\(k_4\)</span>. A weighted average of these is used to produce the approximation of the solution. The formula is as follows.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+k_1 &amp; = &amp; F(t_j,S(t_j))\\
+k_2 &amp; = &amp; F\left(t_j+\frac{h}{2},S(t_j)+\frac{1}{2}k_1h\right)\\
+k_3 &amp; = &amp; F\left(t_j+\frac{h}{2},S(t_j)+\frac{1}{2}k_2h\right)\\
+k_4 &amp; = &amp; F(t_j+h,S(t_j)+k_3h)
+\end{eqnarray*}
+\end{split}\]</div>
+<p>Therefore, we will have:</p>
+<div class="math notranslate nohighlight">
+\[
+S(t_{j+1}) = S(t_j) + \frac{h}{6}\left(k_1 + 2k_2 + 2k_3 + k_4\right).
+\]</div>
+<p>As indicated by its name, the RK4 method is fourth-order accurate, or <span class="math notranslate nohighlight">\(O(h^4)\)</span>.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html"><span class="doc std std-doc">22.4 Numerical Error and Instability</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html"><span class="doc std std-doc">22.6 Python ODE Solvers</span></a> &gt;</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter22.04-Numerical-Error-and-Instability.html" title="previous page">Numerical Error and Instability</a>
+    <a class='right-next' id="next-link" href="chapter22.06-Python-ODE-Solvers.html" title="next page">Python ODE Solvers</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

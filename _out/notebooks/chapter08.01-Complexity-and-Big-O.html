@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complexity and Big-O Notation &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Complexity Matters" href="chapter08.02-Complexity-Matters.html" />
+    <link rel="prev" title="Complexity" href="chapter08.00-Complexity.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Complexity and Big-O Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.02-Complexity-Matters.html">
+     Complexity Matters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.03-The-Profiler.html">
+     The Profiler
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter08.01-Complexity-and-Big-O.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">An Introduction To Python Programming And Numerical Methods For Scientists and Engineers</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter08.00-Complexity.html"><span class="doc std std-doc">CHAPTER 8. Complexity</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter08.02-Complexity-Matters.html"><span class="doc std std-doc">8.2 Complexity Matters</span></a> &gt;</p>
+<div class="section" id="complexity-and-big-o-notation">
+<h1>Complexity and Big-O Notation<a class="headerlink" href="#complexity-and-big-o-notation" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>complexity</strong> of a function is the relationship between the size of the input and the difficulty of running the function to completion. The size of the input is usually denoted by <span class="math notranslate nohighlight">\(n\)</span>. However, <span class="math notranslate nohighlight">\(n\)</span> usually describes something more tangible, such as the length of an array. The difficulty of a problem can be measured in several ways. One suitable way to describe the difficulty of the problem is to use <strong>basic operations</strong>: additions, subtractions, multiplications, divisions, assignments, and function calls. Although each basic operation takes different amounts of time, the number of basic operations needed to complete a function is sufficiently related to the running time to be useful, and it is much easier to count.</p>
+<p><strong>TRY IT!</strong> Count the number of basic operations, in terms of <span class="math notranslate nohighlight">\(n\)</span>, required for the following function to terminate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span>
+            
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s calculate the number of operations:</p>
+<p>additions: <span class="math notranslate nohighlight">\(n^2\)</span>, subtractions: 0, multiplications: <span class="math notranslate nohighlight">\(n^2\)</span>, divisions: 0, assignments: <span class="math notranslate nohighlight">\(2n^2 +1\)</span>, function calls: 0, total: <span class="math notranslate nohighlight">\(4n^2+1\)</span>.</p>
+<p>The number of assignments is <span class="math notranslate nohighlight">\(2n^2 + n + 1\)</span> because the line <span class="math notranslate nohighlight">\(out += i*j\)</span> is evaluated <span class="math notranslate nohighlight">\(n^2\)</span> times, <span class="math notranslate nohighlight">\(j\)</span> is assigned <span class="math notranslate nohighlight">\(n^2\)</span>, <span class="math notranslate nohighlight">\(i\)</span> is assigned <span class="math notranslate nohighlight">\(n\)</span> times, and the line <span class="math notranslate nohighlight">\(out = 0\)</span> is assigned once. So, the complexity of the function <span class="math notranslate nohighlight">\(f\)</span> can be described as <span class="math notranslate nohighlight">\(4n^2 + n + 1\)</span>.</p>
+<p>A common notation for complexity is called <strong>Big-O notation</strong>. Big-O notation establishes the relationship in the growth of the number of basic operations with respect to the size of the input as the input size becomes very large. Since hardware is different on every machine, we cannot accurately calculate how long it will take to complete without also evaluating the hardware. Then that analysis is only good for that specific machine. We do not really care how long a specific set of input on a specific machine takes. Instead, we will analyze how quickly “time to completion” in terms of basic operations grows as the input size grows, because this analysis is hardware independent. As <span class="math notranslate nohighlight">\(n\)</span> gets large, the highest power dominates; therefore, only the highest power term is included in Big-O notation. Additionally, coefficients are not required to characterize growth, and so coefficients are also dropped. In the previous example, we counted <span class="math notranslate nohighlight">\(4n^2 + n + 1\)</span> basic operations to complete the function. In Big-O notation we would say that the function is <span class="math notranslate nohighlight">\(O(n^2)\)</span> (pronounced “O of n-squared”). We say that any algorithm with complexity <span class="math notranslate nohighlight">\(O(nc)\)</span> where <span class="math notranslate nohighlight">\(c\)</span> is some constant with respect to <span class="math notranslate nohighlight">\(n\)</span> is <strong>polynomial time</strong>.</p>
+<p><strong>TRY IT!</strong> Determine the complexity of the iterative Fibonacci function in Big-O notation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_fib_iter</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span>
+        
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since the only lines of code that take more time as <span class="math notranslate nohighlight">\(n\)</span> grows are those in the for-loop, we can restrict our attention to the for-loop and the code block within it. The code within the for-loop does not grow with respect to <span class="math notranslate nohighlight">\(n\)</span> (i.e., it is constant). Therefore, the number of basic operations is <span class="math notranslate nohighlight">\(Cn\)</span> where <span class="math notranslate nohighlight">\(C\)</span> is some constant representing the number of basic operations that occur in the for-loop, and these <span class="math notranslate nohighlight">\(C\)</span> operations run <span class="math notranslate nohighlight">\(n\)</span> times. This gives a complexity of <span class="math notranslate nohighlight">\(O(n)\)</span> for <span class="math notranslate nohighlight">\(my\_fib\_iter\)</span>.</p>
+<p>Assessing the exact complexity of a function can be difficult. In these cases, it might be sufficient to give an upper bound or even an approximation of the complexity.</p>
+<p><strong>TRY IT!</strong> Give an upper bound on the complexity of the recursive implementation of Fibonacci. Do you think it is a good approximation of the upper bound? Do you think that recursive Fibonacci could possibly be polynomial time?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_fib_rec</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">my_fib_rec</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">my_fib_rec</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As <span class="math notranslate nohighlight">\(n\)</span> gets large, we can say that the vast majority of function calls make two other function calls: one addition and one assignment to the output. The addition and assignment do not grow with <span class="math notranslate nohighlight">\(n\)</span> per function call, so we can ignore them in Big-O notation. However, the number of function calls grows approximately by <span class="math notranslate nohighlight">\(2^n\)</span> , and so the complexity of <span class="math notranslate nohighlight">\(my\_fib\_rec\)</span> is upper bound by <span class="math notranslate nohighlight">\(O(2^n)\)</span>.</p>
+<p>There is on-going debate whether or not <span class="math notranslate nohighlight">\(O(2^n)\)</span> is a good approximation for the Fibonacci function.</p>
+<p>Since the number of recursive calls grows exponentially with <span class="math notranslate nohighlight">\(n\)</span>, there is no way the recursive fibonacci function could be polynomial. That is, for any <span class="math notranslate nohighlight">\(c\)</span>, there is an <span class="math notranslate nohighlight">\(n\)</span> such that <span class="math notranslate nohighlight">\(my\_fib\_rec\)</span> takes more than <span class="math notranslate nohighlight">\(O(n^c)\)</span> basic operations to complete. Any function that is <span class="math notranslate nohighlight">\(O(c^n)\)</span> for some constant c is said to be <strong>exponential time</strong>.</p>
+<p><strong>TRY IT!</strong> What is the complexity of the following function in Big-O notation?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_divide_by_two</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">/=</span> <span class="mi">2</span>
+        <span class="n">out</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, only the while-loop runs longer for larger <span class="math notranslate nohighlight">\(n\)</span> so we can restrict our attention there. Within the while-loop, there are two assignments: one division and one addition, which are both constant
+time with respect to <span class="math notranslate nohighlight">\(n\)</span>. So the complexity depends only on how many times the while-loop runs.</p>
+<p>The while-loop cuts <span class="math notranslate nohighlight">\(n\)</span> in half in every iteration until <span class="math notranslate nohighlight">\(n\)</span> is less than 1. So the number of iterations, <span class="math notranslate nohighlight">\(I\)</span>, is the solution to the equation <span class="math notranslate nohighlight">\(\frac{n}{2^I} = 1\)</span>. With some manipulation, this solves to <span class="math notranslate nohighlight">\(I = \log n\)</span>, so the complexity of <span class="math notranslate nohighlight">\(my\_divide\_by\_two\)</span> is <span class="math notranslate nohighlight">\(O(log n)\)</span>. It does not matter what the base of the log is because, recalling log rules, all logs are a scalar multiple of each other. Any function with complexity <span class="math notranslate nohighlight">\(O(\log n)\)</span>. is said to be <strong>log time</strong>.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter08.00-Complexity.html"><span class="doc std std-doc">CHAPTER 8. Complexity</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter08.02-Complexity-Matters.html"><span class="doc std std-doc">8.2 Complexity Matters</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter08.00-Complexity.html" title="previous page">Complexity</a>
+    <a class='right-next' id="next-link" href="chapter08.02-Complexity-Matters.html" title="next page">Complexity Matters</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

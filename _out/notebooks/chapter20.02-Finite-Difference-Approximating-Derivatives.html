@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finite Difference Approximating Derivatives &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Approximating of Higher Order Derivatives" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html" />
+    <link rel="prev" title="Numerical Differentiation Problem Statement" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html">
+     Numerical Differentiation Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Finite Difference Approximating Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html">
+     Approximating of Higher Order Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.04-Numerical-Differentiation-with-Noise.html">
+     Numerical Differentiation with Noise
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter20.02-Finite-Difference-Approximating-Derivatives.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-difference-approximating-derivatives-with-taylor-series">
+   Finite Difference Approximating Derivatives with Taylor Series
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html"><span class="doc std std-doc">20.1 Numerical Differentiation Problem Statement</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html"><span class="doc std std-doc">20.3 Approximating of Higher Order Derivatives</span></a> &gt;</p>
+<div class="section" id="finite-difference-approximating-derivatives">
+<h1>Finite Difference Approximating Derivatives<a class="headerlink" href="#finite-difference-approximating-derivatives" title="Permalink to this headline">¶</a></h1>
+<p>The derivative <span class="math notranslate nohighlight">\(f'(x)\)</span> of a function <span class="math notranslate nohighlight">\(f(x)\)</span> at the point <span class="math notranslate nohighlight">\(x=a\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[f'(a) = \lim\limits_{x \to a}\frac{f(x) - f(a)}{x-a}\]</div>
+<p>The derivative at <span class="math notranslate nohighlight">\(x=a\)</span> is the slope at this point. In <strong>finite difference</strong> approximations of this slope, we can use values of the function in the neighborhood of the point <span class="math notranslate nohighlight">\(x=a\)</span> to achieve the goal. There are various finite difference formulas used in different applications, and three of these, where the derivative is calculated using the values of two points, are presented below.</p>
+<p>The <strong>forward difference</strong> is to estimate the slope of the function at <span class="math notranslate nohighlight">\(x_j\)</span> using the line that connects <span class="math notranslate nohighlight">\((x_j, f(x_j))\)</span> and <span class="math notranslate nohighlight">\((x_{j+1}, f(x_{j+1}))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f'(x_j) = \frac{f(x_{j+1}) - f(x_j)}{x_{j+1}-x_j}\]</div>
+<p>The <strong>backward difference</strong> is to estimate the slope of the function at <span class="math notranslate nohighlight">\(x_j\)</span> using the line that connects <span class="math notranslate nohighlight">\((x_{j-1}, f(x_{j-1}))\)</span> and <span class="math notranslate nohighlight">\((x_j, f(x_j))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f'(x_j) = \frac{f(x_j) - f(x_{j-1})}{x_j - x_{j-1}}\]</div>
+<p>The <strong>central difference</strong> is to estimate the slope of the function at <span class="math notranslate nohighlight">\(x_j\)</span> using the line that connects <span class="math notranslate nohighlight">\((x_{j-1}, f(x_{j-1}))\)</span> and <span class="math notranslate nohighlight">\((x_{j+1}, f(x_{j+1}))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[f'(x_j) = \frac{f(x_{j+1}) - f(x_{j-1})}{x_{j+1} - x_{j-1}}\]</div>
+<p>The following figure illustrates the three different type of formulas to estimate the slope.</p>
+<img src="images/20.02.01-Finite-difference.png" alt="Finite difference" title="Finite difference approximation of the derivative." width="800"/>
+<div class="section" id="finite-difference-approximating-derivatives-with-taylor-series">
+<h2>Finite Difference Approximating Derivatives with Taylor Series<a class="headerlink" href="#finite-difference-approximating-derivatives-with-taylor-series" title="Permalink to this headline">¶</a></h2>
+<p>To derive an approximation for the derivative of <span class="math notranslate nohighlight">\(f\)</span>, we return to Taylor series. For an arbitrary function <span class="math notranslate nohighlight">\(f(x)\)</span> the Taylor series of <span class="math notranslate nohighlight">\(f\)</span> around <span class="math notranslate nohighlight">\(a = x_j\)</span> is
+<span class="math notranslate nohighlight">\($
+f(x) = \frac{f(x_j)(x - x_j)^0}{0!} + \frac{f^{\prime}(x_j)(x - x_j)^1}{1!} + \frac{f''(x_j)(x - x_j)^2}{2!} + \frac{f'''(x_j)(x - x_j)^3}{3!} + \cdots.
+$\)</span></p>
+<p>If <span class="math notranslate nohighlight">\(x\)</span> is on a grid of points with spacing <span class="math notranslate nohighlight">\(h\)</span>, we can compute the Taylor series at <span class="math notranslate nohighlight">\(x = x_{j+1}\)</span> to get</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_{j+1}) = \frac{f(x_j)(x_{j+1} - x_j)^0}{0!} + \frac{f^{\prime}(x_j)(x_{j+1}- x_j)^1}{1!} + \frac{f''(x_j)(x_{j+1} - x_j)^2}{2!} + \frac{f'''(x_j)(x_{j+1} - x_j)^3}{3!} + \cdots.
+\]</div>
+<p>Substituting <span class="math notranslate nohighlight">\(h = x_{j+1} - x_j\)</span> and solving for <span class="math notranslate nohighlight">\(f^{\prime}(x_j)\)</span> gives the equation</p>
+<div class="math notranslate nohighlight">
+\[
+f^{\prime}(x_j) = \frac{f(x_{j+1}) - f(x_j)}{h} + \left(-\frac{f''(x_j)h}{2!} -\frac{f'''(x_j)h^2}{3!} - \cdots\right).
+\]</div>
+<p>The terms that are in parentheses, <span class="math notranslate nohighlight">\(-\frac{f''(x_j)h}{2!} -\frac{f'''(x_j)h^2}{3!} - \cdots\)</span>, are called <strong>higher order terms</strong> of <span class="math notranslate nohighlight">\(h\)</span>. The higher order terms can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{f''(x_j)h}{2!} -\frac{f'''(x_j)h^2}{3!} - \cdots = h(\alpha + \epsilon(h)),
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is some constant, and <span class="math notranslate nohighlight">\(\epsilon(h)\)</span> is a function of <span class="math notranslate nohighlight">\(h\)</span> that goes to zero as <span class="math notranslate nohighlight">\(h\)</span> goes to 0. You can verify with some algebra that this is true. We use the abbreviation “<span class="math notranslate nohighlight">\(O(h)\)</span>” for <span class="math notranslate nohighlight">\(h(\alpha + \epsilon(h))\)</span>, and in general, we use the abbreviation “<span class="math notranslate nohighlight">\(O(h^p)\)</span>” to denote <span class="math notranslate nohighlight">\(h^p(\alpha + \epsilon(h))\)</span>.</p>
+<p>Substituting <span class="math notranslate nohighlight">\(O(h)\)</span> into the previous equations gives</p>
+<div class="math notranslate nohighlight">
+\[
+f^{\prime}(x_j) = \frac{f(x_{j+1}) - f(x_j)}{h} + O(h).
+\]</div>
+<p>This gives the <strong>forward difference</strong> formula for approximating derivatives as</p>
+<div class="math notranslate nohighlight">
+\[
+f^{\prime}(x_j) \approx \frac{f(x_{j+1}) - f(x_j)}{h},
+\]</div>
+<p>and we say this formula is <span class="math notranslate nohighlight">\(O(h)\)</span>.</p>
+<p>Here, <span class="math notranslate nohighlight">\(O(h)\)</span> describes the <strong>accuracy</strong> of the forward difference formula for approximating derivatives. For an approximation that is <span class="math notranslate nohighlight">\(O(h^p)\)</span>, we say that <span class="math notranslate nohighlight">\(p\)</span> is the <strong>order</strong> of the accuracy of the approximation. With few exceptions, higher order accuracy is better than lower order. To illustrate this point, assume <span class="math notranslate nohighlight">\(q &lt; p\)</span>. Then as the spacing, <span class="math notranslate nohighlight">\(h &gt; 0\)</span>, goes to 0, <span class="math notranslate nohighlight">\(h^p\)</span> goes to 0 faster than <span class="math notranslate nohighlight">\(h^q\)</span>. Therefore as <span class="math notranslate nohighlight">\(h\)</span> goes to 0, an approximation of a value that is <span class="math notranslate nohighlight">\(O(h^p)\)</span> gets closer to the true value faster than one that is <span class="math notranslate nohighlight">\(O(h^q)\)</span>.</p>
+<p>By computing the Taylor series around <span class="math notranslate nohighlight">\(a = x_j\)</span> at <span class="math notranslate nohighlight">\(x = x_{j-1}\)</span> and again solving for <span class="math notranslate nohighlight">\(f^{\prime}(x_j)\)</span>, we get the <strong>backward difference</strong> formula</p>
+<div class="math notranslate nohighlight">
+\[
+f^{\prime}(x_j) \approx \frac{f(x_j) - f(x_{j-1})}{h},
+\]</div>
+<p>which is also <span class="math notranslate nohighlight">\(O(h)\)</span>. You should try to verify this result on your own.</p>
+<p>Intuitively, the forward and backward difference formulas for the derivative at <span class="math notranslate nohighlight">\(x_j\)</span> are just the slopes between the point at <span class="math notranslate nohighlight">\(x_j\)</span> and the points <span class="math notranslate nohighlight">\(x_{j+1}\)</span> and <span class="math notranslate nohighlight">\(x_{j-1}\)</span>, respectively.</p>
+<p>We can construct an improved approximation of the derivative by clever manipulation of Taylor series terms taken at different points. To illustrate, we can compute the Taylor series around <span class="math notranslate nohighlight">\(a = x_j\)</span> at both <span class="math notranslate nohighlight">\(x_{j+1}\)</span> and <span class="math notranslate nohighlight">\(x_{j-1}\)</span>. Written out, these equations are</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_{j+1}) = f(x_j) + f^{\prime}(x_j)h + \frac{1}{2}f''(x_j)h^2 + \frac{1}{6}f'''(x_j)h^3 + \cdots
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_{j-1}) = f(x_j) - f^{\prime}(x_j)h + \frac{1}{2}f''(x_j)h^2 - \frac{1}{6}f'''(x_j)h^3 + \cdots.
+\]</div>
+<p>Subtracting the formulas above gives</p>
+<div class="math notranslate nohighlight">
+\[
+f(x_{j+1}) - f(x_{j-1}) = 2f^{\prime}(x_j) + \frac{2}{3}f'''(x_j)h^3 + \cdots,
+\]</div>
+<p>which when solved for <span class="math notranslate nohighlight">\(f^{\prime}(x_j)\)</span> gives the <strong>central difference</strong> formula</p>
+<div class="math notranslate nohighlight">
+\[
+f^{\prime}(x_j) \approx \frac{f(x_{j+1}) - f(x_{j-1})}{2h}.
+\]</div>
+<p>Because of how we subtracted the two equations, the <span class="math notranslate nohighlight">\(h\)</span> terms canceled out; therefore, the central difference formula is <span class="math notranslate nohighlight">\(O(h^2)\)</span>, even though it requires the same amount of computational effort as the forward and backward difference formulas! Thus the central difference formula gets an extra order of accuracy for free. In general, formulas that utilize symmetric points around <span class="math notranslate nohighlight">\(x_j\)</span>, for example <span class="math notranslate nohighlight">\(x_{j-1}\)</span> and <span class="math notranslate nohighlight">\(x_{j+1}\)</span>, have better accuracy than asymmetric ones, such as the forward and background difference formulas.</p>
+<p>The following figure shows the forward difference (line joining <span class="math notranslate nohighlight">\((x_j, y_j)\)</span> and <span class="math notranslate nohighlight">\((x_{j+1}, y_{j+1})\)</span>), backward difference (line joining <span class="math notranslate nohighlight">\((x_j, y_j)\)</span> and <span class="math notranslate nohighlight">\((x_{j-1}, y_{j-1})\)</span>), and central difference (line joining <span class="math notranslate nohighlight">\((x_{j-1}, y_{j-1})\)</span> and <span class="math notranslate nohighlight">\((x_{j+1}, y_{j+1})\)</span>) approximation of the derivative of a function <span class="math notranslate nohighlight">\(f\)</span>. As can be seen, the difference in the value of the slope can be significantly different based on the size of the step <span class="math notranslate nohighlight">\(h\)</span> and the nature of the function.</p>
+<img src="images/20.02.01-Forward_difference.png" alt="Forward difference" title="Illustration of the forward difference, the backward difference, and the central difference. Note the difference in slopes depending on the method used." width="300"/>
+<p><strong>TRY IT!</strong> Take the Taylor series of <span class="math notranslate nohighlight">\(f\)</span> around <span class="math notranslate nohighlight">\(a = x_j\)</span> and compute the series at <span class="math notranslate nohighlight">\(x = x_{j-2}, x_{j-1}, x_{j+1}, x_{j+2}\)</span>. Show that the resulting equations can be combined to form an approximation for <span class="math notranslate nohighlight">\(f^{\prime}(x_j)\)</span> that is <span class="math notranslate nohighlight">\(O(h^4)\)</span>.</p>
+<p>First, compute the Taylor series at the specified points.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+f(x_{j-2}) &amp;=&amp; f(x_j) - 2hf^{\prime}(x_j) + \frac{4h^2f''(x_j)}{2} - \frac{8h^3f'''(x_j)}{6} + \frac{16h^4f''''(x_j)}{24} - \frac{32h^5f'''''(x_j)}{120} + \cdots\\
+f(x_{j-1}) &amp;=&amp; f(x_j) - hf^{\prime}(x_j) + \frac{h^2f''(x_j)}{2} - \frac{h^3f'''(x_j)}{6} + \frac{h^4f''''(x_j)}{24} - \frac{h^5f'''''(x_j)}{120} + \cdots\\
+f(x_{j+1}) &amp;=&amp; f(x_j) + hf^{\prime}(x_j) + \frac{h^2f''(x_j)}{2} + \frac{h^3f'''(x_j)}{6} + \frac{h^4f''''(x_j)}{24} + \frac{h^5f'''''(x_j)}{120} + \cdots\\
+f(x_{j+2}) &amp;=&amp; f(x_j) + 2hf^{\prime}(x_j) + \frac{4h^2f''(x_j)}{2} + \frac{8h^3f'''(x_j)}{6} + \frac{16h^4f''''(x_j)}{24} + \frac{32h^5f'''''(x_j)}{120} + \cdots
+\end{eqnarray*}
+\end{split}\]</div>
+<p>To get the <span class="math notranslate nohighlight">\(h^2, h^3\)</span>, and <span class="math notranslate nohighlight">\(h^4\)</span> terms to cancel out, we can compute</p>
+<div class="math notranslate nohighlight">
+\[f(x_{j-2}) - 8f(x_{j-1}) + 8f(x_{j-1}) - f(x_{j+2}) = 12hf^{\prime}(x_j) - \frac{48h^5f'''''(x_j)}{120}\]</div>
+<p>which can be rearranged to</p>
+<div class="math notranslate nohighlight">
+\[f^{\prime}(x_j) = \frac{f(x_{j-2}) - 8f(x_{j-1}) + 8f(x_{j-1}) - f(x_{j+2})}{12h} + O(h^4).\]</div>
+<p>This formula is a better approximation for the derivative at <span class="math notranslate nohighlight">\(x_j\)</span> than the central difference formula, but requires twice as many calculations.</p>
+<p><strong>TIP!</strong> Python has a command that can be used to compute finite differences directly: for a vector <span class="math notranslate nohighlight">\(f\)</span>, the command <span class="math notranslate nohighlight">\(d=np.diff(f)\)</span> produces an array <span class="math notranslate nohighlight">\(d\)</span> in which the entries are the differences of the adjacent elements in the initial array <span class="math notranslate nohighlight">\(f\)</span>. In other words <span class="math notranslate nohighlight">\(d(i) = f(i+1) - f(i)\)</span>.</p>
+<p><strong>WARNING!</strong> When using the command <em>np.diff</em>, the size of the output is one less than the size of the input since it needs two arguments to produce a difference.</p>
+<p><strong>EXAMPLE:</strong> Consider the function <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span>. We know the derivative of <span class="math notranslate nohighlight">\(\cos(x)\)</span> is <span class="math notranslate nohighlight">\(-\sin(x)\)</span>. Although in practice we may not know the underlying function we are finding the derivative for, we use the simple example to illustrate the aforementioned numerical differentiation methods and their accuracy. The following code computes the derivatives numerically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-poster&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># step size</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="c1"># define grid</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> 
+<span class="c1"># compute function</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+
+<span class="c1"># compute vector of forward differences</span>
+<span class="n">forward_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">h</span> 
+<span class="c1"># compute corresponding grid</span>
+<span class="n">x_diff</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span> 
+<span class="c1"># compute exact solution</span>
+<span class="n">exact_solution</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_diff</span><span class="p">)</span> 
+
+<span class="c1"># Plot solution</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_diff</span><span class="p">,</span> <span class="n">forward_diff</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> \
+         <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Finite difference approximation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_diff</span><span class="p">,</span> <span class="n">exact_solution</span><span class="p">,</span> \
+         <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Exact solution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Compute max error between </span>
+<span class="c1"># numerical derivative and exact solution</span>
+<span class="n">max_error</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">exact_solution</span> <span class="o">-</span> <span class="n">forward_diff</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">max_error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter20.02-Finite-Difference-Approximating-Derivatives_5_0.png" src="../_images/chapter20.02-Finite-Difference-Approximating-Derivatives_5_0.png" />
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0.049984407218554114
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the above figure shows, there is a small offset between the two curves, which results from the numerical error in the evaluation of the numerical derivatives. The maximal error between the two numerical results is of the order 0.05 and expected to decrease with the size of the step.</p>
+<p>As illustrated in the previous example, the finite difference scheme contains a numerical error due to the approximation of the derivative. This difference decreases with the size of the discretization step, which is illustrated in the following example.</p>
+<p><strong>EXAMPLE:</strong> The following code computes the numerical derivative of <span class="math notranslate nohighlight">\(f(x) = \cos(x)\)</span> using the forward difference formula for decreasing step sizes, <span class="math notranslate nohighlight">\(h\)</span>. It then plots the maximum error between the approximated derivative and the true derivative versus <span class="math notranslate nohighlight">\(h\)</span> as shown in the generated figure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define step size</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># define number of iterations to perform</span>
+<span class="n">iterations</span> <span class="o">=</span> <span class="mi">20</span> 
+<span class="c1"># list to store our step sizes</span>
+<span class="n">step_size</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="c1"># list to store max error for each step size</span>
+<span class="n">max_error</span> <span class="o">=</span> <span class="p">[]</span> 
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+    <span class="c1"># halve the step size</span>
+    <span class="n">h</span> <span class="o">/=</span> <span class="mi">2</span> 
+    <span class="c1"># store this step size</span>
+    <span class="n">step_size</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> 
+    <span class="c1"># compute new grid</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> 
+    <span class="c1"># compute function value at grid</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+    <span class="c1"># compute vector of forward differences</span>
+    <span class="n">forward_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="n">h</span> 
+    <span class="c1"># compute corresponding grid</span>
+    <span class="n">x_diff</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+    <span class="c1"># compute exact solution</span>
+    <span class="n">exact_solution</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_diff</span><span class="p">)</span> 
+    
+    <span class="c1"># Compute max error between </span>
+    <span class="c1"># numerical derivative and exact solution</span>
+    <span class="n">max_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>\
+            <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">exact_solution</span> <span class="o">-</span> <span class="n">forward_diff</span><span class="p">)))</span>
+
+<span class="c1"># produce log-log plot of max error versus step size</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">step_size</span><span class="p">,</span> <span class="n">max_error</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter20.02-Finite-Difference-Approximating-Derivatives_7_0.png" src="../_images/chapter20.02-Finite-Difference-Approximating-Derivatives_7_0.png" />
+</div>
+</div>
+<p>The slope of the line in log-log space is 1; therefore, the error is proportional to <span class="math notranslate nohighlight">\(h^1\)</span>, which means that, as expected, the forward difference formula is <span class="math notranslate nohighlight">\(O(h)\)</span>.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html"><span class="doc std std-doc">20.1 Numerical Differentiation Problem Statement</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html"><span class="doc std std-doc">20.3 Approximating of Higher Order Derivatives</span></a> &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html" title="previous page">Numerical Differentiation Problem Statement</a>
+    <a class='right-next' id="next-link" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html" title="next page">Approximating of Higher Order Derivatives</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
