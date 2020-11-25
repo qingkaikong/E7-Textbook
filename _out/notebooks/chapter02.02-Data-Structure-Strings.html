@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structure - Strings &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Structure - Lists" href="chapter02.03-Data-Structure-Lists.html" />
+    <link rel="prev" title="Variables and Assignment" href="chapter02.01-Variables-and-Assignment.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.01-Variables-and-Assignment.html">
+     Variables and Assignment
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Structure - Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.03-Data-Structure-Lists.html">
+     Data Structure - Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.04-Data-Structure-Tuples.html">
+     Data Structure - Tuples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.05-Data-Structure-Sets.html">
+     Data Structure - Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.06-Data-Structure-Dictionaries.html">
+     Data Structure - Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.07-Introducing_numpy_arrays.html">
+     Introducing Numpy Arrays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter02.02-Data-Structure-Strings.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter02.01-Variables-and-Assignment.html"><span class="doc std std-doc">2.1 Variables and Assignment</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter02.03-Data-Structure-Lists.html"><span class="doc std std-doc">2.3 Data Structure - Lists</span></a> &gt;</p>
+<div class="section" id="data-structure-strings">
+<h1>Data Structure - Strings<a class="headerlink" href="#data-structure-strings" title="Permalink to this headline">¶</a></h1>
+<p>We talked about different data types, such as int, float and boolean, these are all related to single value. The rest of this chapter will introduce you more data types so that we could store multiple values. The data structure related to these new types are Strings, Lists, Tuples, Sets, and Dictionaries. We will start with the strings.</p>
+<p>A string is a sequence of characters, such as “Hello World” we saw in chapter 1. Strings are surrounded by either single or double quotation marks. We could use <em>print</em> function to output the strings to the screen.</p>
+<p><strong>TRY IT!</strong> Print “I love Python!” to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I love Python!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TRY IT!</strong> Assign the character “S” to the variable with name s. Assign the string “Hello World” to the variable w. Verify that s and w have the type string using the <em>type</em> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;S&quot;</span>
+<span class="n">w</span> <span class="o">=</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that a blank space, ” “, between “Hello” and “World” is also a type <em>str</em>. Any symbol can be a char, even the ones that have been reserved for operators. Note that as a <em>str</em>, they do not perform the same function. Although they look the same, Python interprets them completely differently.</p>
+<p><strong>TRY IT!</strong> Create an empty string. Verify that the empty string is a <em>str</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>A string is an array of characters, therfore it has length to indicate the size of the string. For example, we could check the size of the string by using the built-in function <em>len</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</div>
+<p>Strings also have indexes to indicate the location of each character, so that we could easily find out some character. The index of the position start with 0, as shown in the following picture.</p>
+<p><img alt="String_index" src="../_images/02.02.01-hello_world_index.png" /></p>
+<p>We could get access to any character by using a bracket and the index of the position. For example, if we want to get the character ‘W’, then we need to do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;W&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could also select a sequence as well using string slicing. For example, if we want to get the “World”, we could do the following command.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;World&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>[6:11] means the start position is from index 6 and the end position is index 10. For Python string slicing range, the upper-bound is exclusive, which means that [6:11] is actually to slice the characters from 6 -&gt; 10. The syntax for slicing in Python is [start:end:step], the 3rd one - step is optional.</p>
+<p>You can ignore the end position if you want to slice to the end of the string. For example, the following command is the same as the above one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;World&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TRY IT!</strong> Retrieve the word “Hello” from string <em>w</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Hello&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also use negative index when slice the strings, which means counting from the end of the string. For example, -1 means the last character, -2 means the 2nd to last and so on.</p>
+<p><strong>TRY IT!</strong> Slice the “Wor” within the word “World”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Wor&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TRY IT!</strong> Retrieve every other character in the variable <em>w</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;HloWrd&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Strings can not be used in the mathematical operations.</p>
+<p><strong>TRY IT!</strong> Use ‘+’ to add two numbers. Verify that “+” does not behave like the addition operator, <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="s2">&quot;+&quot;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-13-46b54f731e00&gt;&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+<span class="g g-Whitespace">    </span><span class="mi">1</span> <span class="s2">&quot;+&quot;</span> <span class="mi">2</span>
+        <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>WARNING!</strong> Numbers can also be expressed as <em>str</em>. For example, <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">'123'</span></code> means that x is the string 123 not the number 123. However, strings represent words or text and so should not have addition defined on them.</p>
+<p><strong>TIP!</strong> You may find yourself in a situation where you would like to use an apostrophe as a <em>str</em>. This is problematic since an apostrophe is used to denote strings. Fortunately, an apostrophe can be used in a string in the following way. The backslash (\) is a way to tell Python this is part of the string, not to denote strings. The backslash character is used to escape characters that otherwise have a special meaning, such as newline, backslash itself, or the quote character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;don</span><span class="se">\&#39;</span><span class="s1">t&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;don&#39;t&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>One string could be concatenated to another string. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">str_a</span> <span class="o">=</span> <span class="s2">&quot;I love Python! &quot;</span>
+<span class="n">str_b</span> <span class="o">=</span> <span class="s2">&quot;You too!&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">str_a</span> <span class="o">+</span> <span class="n">str_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I love Python! You too!
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could convert other data types to strings as well using the built-in function <em>str</em>. This is useful, for example, we have an variable x that stored 1 as an integer type, if we want to print it out directly with a string, we will get an error saying we can not concatenate string with an integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-16-3e562ba0dd83&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: can only concatenate str (not &quot;int&quot;) to str
+</pre></div>
+</div>
+</div>
+</div>
+<p>The correct way to do it is to convert the integer to string first, and then print it out.</p>
+<p><strong>TRY IT!</strong> Print out <em>x = 1</em> to the screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>x = 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>In Python, string as an object that has various methods that could be used to manipulate it (we will talk more about object-oriented programming later). They way to get access to the various methods is to use this patter “string.method_name”.</p>
+<p><strong>TRY IT!</strong> Turn the variable w to upper case.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;HELLO WORLD&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TRY IT!</strong> Count the number of occurrence for letter “l” in w.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TRY IT!</strong> Replace the “World” in variable w to “Berkeley”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">,</span> <span class="s2">&quot;Berkeley&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Hello Berkeley&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are different ways to pre-format a string. Here we introduce two ways to do it. For example, if we have two variables <em>name</em> and <em>country</em>, and wants to print them out in a sentence, but we don’t want to use the string concatenation we used before, since it will use many ‘+’ signs in the string. We could do the following instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;UC Berkeley&quot;</span>
+<span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;USA&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is a great school in </span><span class="si">%s</span><span class="s2">!&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">country</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>UC Berkeley is a great school in USA!
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>WHAT IS HAPPENING?</strong> In the previous example, the %s in the double quotation marks is telling Python that we want to insert some strings at this location (s stands for string in this case). The <em>%(name, country)</em> is where the two strings we want to insert.</p>
+<p><strong>NEW!</strong> There is a different way that only introduced in Python 3.6 and above, it is called f-String which means formated-String. You can easily format a string with the following line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> is a great school in </span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>UC Berkeley is a great school in USA.
+</pre></div>
+</div>
+</div>
+</div>
+<p>You could even print out a numerical expression without convert the data type as we did before.</p>
+<p><strong>TRY it!</strong> Print out the result of <em>3</em>4* directly using f-String.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, we learned many things from the data structure - string, this is our first sequence data structure. Let’s learn more now.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter02.01-Variables-and-Assignment.html"><span class="doc std std-doc">2.1 Variables and Assignment</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter02.03-Data-Structure-Lists.html"><span class="doc std std-doc">2.3 Data Structure - Lists</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter02.01-Variables-and-Assignment.html" title="previous page">Variables and Assignment</a>
+    <a class='right-next' id="next-link" href="chapter02.03-Data-Structure-Lists.html" title="next page">Data Structure - Lists</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

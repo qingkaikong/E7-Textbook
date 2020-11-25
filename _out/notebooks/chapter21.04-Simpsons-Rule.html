@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpson’s Rule &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Computing Integrals in Python" href="chapter21.05-Computing-Integrals-in-Python.html" />
+    <link rel="prev" title="Trapezoid Rule" href="chapter21.03-Trapezoid-Rule.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.01-Numerical-Integration-Problem-Statement.html">
+     Numerical Integration Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.02-Riemanns-Integral.html">
+     Riemanns Integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.03-Trapezoid-Rule.html">
+     Trapezoid Rule
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Simpson’s Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.05-Computing-Integrals-in-Python.html">
+     Computing Integrals in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter21.04-Simpsons-Rule.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter21.03-Trapezoid-Rule.html"><span class="doc std std-doc">21.3 Trapezoid Rule</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter21.05-Computing-Integrals-in-Python.html"><span class="doc std std-doc">21.5 Computing Integrals in Python</span></a> &gt;</p>
+<div class="section" id="simpson-s-rule">
+<h1>Simpson’s Rule<a class="headerlink" href="#simpson-s-rule" title="Permalink to this headline">¶</a></h1>
+<p>Consider <em>two</em> consecutive subintervals, <span class="math notranslate nohighlight">\([x_{i-1}, x_i]\)</span> and <span class="math notranslate nohighlight">\([x_i, x_{i+1}]\)</span>. <strong>Simpson’s Rule</strong> approximates the area under <span class="math notranslate nohighlight">\(f(x)\)</span> over these two subintervals by fitting a quadratic polynomial through the points <span class="math notranslate nohighlight">\((x_{i-1}, f(x_{i-1})), (x_i, f(x_i))\)</span>, and <span class="math notranslate nohighlight">\((x_{i+1}, f(x_{i+1}))\)</span>, which is a unique polynomial, and then integrating the quadratic exactly. The following shows this integral approximation for an arbitrary function.</p>
+<img src="images/21.04.1-Simpson_integral.png" alt="Simpsons integral" title="Illustration of the Simpson integral formula. Discretization points are grouped by three, and a parabola is fit between the three points. This can be done by a typical interpolation polynomial. The area under the curve is approximated by the area under the parabola." width="350"/>
+<p>First, we construct the quadratic polynomial approximation of the function over the two subintervals. The easiest way to do this is to use Lagrange polynomials, which was discussed in <a class="reference internal" href="chapter17.04-Lagrange-Polynomial-Interpolation.html"><span class="doc std std-doc">Chapter 17</span></a>. By applying the formula for constructing Lagrange polynomials we get the polynomial</p>
+<p>\begin{eqnarray*}P_i(x) &amp;=&amp; f(x_{i-1})\frac{(x - x_i)(x - x_{i+1})}{(x_{i-1} - x_i)(x_{i-1} - x_{i+1})} + f(x_i)\frac{(x - x_{i-1})(x - x_{i+1})}{(x_{i} - x_{i-1})(x_{i} - x_{i+1})}\
+&amp;&amp;+ f(x_{i+1})\frac{(x - x_{i-1})(x - x_{i})}{(x_{i+1} - x_{i-1})(x_{i+1} -
+x_{i})},\end{eqnarray*}</p>
+<p>and with substitutions for <span class="math notranslate nohighlight">\(h\)</span> results in</p>
+<div class="math notranslate nohighlight">
+\[P_i(x) = \frac{f(x_{i-1})}{2h^2} (x - x_i)(x - x_{i+1}) - \frac{f(x_i)}{h^2} (x - x_{i-1})(x - x_{i+1}) + \frac{f(x_{i+1})}{2h^2} (x - x_{i-1})(x - x_{i}).\]</div>
+<p>You can confirm that the polynomial intersects the desired points. With some algebra and manipulation, the integral of <span class="math notranslate nohighlight">\(P_i(x)\)</span> over the two subintervals is</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} P_i(x) dx = \frac{h}{3}(f(x_{i-1}) + 4f(x_i) + f(x_{i+1}).\]</div>
+<p>To approximate the integral over <span class="math notranslate nohighlight">\((a, b)\)</span>, we must sum the integrals of <span class="math notranslate nohighlight">\(P_i(x)\)</span> over every <em>two</em> subintervals since <span class="math notranslate nohighlight">\(P_i(x)\)</span> spans two subintervals. Substituting <span class="math notranslate nohighlight">\(\frac{h}{3}(f(x_{i-1}) + 4f(x_i) + f(x_{i+1}))\)</span> for the integral of <span class="math notranslate nohighlight">\(P_i(x)\)</span> and regrouping the terms for efficiency leads to the formula</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b f(x) dx \approx \frac{h}{3} \left[f(x_0)+4 \left(\sum_{i=1, i\  {\text{odd}}}^{n-1}f(x_i)\right)+2 \left(\sum_{i=2, i\  {\text{even}}}^{n-2}f(x_i)\right)+f(x_n)\right].\]</div>
+<p>This regrouping is illustrated in the figure below:</p>
+<img src="images/21.04.2-Simpson_integral_2.png" alt="Regrouping" title="Illustration of the accounting procedure to approximate the function f by the Simpson rule for the entire interval [a, b]." width="350"/>
+<p><strong>WARNING!</strong> Note that to use Simpson’s Rule, you <strong>must</strong> have an even number of intervals and, therefore, an odd number of grid points.</p>
+<p>To compute the accuracy of the Simpson’s Rule, we take the Taylor series approximation of <span class="math notranslate nohighlight">\(f(x)\)</span> around <span class="math notranslate nohighlight">\(x_i\)</span>, which is</p>
+<div class="math notranslate nohighlight">
+\[f(x) = f(x_i) + f^{\prime}(x_i)(x - x_i) + \frac{f''(x_i)(x-x_i)^2}{2!} + \frac{f'''(x_i)(x-x_i)^3}{3!} + \frac{f''''(x_i)(x-x_i)^4}{4!} + \cdots\]</div>
+<p>Computing the Taylor series at <span class="math notranslate nohighlight">\(x_{i-1}\)</span> and <span class="math notranslate nohighlight">\(x_{i+1}\)</span> and substituting for <span class="math notranslate nohighlight">\(h\)</span> where appropriate gives the expressions</p>
+<div class="math notranslate nohighlight">
+\[f(x_{i-1}) = f(x_i) - hf^{\prime}(x_i) + \frac{h^2f''(x_i)}{2!} - \frac{h^3f'''(x_i)}{3!} + \frac{h^4f''''(x_i)}{4!} - \cdots\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[f(x_{i+1}) = f(x_i) + hf^{\prime}(x_i) + \frac{h''(x_i)}{2!} + \frac{h^3f'''(x_i)}{3!} + \frac{h^4f''''(x_i)}{4!} + \cdots\]</div>
+<p>Now consider the expression <span class="math notranslate nohighlight">\(\frac{f(x_{i-1}) + 4f(x_i) + f(x_{i+1})}{6}\)</span>. Substituting the Taylor series for the respective numerator values produces the equation</p>
+<div class="math notranslate nohighlight">
+\[\frac{f(x_{i-1}) + 4f(x_i) + f(x_{i+1})}{6} = f(x_i) + \frac{h^2}{6}f''(x_i) + \frac{h^4}{72}f''''(x_i) + \cdots\]</div>
+<p>Note that the odd terms cancel out. This implies</p>
+<div class="math notranslate nohighlight">
+\[f(x_i) =\frac{f(x_{i-1}) + 4f(x_i) + f(x_{i+1})}{6} - \frac{h^2}{6}f''(x_i) + O(h^4).\]</div>
+<p>By substitution of the Taylor series for <span class="math notranslate nohighlight">\(f(x)\)</span>, the integral of <span class="math notranslate nohighlight">\(f(x)\)</span> over two subintervals is then</p>
+<p>\begin{eqnarray*}\int_{x_{i-1}}^{x_{i+1}} f(x) dx &amp;=&amp; \int_{x_{i-1}}^{x_{i+1}} \left(f(x_i) + f^{\prime}(x_i)(x - x_i) + \frac{f’’(x_i)(x-x_i)^2}{2!}\right.\
+&amp;&amp;\qquad\qquad\left. + \frac{f’’’(x_i)(x-x_i)^3}{3!}+ \frac{f’’’’(x_i)(x-x_i)^4}{4!} + \cdots\right)
+dx.\end{eqnarray*}</p>
+<p>Again, we distribute the integral and without showing it, we drop the integrals of terms with odd powers because they are zero.</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} f(x) dx = \int_{x_{i-1}}^{x_{i+1}} f(x_i) dx + \int_{x_{i-1}}^{x_{i+1}}\frac{f''(x_i)(x-x_i)^2}{2!}dx + \int_{x_{i-1}}^{x_{i+1}}\frac{f''''(x_i)(x-x_i)^4}{4!}dx + \cdots.\]</div>
+<p>We then carry out the integrations. As will soon be clear, it benefits us to compute the integral of the second term exactly. The resulting equation is</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} f(x) dx = 2h f(x_i) + \frac{h^3}{3}f''(x_i) + O(h^5).\]</div>
+<p>Substituting the expression for <span class="math notranslate nohighlight">\(f(x_i)\)</span> derived earlier, the right-hand side becomes</p>
+<div class="math notranslate nohighlight">
+\[2h \left(\frac{f(x_{i-1}) + 4f(x_i) + f(x_{i+1})}{6} - \frac{h^2}{6}f''(x_i) + O(h^4)\right) + \frac{h^3}{3}f''(x_i) + O(h^5),\]</div>
+<p>which can be rearranged to</p>
+<div class="math notranslate nohighlight">
+\[\left[\frac{h}{3}(f(x_{i-1}) + 4f(x_i) + f(x_{i+1})) - \frac{h^3}{3}f''(x_i) + O(h^5)\right] + \frac{h^3}{3}f''(x_i) + O(h^5).\]</div>
+<p>Canceling and combining the appropriate terms results in the integral expression</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} f(x) dx = \frac{h}{3}(f(x_{i-1}) + 4f(x_i) + f(x_{i+1})) + O(h^5).\]</div>
+<p>Recognizing that <span class="math notranslate nohighlight">\(\frac{h}{3}(f(x_{i-1}) + 4f(x_i) + f(x_{i+1}))\)</span> is exactly the Simpson’s Rule approximation for the integral over this subinterval, this equation implies that Simpson’s Rule is <span class="math notranslate nohighlight">\(O(h^5)\)</span> over a subinterval and <span class="math notranslate nohighlight">\(O(h^4)\)</span> over the whole interval. Because the <span class="math notranslate nohighlight">\(h^3\)</span> terms cancel out exactly, Simpson’s Rule gains another <em>two</em> orders of accuracy!</p>
+<p><strong>TRY IT!</strong> Use Simpson’s Rule to approximate <span class="math notranslate nohighlight">\(\int_{0}^{\pi} \text{sin} (x)dx\)</span> with 11 evenly spaced grid points over the whole interval. Compare this value to the exact value of 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">11</span>
+<span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">I_simp</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">[:</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> \
+            <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">err_simp</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">I_simp</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">I_simp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">err_simp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>2.0001095173150043
+-0.00010951731500430384
+</pre></div>
+</div>
+</div>
+</div>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter21.03-Trapezoid-Rule.html"><span class="doc std std-doc">21.3 Trapezoid Rule</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter21.05-Computing-Integrals-in-Python.html"><span class="doc std std-doc">21.5 Computing Integrals in Python</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter21.03-Trapezoid-Rule.html" title="previous page">Trapezoid Rule</a>
+    <a class='right-next' id="next-link" href="chapter21.05-Computing-Integrals-in-Python.html" title="next page">Computing Integrals in Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

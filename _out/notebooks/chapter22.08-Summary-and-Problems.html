@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ordinary Differential Equation - Boundary Value Problems" href="chapter23.00-ODE-Boundary-Value-Problems.html" />
+    <link rel="prev" title="Advanced Topics" href="chapter22.07-Advanced-Topics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.01-ODE-Initial-Value-Problem-Statement.html">
+     ODE Initial Value Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.02-Reduction-of-Order.html">
+     Reduction of Order
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.03-The-Euler-Method.html">
+     The Euler Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html">
+     Numerical Error and Instability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.05-Predictor-Corrector-Methods.html">
+     Predictor-Corrector and Runge Kutta Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html">
+     Python ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.07-Advanced-Topics.html">
+     Advanced Topics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter22.08-Summary-and-Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.07-Advanced-Topics.html"><span class="doc std std-doc">22.7 Advanced-Topics</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html"><span class="doc std std-doc">CHAPTER 23. Ordinary Differential Equations: Boundary-Value Problems</span></a> &gt;</p>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Ordinary differential equations (ODEs) are equations that relate a function to its derivatives, and initial value problems are a specific kind of ODE solving problem.</p></li>
+<li><p>Most initial value problems cannot be integrated explicitly and therefore require numerical solutions.</p></li>
+<li><p>There are explicit, implicit, and predictor-corrector methods for numerically solving initial value problems.</p></li>
+<li><p>The accuracy of the scheme used depends on its order of approximation of the ODE.</p></li>
+<li><p>The stability of the scheme used depends on the ODE, the scheme, and the choice of the integration parameters.</p></li>
+</ol>
+</div>
+<div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>The logistics equation is a simple differential equation model that can be used to relate the change in population <span class="math notranslate nohighlight">\(\frac{dP}{dt}\)</span> to the current population, <span class="math notranslate nohighlight">\(P\)</span>, given a growth rate, <span class="math notranslate nohighlight">\(r\)</span>, and a carrying capacity, <span class="math notranslate nohighlight">\(K\)</span>. The logistics equation can be expressed by:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\frac{dP}{dt}=rP\left(1-\frac{P}{K}\right)
+\]</div>
+<p>Write a function <span class="math notranslate nohighlight">\(my\_logistics\_eq(t, P, r, K)\)</span> that represents the logistics equation with a return of <span class="math notranslate nohighlight">\(dP\)</span>. Note that this format allows <span class="math notranslate nohighlight">\(my\_logistics\_eq\)</span> to be used as an input argument to <em>solve_ivp</em>. You may assume that the arguments <span class="math notranslate nohighlight">\(dP\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, and <span class="math notranslate nohighlight">\(K\)</span> are all scalars, and <span class="math notranslate nohighlight">\(dP\)</span> is the value <span class="math notranslate nohighlight">\(\frac{dP}{dt}\)</span> given <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(P\)</span>, and <span class="math notranslate nohighlight">\(K\)</span>. Note that the input argument, <span class="math notranslate nohighlight">\(t\)</span>, is obligatory if <span class="math notranslate nohighlight">\(my\_logistics\_eq\)</span> is to be used as an input argument to <em>solve_ivp</em>, even though it is part of the differential equation.</p>
+<p>Note: The logistics equation has an analytic solution defined by:</p>
+<div class="math notranslate nohighlight">
+\[
+P(t)=\frac{KP_0e^{rt}}{K + P_0(e^{rt}-1)}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_0\)</span> is the initial population. As an exercise, you should verify that this equation is a solution to the logistics equation.</p>
+<p>Test cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-poster&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_logisitcs_eq</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+    
+    <span class="k">return</span> <span class="n">dP</span>
+
+<span class="n">dP</span> <span class="o">=</span> <span class="n">my_logisitcs_eq</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">dP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>3.666666666666667
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">P0</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">1.1</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2001</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">my_logisitcs_eq</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">K</span><span class="p">)</span>
+<span class="n">sol</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,[</span><span class="n">t0</span><span class="p">,</span><span class="n">tf</span><span class="p">],[</span><span class="n">P0</span><span class="p">],</span><span class="n">t_eval</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> \
+  <span class="n">K</span><span class="o">*</span><span class="n">P0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">K</span><span class="o">+</span><span class="n">P0</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)),</span><span class="s1">&#39;r:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;population&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Numerical Solution&#39;</span><span class="p">,</span> \
+            <span class="s1">&#39;Exact Solution&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter22.08-Summary-and-Problems_6_0.png" src="../_images/chapter22.08-Summary-and-Problems_6_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>The Lorenz attractor is a system of ordinary differential equations that was originally developed to model convection currents in the atmosphere. The Lorenz equations can be written as:
+<span class="math notranslate nohighlight">\($
+\begin{eqnarray*}
+&amp;&amp; \frac{dx}{dt}=\sigma (y-x)\\
+&amp;&amp; \frac{dy}{dt} = x(\rho -z)-y\\
+&amp;&amp; \frac{dz}{dt} = xy-\beta z
+\end{eqnarray*}
+$\)</span></p></li>
+</ol>
+<p>where <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span> represent position in three dimensions and <span class="math notranslate nohighlight">\(\sigma, \rho\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span> are scalar parameters of the system. You can read more about the Lorenz attractor on Wikipedia: <a class="reference external" href="https://en.wikipedia.org/wiki/Lorenz_system">Lorenz System</a>.</p>
+<p>Write a function <span class="math notranslate nohighlight">\(my\_lorenz(t,S,sigma,rho,beta)\)</span>, where <span class="math notranslate nohighlight">\(t\)</span> is a scalar denoting time, <span class="math notranslate nohighlight">\(S\)</span> is a <span class="math notranslate nohighlight">\((3, )\)</span> array denoting the position <span class="math notranslate nohighlight">\((x,y,z)\)</span>, and <span class="math notranslate nohighlight">\(sigma\)</span>, <span class="math notranslate nohighlight">\(rho\)</span>, and <span class="math notranslate nohighlight">\(beta\)</span> are strictly positive scalars representing <span class="math notranslate nohighlight">\(\sigma, \rho\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span>. The output argument <span class="math notranslate nohighlight">\(dS\)</span> should be the same size as <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>Test Cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_lorenz</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+
+    <span class="k">return</span> <span class="n">dS</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">dS</span> <span class="o">=</span> <span class="n">my_lorenz</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">8</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">dS</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([10., 23., -6.])
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_lorenz\_solver(t\_span, s0, sigma, rho, beta)\)</span> that solves the Lorenz equations using <span class="math notranslate nohighlight">\(solve\_ivp\)</span>, the function returns [T, X, Y, Z]. The input argument <span class="math notranslate nohighlight">\(t\_span\)</span> should be a list of the form <span class="math notranslate nohighlight">\([t0, tf]\)</span>, where <span class="math notranslate nohighlight">\(t0\)</span> is the initial time, and <span class="math notranslate nohighlight">\(tf\)</span> is the final time of consideration. The input argument <span class="math notranslate nohighlight">\(s0\)</span> should be a <span class="math notranslate nohighlight">\((3,)\)</span> array of the form <span class="math notranslate nohighlight">\([x0; y0; z0]\)</span>, where <span class="math notranslate nohighlight">\((x_0, y_0, z_0)\)</span> represents an initial position. Finally, the input arguments <span class="math notranslate nohighlight">\(sigma\)</span>, <span class="math notranslate nohighlight">\(rho\)</span>, and <span class="math notranslate nohighlight">\(beta\)</span> are the scalar parameters <span class="math notranslate nohighlight">\(\sigma, \rho\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span> of the Lorenz system. The output arguments <span class="math notranslate nohighlight">\(T\)</span> should be an array of times given as the output argument of <span class="math notranslate nohighlight">\(solve\_ivp\)</span>. The output arguments, <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, and <span class="math notranslate nohighlight">\(Z\)</span> should be the numerically integrated solution produced from <span class="math notranslate nohighlight">\(my\_lorenz\)</span> in the previous problem and <span class="math notranslate nohighlight">\(solve\_ivp\)</span>.</p></li>
+</ol>
+<p>Test Cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_lorenz_solver</span><span class="p">(</span><span class="n">t_span</span><span class="p">,</span> <span class="n">s0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">beta</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">]</span>
+
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mi">8</span><span class="o">/</span><span class="mi">3</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tf</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
+
+<span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_lorenz_solver</span><span class="p">([</span><span class="n">t0</span><span class="p">,</span> <span class="n">tf</span><span class="p">],</span> \
+                        <span class="n">s0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">)</span>
+
+<span class="c1"># Set axes label</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter22.08-Summary-and-Problems_10_0.png" src="../_images/chapter22.08-Summary-and-Problems_10_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>Consider the following model of a mass-spring-damper (MSD) system in one dimension. In this figure <span class="math notranslate nohighlight">\(m\)</span> denotes the mass of the block, <span class="math notranslate nohighlight">\(c\)</span> is called the damping coefficient, and <span class="math notranslate nohighlight">\(k\)</span> is the spring stiffness. A damper is a mechanism that dissipates energy in the system by resisting velocity. The MSD system is a simplistic model of several engineering applications such as shock observers and structural systems.</p></li>
+</ol>
+ <img src="images/22.07.01-msd.png" alt="msd" title="mass-spring-damper system." width="200"/>
+<p>The relationship between acceleration, velocity, and displacement can be expressed by the following mass-spring-damper (MSD) differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+m\ddot{x} + c\dot{x} +kx = 0
+\]</div>
+<p>which can be rewritten:
+<span class="math notranslate nohighlight">\($
+\ddot{x}=\frac{-(c\dot{x}+kx)}{m}
+$\)</span></p>
+<p>Let the state of the system be denoted by the vector <span class="math notranslate nohighlight">\(S = [x; v]\)</span> where <span class="math notranslate nohighlight">\(x\)</span> is the displacement of the mass from its resting configuration and <span class="math notranslate nohighlight">\(v\)</span> is its velocity. Rewrite the MSD equation as a first-order differential equation in terms of the state, <span class="math notranslate nohighlight">\(S\)</span>. In other words, rewrite the MSD equation as <span class="math notranslate nohighlight">\(dS/dt = f(t, S)\)</span>.</p>
+<p>Write a function <span class="math notranslate nohighlight">\(my\_msd(t, S, m, c, k)\)</span>, where <span class="math notranslate nohighlight">\(t\)</span> is a scalar denoting time, <span class="math notranslate nohighlight">\(S\)</span> is a <span class="math notranslate nohighlight">\((2,)\)</span> vector denoting the state of the MSD system, and <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, and <span class="math notranslate nohighlight">\(k\)</span> are the mass, damping, and stiffness coefficients of the MSD equation, respectively.</p>
+<p>Test Cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_msd</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+    <span class="k">return</span> <span class="n">ds</span>
+
+<span class="n">my_msd</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([-1. , -9.9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">my_msd</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">t_e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">sol_1</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">t_eval</span><span class="o">=</span><span class="n">t_e</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">my_msd</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">sol_2</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">t_eval</span><span class="o">=</span><span class="n">t_e</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">my_msd</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">sol_3</span><span class="o">=</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">t_eval</span><span class="o">=</span><span class="n">t_e</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_1</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol_1</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_2</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol_2</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol_3</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol_3</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Numerical Solution of MSD </span><span class="se">\</span>
+<span class="s1">System with Varying Dampling&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;displacement&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;no dampling&#39;</span><span class="p">,</span> <span class="s1">&#39;c=1&#39;</span><span class="p">,</span> \
+           <span class="s1">&#39;&gt;critically damped&#39;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1531a2f400&gt;
+</pre></div>
+</div>
+<img alt="../_images/chapter22.08-Summary-and-Problems_13_1.png" src="../_images/chapter22.08-Summary-and-Problems_13_1.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_forward\_euler(ds, t\_span, s0)\)</span>, where <em>ds</em> is a function object, <span class="math notranslate nohighlight">\(f(t, s)\)</span>, describing a first-order differential equation, <span class="math notranslate nohighlight">\(t\_span\)</span> is an array of times for which numerical solutions of the differential equation are desired, and <em>s0</em> is the initial condition of the system. Assume that the size of the state is one. The output argument should be a list of [t, s], such that <span class="math notranslate nohighlight">\(t[i] = t\_span[i]\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(s\)</span> should be the integrated values of <em>ds</em> at times <em>t</em>. You should perform the integration using the Forward Euler method, <span class="math notranslate nohighlight">\(s[t_i] = s[t_{i-1}] + (t_i - t_{i-1}) ds(t_{i-1}, s[t_{i-1}])\)</span>. Note: <span class="math notranslate nohighlight">\(s[0]\)</span> should equal <span class="math notranslate nohighlight">\(s0\)</span>.</p></li>
+</ol>
+<p>Test Cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_forward_euler</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">s0</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span>
+
+<span class="n">t_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Define parameters</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">t</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">t_eul</span><span class="p">,</span> <span class="n">s_eul</span> <span class="o">=</span> <span class="n">my_forward_euler</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">s0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">t_eul</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s_eul</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>[0.         0.11111111 0.22222222 0.33333333 0.44444444 0.55555556
+ 0.66666667 0.77777778 0.88888889 1.        ]
+[1.         1.         1.00454172 1.013584   1.02702534 1.04470783
+ 1.06642355 1.09192262 1.12092255 1.153118  ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Exact solution</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s0</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Exact&#39;</span><span class="p">)</span>
+
+<span class="c1"># Forward Euler</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_eul</span><span class="p">,</span> <span class="n">s_eul</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Euler&#39;</span><span class="p">)</span>
+
+<span class="c1"># Python solver</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">s0</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;b--&#39;</span><span class="p">,</span> \
+         <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python Solver&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter22.08-Summary-and-Problems_16_0.png" src="../_images/chapter22.08-Summary-and-Problems_16_0.png" />
+</div>
+</div>
+<ol class="simple">
+<li><p>Write a function <span class="math notranslate nohighlight">\(myRK4(ds, t_span, s0)\)</span>, where the input and output arguments are the same as in problem 5. The function <span class="math notranslate nohighlight">\(myRK4\)</span> should numerically integrate <em>ds</em> using the fourth-order Runge-Kutta method.</p></li>
+</ol>
+<p>Test Cases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myRK4</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">s0</span><span class="p">):</span>
+    <span class="c1"># put your code here</span>
+    
+    <span class="k">return</span> <span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">]</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t_span</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Runge-Kutta method</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">myRK4</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t_span</span><span class="p">,</span> <span class="n">s0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;RK4&#39;</span><span class="p">)</span>
+
+<span class="c1"># Python solver</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">],</span> <span class="p">[</span><span class="n">s0</span><span class="p">],</span> <span class="n">t_eval</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> \
+         <span class="s1">&#39;b--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Python Solver&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;f(t)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter22.08-Summary-and-Problems_18_0.png" src="../_images/chapter22.08-Summary-and-Problems_18_0.png" />
+</div>
+</div>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter22.07-Advanced-Topics.html"><span class="doc std std-doc">22.7 Advanced-Topics</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html"><span class="doc std std-doc">CHAPTER 23. Ordinary Differential Equations: Boundary-Value Problems</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter22.07-Advanced-Topics.html" title="previous page">Advanced Topics</a>
+    <a class='right-next' id="next-link" href="chapter23.00-ODE-Boundary-Value-Problems.html" title="next page">Ordinary Differential Equation - Boundary Value Problems</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

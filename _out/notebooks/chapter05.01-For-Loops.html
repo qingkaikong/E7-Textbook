@@ -1,0 +1,700 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For-Loops &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="While Loops" href="chapter05.02-While-Loops.html" />
+    <link rel="prev" title="Iteration" href="chapter05.00-Iteration.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.02-While-Loops.html">
+     While Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.03-Comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter05.01-For-Loops.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter05.00-Iteration.html"><span class="doc std std-doc">CHAPTER 5. Iteration</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter05.02-While-Loops.html"><span class="doc std std-doc">5.2 While Loops</span></a> &gt;</p>
+<div class="section" id="for-loops">
+<h1>For-Loops<a class="headerlink" href="#for-loops" title="Permalink to this headline">¶</a></h1>
+<p>A <strong>for-loop</strong> is a set of instructions that is repeated, or iterated, for every value in a sequence. Sometimes for-loops are referred to as <strong>definite loops</strong> because they have a predefined begin and end as bounded by the sequence.</p>
+<p>The general syntax of a for-loop block is as follows.</p>
+<p><strong>CONSTRUCTION</strong>: For-loop</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">looping</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="n">code</span> <span class="n">block</span>
+</pre></div>
+</div>
+<p>A for-loop assigns the <strong>looping variable</strong> to the first element of the sequence. It executes everything in the code block. Then it assigns the looping variable to the next element of the sequence and executes the code block again. It continues until there are no more elements in the sequence to assign.</p>
+<p><strong>TRY IT!</strong> What is the sum of every integer from 1 to 3?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">i</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>WHAT IS HAPPENING?</strong></p>
+<ol class="simple">
+<li><p>First, the function <em>range(1, 4)</em> is generating a list of numbers beginning at 1 and ending at 3. Check the description of the function <em>range</em> and get familiar with how to use it. In a very simple form, it is <em>range(start, stop, step)</em>, and the <em>step</em> is optional with 1 as the default.</p></li>
+<li><p>The variable <em>n</em> is assigned the value 0.</p></li>
+<li><p>The variable <em>i</em> is assigned the value 1.</p></li>
+<li><p>The variable <em>n</em> is assigned the value <em>n + i</em> (<span class="math notranslate nohighlight">\(0 + 1 = 1\)</span>).</p></li>
+<li><p>The variable <em>i</em> is assigned the value 2.</p></li>
+<li><p>The variable <em>n</em> is assigned the value <em>n + i</em> (<span class="math notranslate nohighlight">\(1 + 2 = 3\)</span>).</p></li>
+<li><p>The variable <em>i</em> is assigned the value 3.</p></li>
+<li><p>The variable <em>n</em> is assigned the value <em>n + i</em> (<span class="math notranslate nohighlight">\(3 + 3 = 6\)</span>).</p></li>
+<li><p>With no more values to assign in the list, the for-loop is terminated with
+<em>n = 6</em>.</p></li>
+</ol>
+<p>We present several more examples to give you a sense of how for-loops work. Other examples of sequences that we can iterate over include the elements of a tuple, the characters in a string, and other sequential data types.</p>
+<p><strong>EXAMPLE:</strong> Print all the characters in the string <code class="docutils literal notranslate"><span class="pre">&quot;banana&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s2">&quot;banana&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>b
+a
+n
+a
+n
+a
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you could use the index to get each character. But it is not as concise as the previous example. Recall that the length of a string could be determined by using the <em>len</em> function. And we could ignore the start by only giving one number as the stop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;banana&quot;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>b
+a
+n
+a
+n
+a
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>EXAMPLE</strong>: Given a list of integers, <em>a</em>, add all the elements of <em>a</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">i</span> <span class="c1"># note this is equivalent to s = s + i</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Python function <em>sum</em> has already been written to handle the previous example. However, assume you wish to add only the even numbers. What would you change to the previous for-loop block to handle this restriction?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>NOTE!</strong> We use <em>step</em> as 2 in the <em>range</em> function to get the even indexes for list <em>a</em>. Also, a Python shortcut that is commonly used is the operator <em>+=</em>. In Python and many other programming languages, a statement like <em>i += 1</em> is equivalent to <em>i = i + 1</em> and same is for other operators as <em>-=</em>, <em>*=</em>, <em>/=</em>.</p>
+<p><strong>Example</strong> Define a dictionary and loop through all the keys and values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict_a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;One&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Two&quot;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Three&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dict_a</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">dict_a</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>One 1
+Two 2
+Three 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, we first get all the keys using the method <em>keys</em>, and then use the key to get access the value. Alternatively, we could use the <em>item</em> method in a dictionary, and get the key and value at the same time as show in the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">dict_a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>One 1
+Two 2
+Three 3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that, we could assign two different looping variables at the same time. There are other cases that we could do things similarly. For example, if we have two lists with same length, and we want to loop through them, we could do as the following example using the <em>zip</em> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;One&quot;</span><span class="p">,</span> <span class="s2">&quot;Two&quot;</span><span class="p">,</span> <span class="s2">&quot;Three&quot;</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>One 1
+Two 2
+Three 3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>EXAMPLE:</strong> Let the function <em>have_digits</em> has the input as a string. The output <em>out</em> should take the value 1 if the string contains digits, and 0 otherwise. You could use the <em>isdigit</em> method of the string to check if the character is a digit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">have_digits</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    
+    <span class="n">out</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># loop through the string</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+        <span class="c1"># check if the character is a digit</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">break</span>
+            
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">have_digits</span><span class="p">(</span><span class="s1">&#39;only4you&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">have_digits</span><span class="p">(</span><span class="s1">&#39;only for you&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first step in the function <em>have_digits</em> assumes that there are no digits in the string <em>s</em> (i.e., the output is 0 or False).</p>
+<p>Notice the new keyword <em>break</em>. If executed, the <em>break</em> keyword immediately stops the most immediate for-loop that contains it; that is, if it is contained in a nested for-loop, then it will only stop the innermost for-loop. In this particular case, the break command is executed if we ever find a digit in the string. The code will still function properly without this statement, but since the task is to find out if there are any digit in <em>s</em>, we do not have to keep looking if we find one. Similarly, if a human was given the same task for a long string of characters, that person would not continue looking for digits if he or she already found one. Break statements are used when anything happens in a for-loop that would make you want it to stop early. A less intrusive command is the keyword <em>continue</em>, which skips the remaining code in the current iteration of the for-loop, and continues on to the next element of the looping array. See the following example, that we use the keyword <em>continue</em> to skip the <em>print</em> function to print 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+1
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>EXAMPLE:</strong> Let the function <em>my_dist_2_points(xy_points, xy)</em>, where the input argument <em>xy_points</em> is a list of x-y coordinates of a point in Euclidean space, <em>xy</em> is a list that contain an x-y coordinate, and the output <em>d</em> is a list containing the distances from <em>xy</em> to the points contained in each row of <em>xy_points</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">my_dist_2_points</span><span class="p">(</span><span class="n">xy_points</span><span class="p">,</span> <span class="n">xy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns an array of distances between xy and the points </span>
+<span class="sd">    contained in the rows of xy_points</span>
+<span class="sd">    </span>
+<span class="sd">    author</span>
+<span class="sd">    date</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">xy_point</span> <span class="ow">in</span> <span class="n">xy_points</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>\
+            <span class="p">(</span><span class="n">xy_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">xy_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xy_points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">my_dist_2_points</span><span class="p">(</span><span class="n">xy_points</span><span class="p">,</span> <span class="n">xy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[2.0, 1.4142135623730951, 1.0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Just like if-statements, for-loops can be nested.</p>
+<p><strong>EXAMPLE:</strong> Let <em>x</em> be a two-dimensional array, [5 6;7 8]. Use a nested for-loop to sum all the elements in <em>x</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+        
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>26
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>WHAT IS HAPPENING?</strong></p>
+<ol class="simple">
+<li><p><em>s</em>, representing the running total sum, is set to 0.</p></li>
+<li><p>The outer for-loop begins with looping variable, i, set to 0.</p></li>
+<li><p>Inner for-loop begins with looping variable, j, set to 0.</p></li>
+<li><p><em>s</em> is incremented by x[i,j] = x[0,0] = 5. So s = 5.</p></li>
+<li><p>Inner for-loop sets j = 1.</p></li>
+<li><p><em>s</em> is incremented by x[i,j] = x[0,1] = 6. So s = 11.</p></li>
+<li><p>Inner for-loop terminates.</p></li>
+<li><p>Outer for-loop sets i = 1.</p></li>
+<li><p>Inner for-loop begins with looping variable, j, set to 0.</p></li>
+<li><p><em>s</em> is incremented by x[i,j] = x[1,0] = 7. So s = 18.</p></li>
+<li><p>Inner for-loop sets j = 1.</p></li>
+<li><p><em>s</em> is incremented by x[i,j] = x[1,1] = 8. So s = 26.</p></li>
+<li><p>Inner for-loop terminates.</p></li>
+<li><p>Outer for-loop terminates with s = 26.</p></li>
+</ol>
+<p><strong>WARNING!</strong> Although possible, do not try to change the looping variable inside of the for-loop. It will make your code very complicated and will likely result in errors.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter05.00-Iteration.html"><span class="doc std std-doc">CHAPTER 5. Iteration</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter05.02-While-Loops.html"><span class="doc std std-doc">5.2 While Loops</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter05.00-Iteration.html" title="previous page">Iteration</a>
+    <a class='right-next' id="next-link" href="chapter05.02-While-Loops.html" title="next page">While Loops</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

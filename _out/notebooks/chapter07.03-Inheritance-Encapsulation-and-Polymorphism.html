@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance, Encapsulation and Polymorphism &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inheritance" href="chapter07.03-Inheritance.html" />
+    <link rel="prev" title="Class and Object" href="chapter07.02-Class-and-Object.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.01-Introduction-to-OOP.html">
+     Introduction to OOP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.02-Class-and-Object.html">
+     Class and Object
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Inheritance, Encapsulation and Polymorphism
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.03-Inheritance.html">
+     Inheritance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter07.03-Inheritance-Encapsulation-and-Polymorphism.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inheritance">
+   Inheritance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inherit-and-extend-new-method">
+     Inherit and extend new method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inherit-and-method-overriding">
+     Inherit and method overriding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#inherit-and-update-attributes-with-super">
+     Inherit and update attributes with super
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encapsulation">
+   Encapsulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polymorphism">
+   Polymorphism
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter07.02-Class-and-Object.html"><span class="doc std std-doc">7.2 Class and Object</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter07.04-Summary-and-Problems.html"><span class="doc std std-doc">7.4 Summary and Problems</span></a> &gt;</p>
+<div class="section" id="inheritance-encapsulation-and-polymorphism">
+<h1>Inheritance, Encapsulation and Polymorphism<a class="headerlink" href="#inheritance-encapsulation-and-polymorphism" title="Permalink to this headline">¶</a></h1>
+<p>We have already seen the modeling power of OOP using the class and object functions by combining data and methods. There are three more important concept, <strong>inheritance</strong>, which makes the OOP code more modular,
+easier to reuse and build a relationship between classes. <strong>Encapsulation</strong> can hide some of the private details of a class from other objects, while <strong>polymorphism</strong> can allow us to use a common operation in different ways. In this section, we will briefly discuss them.</p>
+<div class="section" id="inheritance">
+<h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
+<p>Inheritance allows us to define a class that inherits all the methods and attributes from another class. Convention denotes the new class as <strong>child class</strong>, and the one that it inherits from is called <strong>parent class</strong> or <strong>superclass</strong>. If we refer back to the definition of class structure, we can see the structure for basic inheritance is <strong>class ClassName(superclass)</strong>, which means the new class can access all the attributes and methods from the superclass. Inheritance builds a relationship between the child class and parent class, usually in a way that the parent class is a general type while the child class is a specific type. Let us try to see an example.</p>
+<p><strong>TRY IT!</strong> Define a class named <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> with attributes <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">location</span></code>, and <code class="docutils literal notranslate"><span class="pre">record_date</span></code> that pass from the creation of an object and an attribute <code class="docutils literal notranslate"><span class="pre">data</span></code> as an empty dictionary to store data. Create one method <em>add_data</em> with <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> as input parameters to take in timestamp and data arrays. Within this method, assign <code class="docutils literal notranslate"><span class="pre">t</span></code> and <code class="docutils literal notranslate"><span class="pre">data</span></code> to the <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute with ‘time’ and ‘data’ as the keys. In addition, it should have one <code class="docutils literal notranslate"><span class="pre">clear_data</span></code> method to delete the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sensor</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">record_date</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">record_date</span> <span class="o">=</span> <span class="n">record_date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        
+    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We have </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> points saved&#39;</span><span class="p">)</span>        
+        
+    <span class="k">def</span> <span class="nf">clear_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data cleared!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a class to store general sensor information, we can create a sensor object to store some data.</p>
+<p><strong>EXAMPLE:</strong> Create a sensor object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">sensor1</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s1">&#39;sensor1&#39;</span><span class="p">,</span> <span class="s1">&#39;Berkeley&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-01-01&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">sensor1</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">sensor1</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>We have 10 points saved
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;time&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+ &#39;data&#39;: array([-4, -7,  2, -3, -8,  6,  4,  3,  5, -9])}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inherit-and-extend-new-method">
+<h3>Inherit and extend new method<a class="headerlink" href="#inherit-and-extend-new-method" title="Permalink to this headline">¶</a></h3>
+<p>Say we have one different type of sensor: an accelerometer. It shares the same attributes and methods as <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class, but it also has different attributes or methods need to be appended or modified from the original class. What should we do? Do we create a different class from scratch? This is where inheritance can be used to make life easier. This new class will inherit from the <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class with all the attributes and
+methods. We can whether we want to extend the attributes or methods. Let us first create this new class, <code class="docutils literal notranslate"><span class="pre">Accelerometer</span></code>, and add a new method, <code class="docutils literal notranslate"><span class="pre">show_type</span></code>, to report what kind of sensor it is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Accelerometer</span><span class="p">(</span><span class="n">Sensor</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">show_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I am an accelerometer!&#39;</span><span class="p">)</span>
+        
+<span class="n">acc</span> <span class="o">=</span> <span class="n">Accelerometer</span><span class="p">(</span><span class="s1">&#39;acc1&#39;</span><span class="p">,</span> <span class="s1">&#39;Oakland&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-02-01&#39;</span><span class="p">)</span>
+<span class="n">acc</span><span class="o">.</span><span class="n">show_type</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">acc</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">acc</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I am an accelerometer!
+We have 10 points saved
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;time&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+ &#39;data&#39;: array([ -2,   2, -10,   6,   2,  -8,   2,   3,   7,  -6])}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creating this new <code class="docutils literal notranslate"><span class="pre">Accelerometer</span></code> class is very simple. We inherit from <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> (denoted as a superclass), and the new class actually contains all the attributes and methods from the superclass. We then add a new method, <code class="docutils literal notranslate"><span class="pre">show_type</span></code>, which does not exist in the <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class, but we can successfully extend the child
+class by adding the new method. This shows the power of inheritance: we have reused most part of the <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class in a new class, and extended the functionality. Besides, the inheritance sets up a logical relationship for the modeling of the real-world entities : the <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class as the parent class is more general and passes all the characteristics to the child class <code class="docutils literal notranslate"><span class="pre">Accelerometer</span></code>.</p>
+</div>
+<div class="section" id="inherit-and-method-overriding">
+<h3>Inherit and method overriding<a class="headerlink" href="#inherit-and-method-overriding" title="Permalink to this headline">¶</a></h3>
+<p>When we inherit from a parent class, we can change the implementation of a method provided by the parent class, this is called method overriding. Let us see the following example.</p>
+<p><strong>EXAMPLE:</strong> Create a class <code class="docutils literal notranslate"><span class="pre">UCBAcc</span></code> (a specific type of accelerometer that created at UC Berkeley) that inherits from <code class="docutils literal notranslate"><span class="pre">Accelerometer</span></code> but replace the <code class="docutils literal notranslate"><span class="pre">show_type</span></code> method that prints out the name of the sensor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">UCBAcc</span><span class="p">(</span><span class="n">Accelerometer</span><span class="p">):</span>
+    
+    <span class="k">def</span> <span class="nf">show_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, created at UC Berkeley!&#39;</span><span class="p">)</span>
+        
+<span class="n">acc_ucb</span> <span class="o">=</span> <span class="n">UCBAcc</span><span class="p">(</span><span class="s1">&#39;UCBAcc&#39;</span><span class="p">,</span> <span class="s1">&#39;Berkeley&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-03-01&#39;</span><span class="p">)</span>
+<span class="n">acc_ucb</span><span class="o">.</span><span class="n">show_type</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>I am UCBAcc, created at UC Berkeley!
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that, our new <code class="docutils literal notranslate"><span class="pre">UCBAcc</span></code> class actually overrides the method <code class="docutils literal notranslate"><span class="pre">show_type</span></code> with new features. In this example, we are not only inheriting features from our parent class, but we are also modifying/improving some methods.</p>
+</div>
+<div class="section" id="inherit-and-update-attributes-with-super">
+<h3>Inherit and update attributes with super<a class="headerlink" href="#inherit-and-update-attributes-with-super" title="Permalink to this headline">¶</a></h3>
+<p>Let us create a class <code class="docutils literal notranslate"><span class="pre">NewSensor</span></code> that inherits from <code class="docutils literal notranslate"><span class="pre">Sensor</span></code> class, but with updated the attributes by adding a new attribute <code class="docutils literal notranslate"><span class="pre">brand</span></code>. Of course, we can re-define the whole <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method as shown below and overriding the parent function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NewSensor</span><span class="p">(</span><span class="n">Sensor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">record_date</span><span class="p">,</span> <span class="n">brand</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">record_date</span> <span class="o">=</span> <span class="n">record_date</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        
+<span class="n">new_sensor</span> <span class="o">=</span> <span class="n">NewSensor</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-03-01&#39;</span><span class="p">,</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">)</span>
+<span class="n">new_sensor</span><span class="o">.</span><span class="n">brand</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;XYZ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, there is a better way to achieve the same. We can use the <code class="docutils literal notranslate"><span class="pre">super</span></code> method to avoid referring to the parent class explicitly. Let us see how to perform this in the following example:</p>
+<p><strong>EXAMPLE:</strong> Redefine the attributes in inheritance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NewSensor</span><span class="p">(</span><span class="n">Sensor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">record_date</span><span class="p">,</span> <span class="n">brand</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">record_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span>
+        
+<span class="n">new_sensor</span> <span class="o">=</span> <span class="n">NewSensor</span><span class="p">(</span><span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="s1">&#39;SF&#39;</span><span class="p">,</span> <span class="s1">&#39;2019-03-01&#39;</span><span class="p">,</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">)</span>
+<span class="n">new_sensor</span><span class="o">.</span><span class="n">brand</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;XYZ&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can see with the <em>super</em> method, we avoid to list all the definition of the attributes, this helps keep your code maintainable for the foreseeable future. But it really useful when you are doing multiple inheritance, which is beyond the discussion of this book.</p>
+</div>
+</div>
+<div class="section" id="encapsulation">
+<h2>Encapsulation<a class="headerlink" href="#encapsulation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Encapsulation</strong> is one of the fundamental concepts in OOP. It describes the idea of restricting access to methods and attributes in a class. This will hide the complex details from the users, and prevent data being modified by accident. In Python, this is achieved by using private methods or attributes using underscore as prefix, i.e. single “_” or double “__”. Let us see the following example.</p>
+<p><strong>EXAMPLE:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Sensor</span><span class="p">():</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">location</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_location</span> <span class="o">=</span> <span class="n">location</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="s1">&#39;1.0&#39;</span>
+    
+    <span class="c1"># a getter function</span>
+    <span class="k">def</span> <span class="nf">get_version</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The sensor version is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">__version</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># a setter function</span>
+    <span class="k">def</span> <span class="nf">set_version</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__version</span> <span class="o">=</span> <span class="n">version</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor1</span> <span class="o">=</span> <span class="n">Sensor</span><span class="p">(</span><span class="s1">&#39;Acc&#39;</span><span class="p">,</span> <span class="s1">&#39;Berkeley&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">_location</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">__version</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Acc
+Berkeley
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">ca9b481690ba</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">_location</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">sensor1</span><span class="o">.</span><span class="n">__version</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Sensor&#39; object has no attribute &#39;__version&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The above example shows how the encapsulation works. With single underscore, we defined a private variable, and it should not be accessed directly. But this is just convention, nothing stops you from doing that. You can still get access to it if you want to. With double underscore, we can see that the attribute <code class="docutils literal notranslate"><span class="pre">__version</span></code> can not be accessed or modify it directly. Therefore, to get access to the double underscore attributes, we need to use getter and setter function to access it internally, as shown in the following example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor1</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The sensor version is 1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sensor1</span><span class="o">.</span><span class="n">set_version</span><span class="p">(</span><span class="s1">&#39;2.0&#39;</span><span class="p">)</span>
+<span class="n">sensor1</span><span class="o">.</span><span class="n">get_version</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The sensor version is 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The single and double underscore also apply to private methods as well, we will not discuss these as they are similar to the private attributes.</p>
+</div>
+<div class="section" id="polymorphism">
+<h2>Polymorphism<a class="headerlink" href="#polymorphism" title="Permalink to this headline">¶</a></h2>
+<p><strong>Polymorphism</strong> is another fundamental concept in OOP, which means multiple forms. Polymorphism allows us to use a single interface with different underlying forms such as data types or classes. For example, we can have commonly named methods across classes or child classes. We have already seen one example above, when we override the method <code class="docutils literal notranslate"><span class="pre">show_type</span></code> in the <code class="docutils literal notranslate"><span class="pre">UCBAcc</span></code>. For parent class <code class="docutils literal notranslate"><span class="pre">Accelerometer</span></code> and child class <code class="docutils literal notranslate"><span class="pre">UCBAcc</span></code>, they both have a method named <code class="docutils literal notranslate"><span class="pre">show_type</span></code>, but they have different implementation. This ability of using single name with many forms acting differently in different situations greatly reduces our complexities. We will not expand to discuss more of Polymorphism, if you are interested, check more online to get a deeper understanding.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter07.02-Class-and-Object.html"><span class="doc std std-doc">7.2 Class and Object</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter07.04-Summary-and-Problems.html"><span class="doc std std-doc">7.4 Summary and Problems</span></a> &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter07.02-Class-and-Object.html" title="previous page">Class and Object</a>
+    <a class='right-next' id="next-link" href="chapter07.03-Inheritance.html" title="next page">Inheritance</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
