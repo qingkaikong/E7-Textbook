@@ -14,5 +14,7 @@ follow the **Build** instructions below to push these changes to prod.
 
 ## Build
 
-To make changes to the book in production, transfer the changes via SFTP to the machine, SSH into it, 
-`cd` into this repo, and run `make prod`.
+OCF username: `e7staff`
+
+To make changes to the book in production, transfer the changes via SFTP to the machine, SSH into it
+(`e7staff@ssh.ocf.berkeley.edu`), `cd` into this repo, and run `make prod`.
