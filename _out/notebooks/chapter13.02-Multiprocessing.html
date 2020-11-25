@@ -341,8 +341,8 @@
                 
   <!--BOOK_INFORMATION-->
 <img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
-<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
-<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
 <!--NAVIGATION-->
 <p>&lt; <a class="reference internal" href="chapter13.01-Parallel-Computing-Basics.html"><span class="doc std std-doc">13.1 Parallel Computing Basics</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter13.03-Use-joblib.html"><span class="doc std std-doc">13.3 Use joblib</span></a> &gt;</p>
 <div class="section" id="multiprocessing">
@@ -397,7 +397,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time 38.20956087112427 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time 32.9464430809021 s
 </pre></div>
 </div>
 </div>
@@ -405,7 +405,7 @@
 </div>
 <div class="section" id="parallel-version">
 <h2>Parallel version<a class="headerlink" href="#parallel-version" title="Permalink to this headline">¶</a></h2>
-<p>The simplest way to do parallel computing using the multiprocessing is to use the <strong>Pool</strong> class. There are 4 common methods in the class that we may use often, that is <em>apply</em>, <em>map</em>, <em>apply_async</em> and <em>map_async</em>. Have a look of the documentation for the differences, and we will only use <em>map</em> function below the parallel the above example. The <em>map(func, iterable)</em> function takes in two arguments, and apply the function <em>func</em> to each element in the <em>iterable</em>, and then collect the results.</p>
+<p>The simplest way to do parallel computing using the multiprocessing is to use the <strong>Pool</strong> class. There are 4 common methods in the class that we may use often, that is <em>apply</em>, <em>map</em>, <em>apply_async</em> and <em>map_async</em>. Have a look of the documentation for the differences, and we will only use <em>map</em> function below to parallel the above example. The <em>map(func, iterable)</em> function takes in two arguments, and apply the function <em>func</em> to each element in the <em>iterable</em>, and then collect the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -419,12 +419,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time 7.130078077316284 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Execution time 6.066138744354248 s
 </pre></div>
 </div>
 </div>
 </div>
 <p>We can see that using the above parallel version of the code, we reduce the run time from ~38 s to ~7 s. This is a big gain in speed, especially if we have a heavy computation, it will reduce a lot of time by running parallel computing.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">pool.apply</span></code> function is similar except that it can accept more arguments. The <code class="docutils literal notranslate"><span class="pre">pool.map</span></code> and <code class="docutils literal notranslate"><span class="pre">pool.apply</span></code> will lock the main program until all the processes are finished, which is quite useful if we want to obtain results in a particular order for some applications. In contrast, if we do not need the results in a particular order, we can also use <code class="docutils literal notranslate"><span class="pre">pool.apply_async</span></code> or <code class="docutils literal notranslate"><span class="pre">pool.map_async</span></code>, which will submit all processes at once and retrieve the results as soon as they are finished. Check online to learn more.</p>
 </div>
 <div class="section" id="visualize-the-execution-time">
 <h2>Visualize the execution time<a class="headerlink" href="#visualize-the-execution-time" title="Permalink to this headline">¶</a></h2>
@@ -466,17 +467,1162 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Process ForkPoolWorker-94:
+Process ForkPoolWorker-81:
+Process ForkPoolWorker-90:
+Process ForkPoolWorker-85:
+Process ForkPoolWorker-74:
+Process ForkPoolWorker-86:
+Process ForkPoolWorker-95:
+Process ForkPoolWorker-79:
+Process ForkPoolWorker-28:
+Process ForkPoolWorker-41:
+Process ForkPoolWorker-44:
+Process ForkPoolWorker-34:
+Process ForkPoolWorker-19:
+Process ForkPoolWorker-77:
+Process ForkPoolWorker-62:
+Process ForkPoolWorker-96:
+Process ForkPoolWorker-89:
+Process ForkPoolWorker-82:
+Process ForkPoolWorker-84:
+Process ForkPoolWorker-87:
+Process ForkPoolWorker-45:
+Process ForkPoolWorker-76:
+Process ForkPoolWorker-93:
+Process ForkPoolWorker-88:
+Process ForkPoolWorker-67:
+Process ForkPoolWorker-83:
+Process ForkPoolWorker-26:
+Process ForkPoolWorker-54:
+Process ForkPoolWorker-47:
+Process ForkPoolWorker-39:
+Process ForkPoolWorker-17:
+Process ForkPoolWorker-78:
+Process ForkPoolWorker-50:
+Process ForkPoolWorker-22:
+Process ForkPoolWorker-42:
+Process ForkPoolWorker-27:
+Process ForkPoolWorker-13:
+Process ForkPoolWorker-61:
+Process ForkPoolWorker-18:
+Process ForkPoolWorker-30:
+Process ForkPoolWorker-46:
+Process ForkPoolWorker-68:
+Process ForkPoolWorker-25:
+Process ForkPoolWorker-43:
+Process ForkPoolWorker-29:
+Process ForkPoolWorker-49:
+Process ForkPoolWorker-75:
+Process ForkPoolWorker-20:
+Process ForkPoolWorker-64:
+Process ForkPoolWorker-65:
+Process ForkPoolWorker-21:
+Traceback (most recent call last):
+Process ForkPoolWorker-33:
+Process ForkPoolWorker-31:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Process ForkPoolWorker-16:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Process ForkPoolWorker-15:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+Process ForkPoolWorker-91:
+Process ForkPoolWorker-23:
+Process ForkPoolWorker-69:
+Process ForkPoolWorker-66:
+Process ForkPoolWorker-35:
+Process ForkPoolWorker-55:
+Process ForkPoolWorker-48:
+Process ForkPoolWorker-38:
+Process ForkPoolWorker-70:
+Process ForkPoolWorker-37:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+Process ForkPoolWorker-73:
+Process ForkPoolWorker-58:
+Process ForkPoolWorker-36:
+Process ForkPoolWorker-24:
+Process ForkPoolWorker-56:
+Process ForkPoolWorker-57:
+Process ForkPoolWorker-92:
+Process ForkPoolWorker-14:
+Process ForkPoolWorker-32:
+Process ForkPoolWorker-53:
+Process ForkPoolWorker-40:
+Traceback (most recent call last):
+Process ForkPoolWorker-71:
+Process ForkPoolWorker-60:
+Process ForkPoolWorker-80:
+Process ForkPoolWorker-51:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+Process ForkPoolWorker-72:
+Process ForkPoolWorker-59:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+Process ForkPoolWorker-52:
+Process ForkPoolWorker-63:
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+Traceback (most recent call last):
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+Traceback (most recent call last):
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 258, in _bootstrap
+    self.run()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/process.py&quot;, line 93, in run
+    self._target(*self._args, **self._kwargs)
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/pool.py&quot;, line 108, in worker
+    task = get()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+</pre>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 335, in get
+    res = self._reader.recv_bytes()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/queues.py&quot;, line 334, in get
+    with self._rlock:
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/synchronize.py&quot;, line 95, in __enter__
+    return self._semlock.__enter__()
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 407, in _recv_bytes
+    buf = self._recv(4)
+KeyboardInterrupt
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+  File &quot;/Users/qingkaikong/miniconda3/lib/python3.6/multiprocessing/connection.py&quot;, line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+KeyboardInterrupt
+</pre>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_serial</span><span class="p">,</span> <span class="n">n_run</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;serial&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_parallel</span><span class="p">,</span> <span class="n">n_run</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;parallel&#39;</span><span class="p">)</span>
-<span class="c1">#plt.xscale(&#39;log&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_run</span><span class="p">,</span> <span class="n">t_serial</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;serial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_run</span><span class="p">,</span> <span class="n">t_parallel</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;parallel&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Execution time (s)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of random points&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Execution time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Number of random points&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

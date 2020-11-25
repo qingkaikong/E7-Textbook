@@ -291,6 +291,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-changes">
+   Make Changes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#build">
    Build
   </a>
@@ -310,12 +315,18 @@
 <p><strong>This is the production repo for the textbook.</strong></p>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>To set up the book on the OCF account, clone this repo and symlink <code class="docutils literal notranslate"><span class="pre">_build/html</span></code> in this repo with the
-<code class="docutils literal notranslate"><span class="pre">~/public_html</span></code> folder on the machine.</p>
+<p>To set up the book on the OCF account, use SFTP to transfer this repo’s contents to the machine
+and symlink <code class="docutils literal notranslate"><span class="pre">_out</span></code> in this repo with the <code class="docutils literal notranslate"><span class="pre">~/public_html</span></code> folder on the machine.</p>
+</div>
+<div class="section" id="make-changes">
+<h2>Make Changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
+<p>To make changes to the book, edit the notebooks and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">book</span></code> locally. Commit and push, then
+follow the <strong>Build</strong> instructions below to push these changes to prod.</p>
 </div>
 <div class="section" id="build">
 <h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
-<p>To make changes to the book in production, SSH into the machine, <code class="docutils literal notranslate"><span class="pre">cd</span></code> into this repo, and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">book</span></code>.</p>
+<p>To make changes to the book in production, transfer the changes via SFTP to the machine, SSH into it,
+<code class="docutils literal notranslate"><span class="pre">cd</span></code> into this repo, and run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">prod</span></code>.</p>
 </div>
 </div>
 

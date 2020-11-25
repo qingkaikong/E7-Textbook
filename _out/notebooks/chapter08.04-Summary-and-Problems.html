@@ -324,8 +324,8 @@
                 
   <!--BOOK_INFORMATION-->
 <img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
-<p><em>This notebook contains an excerpt from the <span class="xref myst">An Introduction To Python Programming And Numerical Methods For Scientists and Engineers</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
-<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
 <!--NAVIGATION-->
 <p>&lt; <a class="reference internal" href="chapter08.03-The-Profiler.html"><span class="doc std std-doc">8.3 The Profiler</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html"><span class="doc std std-doc">9.0 Representation of Numbers</span></a> &gt;</p>
 <div class="section" id="summary">
@@ -356,15 +356,17 @@
 <li><p>What is the complexity of the algorithms that compute the following recursive relationships? Classify the following algorithms as log time, polynomial time, or exponential time in terms of n given that the implementation is (a) recursive, and (b) iterative.</p></li>
 </ol>
 <p>Tribonacci, <span class="math notranslate nohighlight">\(T(n)\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
 T(n) &amp;=&amp; T(n-1) + T(n-2) + T(n-3)\\
 T(1) &amp;=&amp; T(2) = T(3) = 1.
-\end{eqnarray*}\)</span></p>
+\end{eqnarray*}\end{split}\]</div>
 <p>Timmynacci, <span class="math notranslate nohighlight">\(t(n)\)</span>:</p>
-<p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray*}
 t(n) &amp;=&amp; t(n/2) + t(n/4)\\
 t(n) &amp;=&amp; 1\ if\ n &lt; 1.
-\end{eqnarray*}\)</span></p>
+\end{eqnarray*}\end{split}\]</div>
 <ol class="simple">
 <li><p>What is the Big-O complexity of the Towers of Hanoi problem given in Chapter 6? Is the complexity an upper bound or is it exact?</p></li>
 <li><p>What is the Big-O complexity of the quicksort algorithm?</p></li>
