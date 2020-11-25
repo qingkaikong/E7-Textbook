@@ -1,1 +1,0 @@
-This folder will contain extra examples that you come up with. 
