@@ -17,3 +17,7 @@ html:
 #   favicon: content/images/favicon.ico
   use_repository_button: true
   navbar_number_sections: false
+
+# This will parse the LateX equations correctly
+parse:
+  myst_extended_syntax: true
