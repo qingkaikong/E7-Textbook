@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Least Squares Regression Derivation (Linear Algebra) &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Least Squares Regression Derivation (Multivariable Calculus)" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html" />
+    <link rel="prev" title="Least Squares Regression Problem Statement" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html">
+     Least Squares Regression Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Least Squares Regression Derivation (Linear Algebra)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html">
+     Least Squares Regression Derivation (Multivariable Calculus)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.04-Least-Squares-Regression-in-Python.html">
+     Least Squares Regression in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.html">
+     Least Square Regression for Nonlinear Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html"><span class="doc std std-doc">16.1 Least Squares Regression Problem Statement</span></a>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html"><span class="doc std std-doc">16.3 Least Squares Regression Derivation (Multivariable Calculus)</span></a>   &gt;</p>
+<div class="section" id="least-squares-regression-derivation-linear-algebra">
+<h1>Least Squares Regression Derivation (Linear Algebra)<a class="headerlink" href="#least-squares-regression-derivation-linear-algebra" title="Permalink to this headline">¶</a></h1>
+<p>First, we enumerate the estimation of the data at each data point <span class="math notranslate nohighlight">\(x_i\)</span></p>
+<p>\begin{eqnarray*}
+&amp;&amp;\hat{y}(x_1) = {\alpha}_1 f_1(x_1) + {\alpha}_2 f_2(x_1) + \cdots + {\alpha}_n f_n(x_1), \
+&amp;&amp;\hat{y}(x_2) = {\alpha}_1 f_1(x_2) + {\alpha}_2 f_2(x_2) + \cdots + {\alpha}_n f_n(x_2), \
+&amp;&amp;\qquad\qquad \qquad \qquad \quad \cdots\
+&amp;&amp;\hat{y}(x_m) = {\alpha}_1 f_1(x_m) + {\alpha}_2 f_2(x_m) + \cdots + {\alpha}_n f_n(x_m).\end{eqnarray*}</p>
+<p>Let <span class="math notranslate nohighlight">\(X\in {\Bbb R}^n\)</span> be a column vector such that the <span class="math notranslate nohighlight">\(i\)</span>-th element of <span class="math notranslate nohighlight">\(X\)</span> contains the value of the <span class="math notranslate nohighlight">\(i\)</span>-th <span class="math notranslate nohighlight">\(x\)</span>-data point, <span class="math notranslate nohighlight">\(x_i, \hat{Y}\)</span> be a column vector with elements, <span class="math notranslate nohighlight">\(\hat{Y}_i = \hat{y}(x_i), {\beta}\)</span> be a column vector such that <span class="math notranslate nohighlight">\({\beta}_i = {\alpha}_i, F_i(x)\)</span> be a function that returns a column vector of <span class="math notranslate nohighlight">\(f_i(x)\)</span> computed on every element of <span class="math notranslate nohighlight">\(x\)</span>, and <span class="math notranslate nohighlight">\(A\)</span> be an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix such that the <span class="math notranslate nohighlight">\(i\)</span>-th column of <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(F_i(x)\)</span>. Given this notation, the previous system of equations becomes <span class="math notranslate nohighlight">\(\hat{Y} = A{\beta}\)</span>.</p>
+<p>Now if <span class="math notranslate nohighlight">\(Y\)</span> is a column vector such that <span class="math notranslate nohighlight">\(Y_i = y_i\)</span>, the total squared error is given by <span class="math notranslate nohighlight">\(E = \|{\hat{Y} - Y}\|_{2}^2\)</span>. You can verify this by substituting the definition of the <span class="math notranslate nohighlight">\(L_2\)</span> norm. Since we want to make <span class="math notranslate nohighlight">\(E\)</span> as small as possible and norms are a measure of distance, this previous expression is equivalent to saying that we want <span class="math notranslate nohighlight">\(\hat{Y}\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> to be a “close as possible.” Note that in general <span class="math notranslate nohighlight">\(Y\)</span> will not be in the range of <span class="math notranslate nohighlight">\(A\)</span> and therefore <span class="math notranslate nohighlight">\(E &gt; 0\)</span>.</p>
+<p>Consider the following simplified depiction of the range of <span class="math notranslate nohighlight">\(A\)</span>; see the following figure. Note this is <span class="math notranslate nohighlight">\(\it not\)</span> a plot of the data points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span>.</p>
+<img src="./images/16.02.01-Illustration_of_Least_Square_Regression.png" alt="Illustration of Least Square Regression" title="Illustration of the L2 projection of Y on the range of A" width="400"/>
+<p>From observation, the vector in the range of <span class="math notranslate nohighlight">\(A, \hat{Y}\)</span>, that is closest to <span class="math notranslate nohighlight">\(Y\)</span> is the one that can point perpendicularly to <span class="math notranslate nohighlight">\(Y\)</span>. Therefore, we want a vector <span class="math notranslate nohighlight">\(Y - \hat{Y}\)</span> that is perpendicular to the vector <span class="math notranslate nohighlight">\(\hat{Y}\)</span>.</p>
+<p>Recall from Linear Algebra that two vectors are perpendicular, or orthogonal, if their dot product is 0. Noting that the dot product between two vectors, <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(w\)</span>, can be written as <span class="math notranslate nohighlight">\({\text{dot}}(v,w) = v^T w\)</span>, we can state that <span class="math notranslate nohighlight">\(\hat{Y}\)</span> and <span class="math notranslate nohighlight">\(Y - \hat{Y}\)</span> are perpendicular if <span class="math notranslate nohighlight">\({\text{dot}}(\hat{Y}, Y - \hat{Y}) = 0\)</span>; therefore, <span class="math notranslate nohighlight">\(\hat{Y}^T (Y - \hat{Y}) = 0\)</span>, which is equivalent to <span class="math notranslate nohighlight">\((A{\beta})^T(Y - A{\beta}) = 0\)</span>.</p>
+<p>Noting that for two matrices <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B, (AB)^T = B^T A^T\)</span> and using distributive properties of vector multiplication, this is equivalent to <span class="math notranslate nohighlight">\({\beta}^T A^T Y - {\beta}^T A^T A {\beta} = {\beta}^T(A^T Y - A^T A {\beta}) = 0\)</span>. The solution, <span class="math notranslate nohighlight">\({\beta} = \textbf{0}\)</span>, is a trivial solution, so we use <span class="math notranslate nohighlight">\(A^T Y - A^T A {\beta} = 0\)</span> to find a more interesting solution. Solving this equation for <span class="math notranslate nohighlight">\({\beta}\)</span> gives the <span class="math notranslate nohighlight">\(\textbf{least squares regression formula}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+{\beta} = (A^T A)^{-1} A^T Y
+\]</div>
+<p>Note that <span class="math notranslate nohighlight">\((A^T A)^{-1}A^T\)</span> is called the <strong>pseudo-inverse</strong> of <span class="math notranslate nohighlight">\(A\)</span> and exists when <span class="math notranslate nohighlight">\(m &gt; n\)</span> and <span class="math notranslate nohighlight">\(A\)</span> has linearly independent columns. Proving the invertibility of <span class="math notranslate nohighlight">\((A^T A)\)</span> is outside the scope of this book, but it is always invertible except for some pathological cases.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html"><span class="doc std std-doc">16.1 Least Squares Regression Problem Statement</span></a>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html"><span class="doc std std-doc">16.3 Least Squares Regression Derivation (Multivariable Calculus)</span></a>   &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html" title="previous page">Least Squares Regression Problem Statement</a>
+    <a class='right-next' id="next-link" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html" title="next page">Least Squares Regression Derivation (Multivariable Calculus)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

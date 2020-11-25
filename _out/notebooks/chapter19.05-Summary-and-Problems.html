@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter19.05-Summary-and-Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <span class="xref myst">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</span>; the content is available <span class="xref myst">on GitHub</span>.</em></p>
+<p><em>The text is released under the <a class="reference external" href="https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode">CC-BY-NC-ND license</a>, and code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work by <span class="xref myst">buying the book</span>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter19.04-Newton-Raphson-Method.html"><span class="doc std std-doc">19.4 Newton-Raphson Method</span></a>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html"><span class="doc std std-doc">CHAPTER 20. Numerical Differentiation</span></a> &gt;</p>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Roots are an important property of functions.</p></li>
+<li><p>The bisection method is a way of finding roots based on divide and conquer. Although stable, it might converge slowly compared to the Newton-Raphson method.</p></li>
+<li><p>The Newton-Raphson method is a different way of finding roots based on approximation of the function. The Newton-Raphson method converges quickly close to the actual root, but can have unstable behavior.</p></li>
+</ol>
+</div>
+<div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_nth\_root(x, n, tol)\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(tol\)</span> are strictly positive scalars, and <span class="math notranslate nohighlight">\(n\)</span> is an integer strictly greater than 1. The output argument, <span class="math notranslate nohighlight">\(r\)</span>, should be an approximation <span class="math notranslate nohighlight">\(r = \sqrt[N]{x}\)</span>, the <span class="math notranslate nohighlight">\(N\)</span>-th root of <span class="math notranslate nohighlight">\(x\)</span>. This approximation should be computed by using the Newton Raphson method to find the root of the function <span class="math notranslate nohighlight">\(f(y) = y^N - x\)</span>. The error metric should be <span class="math notranslate nohighlight">\(|f(y)|\)</span>.</p></li>
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_fixed\_point(f, g, tol, max_iter)\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are function objects and <span class="math notranslate nohighlight">\(tol\)</span> and <span class="math notranslate nohighlight">\(max\_iter\)</span> are strictly positive scalars. The input argument, <span class="math notranslate nohighlight">\(max\_iter\)</span>, is also an integer. The output argument, <span class="math notranslate nohighlight">\(X\)</span>, should be a scalar satisfying <span class="math notranslate nohighlight">\(|f(X) - g(X)| &lt; tol\)</span>; that is, <span class="math notranslate nohighlight">\(X\)</span> is a point that (almost) satisfies <span class="math notranslate nohighlight">\(f(X) = g(X)\)</span>. To find <span class="math notranslate nohighlight">\(X\)</span>, you should use the Bisection method with error metric, <span class="math notranslate nohighlight">\(|F(m)| &lt; tol\)</span>. The function <span class="math notranslate nohighlight">\(my\_fixed\_point\)</span> should “give up” after <span class="math notranslate nohighlight">\(max\_iter\)</span> number of iterations and return <span class="math notranslate nohighlight">\(X = []\)</span> if this occurs.</p></li>
+<li><p>Why does the bisection method fail for <span class="math notranslate nohighlight">\(f(x) = 1/x\)</span> with error given by <span class="math notranslate nohighlight">\(|b-a|\)</span>? Hint: How does <span class="math notranslate nohighlight">\(f(x)\)</span> violate the intermediate value theorem?</p></li>
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_bisection(f, a, b, tol)\)</span>, that returns <span class="math notranslate nohighlight">\([R, E]\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is a function object, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are scalars such that <span class="math notranslate nohighlight">\(a &lt; b\)</span>, and <span class="math notranslate nohighlight">\(tol\)</span> is a strictly positive scalar value. The function should return an array, <span class="math notranslate nohighlight">\(R\)</span>, where <span class="math notranslate nohighlight">\(R[i]\)</span> is the estimation of the root of <span class="math notranslate nohighlight">\(f\)</span> defined by <span class="math notranslate nohighlight">\((a + b)/2\)</span> for the <span class="math notranslate nohighlight">\(i\)</span>-th iteration of the bisection method. Remember to include the initial estimate. The function should also return an array, <span class="math notranslate nohighlight">\(E\)</span>, where <span class="math notranslate nohighlight">\(E[i]\)</span> is the value of <span class="math notranslate nohighlight">\(| f(R[i]) |\)</span> for the <span class="math notranslate nohighlight">\(i\)</span>-th iteration of the bisection method. The function should terminate when <span class="math notranslate nohighlight">\(E(i) &lt; tol\)</span>. You may assume that <span class="math notranslate nohighlight">\({\text{sign}}(f(a)) \neq {\text{sign}}(f(b))\)</span>.</p></li>
+</ol>
+<p>Clarification: The input <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> constitute the first iteration of bisection, and therefore <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(E\)</span> should never be empty.</p>
+<p>Test Cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.375</span><span class="p">,</span> <span class="mf">1.4375</span><span class="p">]</span>
+     <span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.4375</span><span class="p">,</span> <span class="mf">0.109375</span><span class="p">,</span> <span class="mf">0.06640625</span><span class="p">]</span>
+       
+<span class="n">In</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_bisection</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.875</span><span class="p">,</span> <span class="mf">0.8125</span><span class="p">,</span> <span class="mf">0.78125</span><span class="p">]</span>
+     <span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.30116867893975674</span><span class="p">,</span> <span class="mf">0.39815702328616975</span><span class="p">,</span> <span class="mf">0.05005010885048666</span><span class="p">,</span> <span class="mf">0.12654664407270177</span><span class="p">,</span> <span class="mf">0.038323093040207645</span><span class="p">,</span> <span class="mf">0.005866372111545948</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Write a function <span class="math notranslate nohighlight">\(my\_newton(f, df, x0, tol)\)</span>, that returns <span class="math notranslate nohighlight">\([R, E]\)</span>, where <span class="math notranslate nohighlight">\(f\)</span> is a function object, <span class="math notranslate nohighlight">\(df\)</span> is a function object to the derivative of <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(x0\)</span> is an initial estimation of the root, and <span class="math notranslate nohighlight">\(tol\)</span> is a strictly positive scalar. The function should return an array, <span class="math notranslate nohighlight">\(R\)</span>, where <span class="math notranslate nohighlight">\(R[i)]\)</span> is the Newton-Raphson estimation of the root of <span class="math notranslate nohighlight">\(f\)</span> for the <span class="math notranslate nohighlight">\(i\)</span>-th iteration. Remember to include the initial estimate. The function should also return an array, <span class="math notranslate nohighlight">\(E\)</span>, where <span class="math notranslate nohighlight">\(E[i]\)</span> is the value of <span class="math notranslate nohighlight">\(| f(R[i]) |\)</span> for the <span class="math notranslate nohighlight">\(i\)</span>-th iteration of the Newton-Raphson method. The function should terminate when <span class="math notranslate nohighlight">\(E(i) &lt; tol\)</span>. You may assume that the derivative of <span class="math notranslate nohighlight">\(f\)</span> will not hit 0 during any iteration for any of the test cases given.</p></li>
+</ol>
+<p>Test Cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">2</span>
+   <span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+    <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.4166666666666667</span><span class="p">,</span> <span class="mf">1.4142156862745099</span><span class="p">]</span>
+     <span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.006944444444444642</span><span class="p">,</span> <span class="mf">6.007304882871267e-06</span><span class="p">]</span>
+       
+<span class="n">In</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+   <span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">R</span><span class="p">,</span> <span class="n">E</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_newton</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="n">R</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.782041901539138</span><span class="p">,</span> <span class="mf">0.7853981759997019</span><span class="p">]</span>
+     <span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.30116867893975674</span><span class="p">,</span> <span class="mf">0.004746462127804163</span><span class="p">,</span> <span class="mf">1.7822277875723103e-08</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Consider the problem of building a pipeline from an offshore oil platform, a distance <span class="math notranslate nohighlight">\(H\)</span> miles from the shoreline, to an oil refinery station on land, a distance <span class="math notranslate nohighlight">\(L\)</span> miles along the shore. The cost of building the pipe is <span class="math notranslate nohighlight">\(C_{\text{ocean}/\text{mile}}\)</span> while the pipe is under the ocean and <span class="math notranslate nohighlight">\(C_{\text{land}/\text{mile}}\)</span> while the pipe is on land. The pipe will be built in a straight line toward the shore where it will make contact at some point, <span class="math notranslate nohighlight">\(x\)</span>, between 0 and <span class="math notranslate nohighlight">\(L\)</span>. It will continue along the shore on land until it reaches the oil refinery. See the figure for clarification.</p></li>
+</ol>
+ <img src="./images/19.05.01-Oil-platform.png" alt="Problem 6" title="" width="300"/>
+<p>Write a function <span class="math notranslate nohighlight">\(my\_pipe\_builder(C\_ocean, C\_land, L, H)\)</span>, where the input arguments are as described earlier, and <span class="math notranslate nohighlight">\(x\)</span> is the x-value that minimizes the total cost of the pipeline. You should use the bisection method to determine this value to within a tolerance of <span class="math notranslate nohighlight">\(1\times10^{-6}\)</span> starting at an initial bound of <span class="math notranslate nohighlight">\(a=0\)</span> and <span class="math notranslate nohighlight">\(b=L\)</span>.</p>
+<p>Test Cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">:</span> <span class="n">my_pipe_builder</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="mf">28.867512941360474</span>
+  
+<span class="n">In</span><span class="p">:</span> <span class="n">my_pipe_builder</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="mf">17.677670717239380</span>
+  
+<span class="n">In</span><span class="p">:</span> <span class="n">my_pipe_builder</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">:</span> <span class="mf">7.071067392826080</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Find a function <span class="math notranslate nohighlight">\(f(x)\)</span> and guess for the root of <span class="math notranslate nohighlight">\(f, x_0\)</span>, such that the Newton-Raphson method would oscillate between <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(-x_0\)</span> indefinitely.</p></li>
+</ol>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter19.04-Newton-Raphson-Method.html"><span class="doc std std-doc">19.4 Newton-Raphson Method</span></a>  | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html"><span class="doc std std-doc">CHAPTER 20. Numerical Differentiation</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,213 @@
+# This file contains the order and numbering for all sections in the book.
+#
+# It is a sample TOC file to help you get started. Fill it out with entries
+# for your own content.
+#
+# Each entry has the following schema:
+#
+# - title: mytitle   # Title of notebooks/chapter or section
+#   file: /myurl  # path to file; change key to `url` if external
+#   sections:  # Contains a list of more entries that make up the notebooks/chapter's sections
+#   not_numbered: true  # if the section shouldn't have a number in the sidebar
+#     (e.g. Introduction or appendices)
+#   expand_sections: true  # if you'd like the sections of this notebooks/chapter to always
+#     be expanded in the sidebar.
+#
+# Below are some special values that trigger specific behavior:
+# - search: true  # Will provide a link to a search page
+# - divider: true  # Will insert a divider in the sidebar
+# - header: My Header  # Will insert a header with no link in the sidebar
+#
+# See the links below for an example.
+
+# Top-level page
+- title: Home
+  file: notebooks/Index
+
+- file: notebooks/chapter00.00-Preface.ipynb
+- file: notebooks/chapter01.00-Python-Basics.ipynb
+  sections:
+    - file: notebooks/chapter01.01-Getting-Started-with-Python.ipynb
+    - file: notebooks/chapter01.02-Python-as-A-Calculator.ipynb
+    - file: notebooks/chapter01.03-Managing-Packages.ipynb
+    - file: notebooks/chapter01.04-Introduction-to-Jupyter-Notebook.ipynb
+    - file: notebooks/chapter01.05-Logial-Expressions-and-Operators.ipynb
+    - file: notebooks/chapter01.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter02.00-Variables-and-Basic-Data-Structures.ipynb
+  sections:
+    - file: notebooks/chapter02.01-Variables-and-Assignment.ipynb
+    - file: notebooks/chapter02.02-Data-Structure-Strings.ipynb
+    - file: notebooks/chapter02.03-Data-Structure-Lists.ipynb
+    - file: notebooks/chapter02.04-Data-Structure-Tuples.ipynb
+    - file: notebooks/chapter02.05-Data-Structure-Sets.ipynb
+    - file: notebooks/chapter02.06-Data-Structure-Dictionaries.ipynb
+    - file: notebooks/chapter02.07-Introducing_numpy_arrays.ipynb
+- file: notebooks/chapter03.00-Functions.ipynb
+  sections:
+    - file: notebooks/chapter03.01-Function-Basics.ipynb
+    - file: notebooks/chapter03.02-Local-Variables-and-Global-Variables.ipynb
+    - file: notebooks/chapter03.03-Nested-Functions.ipynb
+    - file: notebooks/chapter03.04-Lambda-Functions.ipynb
+    - file: notebooks/chapter03.05-Functions-as-Arguments-to-Functions.ipynb
+    - file: notebooks/chapter03.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter04.00-Branching-Statements.ipynb
+  sections:
+    - file: notebooks/chapter04.01-If-Else-Statements.ipynb
+    - file: notebooks/chapter04.02-Summary-and-Problems.ipynb
+    - file: notebooks/chapter04.02-Ternary-Operators.ipynb
+    - file: notebooks/chapter04.03-Summary-and-Problems.ipynb
+- file: notebooks/chapter05.00-Iteration.ipynb
+  sections:
+    - file: notebooks/chapter05.01-For-Loops.ipynb
+    - file: notebooks/chapter05.02-While-Loops.ipynb
+    - file: notebooks/chapter05.03-Comprehensions.ipynb
+    - file: notebooks/chapter05.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter06.00-Recursion.ipynb
+  sections:
+    - file: notebooks/chapter06.01-Recursive-Functions.ipynb
+    - file: notebooks/chapter06.02-Divide-and-Conquer.ipynb
+    - file: notebooks/chapter06.03-Summary-and-Problems.ipynb
+- file: notebooks/chapter07.00-Object-Oriented-Programming.ipynb
+  sections:
+    - file: notebooks/chapter07.01-Introduction-to-OOP.ipynb
+    - file: notebooks/chapter07.02-Class-and-Object.ipynb
+    - file: notebooks/chapter07.03-Inheritance-Encapsulation-and-Polymorphism.ipynb
+    - file: notebooks/chapter07.03-Inheritance.ipynb
+    - file: notebooks/chapter07.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter08.00-Complexity.ipynb
+  sections:
+    - file: notebooks/chapter08.01-Complexity-and-Big-O.ipynb
+    - file: notebooks/chapter08.02-Complexity-Matters.ipynb
+    - file: notebooks/chapter08.03-The-Profiler.ipynb
+    - file: notebooks/chapter08.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter09.00-Representation-of-Numbers.ipynb
+  sections:
+    - file: notebooks/chapter09.01-BaseN-and-Binary.ipynb
+    - file: notebooks/chapter09.02-Floating-Point-Numbers.ipynb
+    - file: notebooks/chapter09.03-Roundoff-Errors.ipynb
+    - file: notebooks/chapter09.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter10.00-Errors-Practices-Debugging.ipynb
+  sections:
+    - file: notebooks/chapter10.01-Error-Types.ipynb
+    - file: notebooks/chapter10.02-Avoid-Errors.ipynb
+    - file: notebooks/chapter10.03-Try-Except.ipynb
+    - file: notebooks/chapter10.04-Type-Checking.ipynb
+    - file: notebooks/chapter10.05-Debugging.ipynb
+    - file: notebooks/chapter10.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter11.00-Reading-and-Writing-Data.ipynb
+  sections:
+    - file: notebooks/chapter11.01-TXT-Files.ipynb
+    - file: notebooks/chapter11.02-CSV-Files.ipynb
+    - file: notebooks/chapter11.03-Pickle-Files.ipynb
+    - file: notebooks/chapter11.04-JSON-Files.ipynb
+    - file: notebooks/chapter11.05-HDF5-Files.ipynb
+    - file: notebooks/chapter11.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter12.00-Visualization-and-Plotting.ipynb
+  sections:
+    - file: notebooks/chapter12.01-2D-Plotting.ipynb
+    - file: notebooks/chapter12.02-3D-Plotting.ipynb
+    - file: notebooks/chapter12.03-Working-with-Maps.ipynb
+    - file: notebooks/chapter12.03-Working-with-Maps_files
+    - file: notebooks/chapter12.04-Animations-and-Movies.ipynb
+    - file: notebooks/chapter12.05-Summary-and-Problems.ipynb
+- file: notebooks/chapter13.00-Parallel-Your-Python.ipynb
+  sections:
+    - file: notebooks/chapter13.01-Parallel-Computing-Basics.ipynb
+    - file: notebooks/chapter13.02-Multiprocessing.ipynb
+    - file: notebooks/chapter13.03-Use-joblib.ipynb
+    - file: notebooks/chapter13.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.ipynb
+  sections:
+    - file: notebooks/chapter14.01-Basics-of-Linear-Algebra.ipynb
+    - file: notebooks/chapter14.02-Linear-Transformations.ipynb
+    - file: notebooks/chapter14.03-Systems-of-Linear-Equations.ipynb
+    - file: notebooks/chapter14.04-Solutions-to-Systems-of-Linear-Equations.ipynb
+    - file: notebooks/chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.ipynb
+    - file: notebooks/chapter14.06-Matrix-Inversion.ipynb
+    - file: notebooks/chapter14.07-Summary-and-Problems.ipynb
+- file: notebooks/chapter15.00-Eigenvalues-and-Eigenvectors.ipynb
+  sections:
+    - file: notebooks/chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.ipynb
+    - file: notebooks/chapter15.02-The-Power-Method.ipynb
+    - file: notebooks/chapter15.03-The-QR-Method.ipynb
+    - file: notebooks/chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.ipynb
+    - file: notebooks/chapter15.05-Summary-and-Problems.ipynb
+- file: notebooks/chapter16.00-Least-Squares-Regression.ipynb
+  sections:
+    - file: notebooks/chapter16.01-Least-Squares-Regression-Problem-Statement.ipynb
+    - file: notebooks/chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.ipynb
+    - file: notebooks/chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.ipynb
+    - file: notebooks/chapter16.04-Least-Squares-Regression-in-Python.ipynb
+    - file: notebooks/chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.ipynb
+    - file: notebooks/chapter16.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter17.00-Interpolation.ipynb
+  sections:
+    - file: notebooks/chapter17.01-Interpolation-Problem-Statement.ipynb
+    - file: notebooks/chapter17.02-Linear-Interpolation.ipynb
+    - file: notebooks/chapter17.03-Cubic-Spline-Interpolation.ipynb
+    - file: notebooks/chapter17.04-Lagrange-Polynomial-Interpolation.ipynb
+    - file: notebooks/chapter17.05-Newtons-Polynomial-Interpolation.ipynb
+    - file: notebooks/chapter17.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter18.00-Series.ipynb
+  sections:
+    - file: notebooks/chapter18.01-Expressing-Functions-with-Taylor-Series.ipynb
+    - file: notebooks/chapter18.02-Approximations-with-Taylor-Series.ipynb
+    - file: notebooks/chapter18.03-Discussion-on-Errors.ipynb
+    - file: notebooks/chapter18.04-Summary-and-Problems.ipynb
+- file: notebooks/chapter19.00-Root-Finding.ipynb
+  sections:
+    - file: notebooks/chapter19.01-Root-Finding-Problem-Statement.ipynb
+    - file: notebooks/chapter19.02-Tolerance.ipynb
+    - file: notebooks/chapter19.03-Bisection-Method.ipynb
+    - file: notebooks/chapter19.04-Newton-Raphson-Method.ipynb
+    - file: notebooks/chapter19.05-Root-Finding-in-Python.ipynb
+    # - file: notebooks/chapter19.05-Summary-and-Problems.ipynb
+    - file: notebooks/chapter19.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter20.00-Numerical-Differentiation.ipynb
+  sections:
+    - file: notebooks/chapter20.01-Numerical-Differentiation-Problem-Statement.ipynb
+    - file: notebooks/chapter20.02-Finite-Difference-Approximating-Derivatives.ipynb
+    - file: notebooks/chapter20.03-Approximating-of-Higher-Order-Derivatives.ipynb
+    - file: notebooks/chapter20.04-Numerical-Differentiation-with-Noise.ipynb
+    - file: notebooks/chapter20.05-Summary-and-Problems.ipynb
+- file: notebooks/chapter21.00-Numerical-Integration.ipynb
+  sections:
+    - file: notebooks/chapter21.01-Numerical-Integration-Problem-Statement.ipynb
+    - file: notebooks/chapter21.02-Riemanns-Integral.ipynb
+    - file: notebooks/chapter21.03-Trapezoid-Rule.ipynb
+    - file: notebooks/chapter21.04-Simpsons-Rule.ipynb
+    - file: notebooks/chapter21.05-Computing-Integrals-in-Python.ipynb
+    - file: notebooks/chapter21.06-Summary-and-Problems.ipynb
+- file: notebooks/chapter22.00-ODE-Initial-Value-Problems.ipynb
+  sections:
+    - file: notebooks/chapter22.01-ODE-Initial-Value-Problem-Statement.ipynb
+    - file: notebooks/chapter22.02-Reduction-of-Order.ipynb
+    - file: notebooks/chapter22.03-The-Euler-Method.ipynb
+    - file: notebooks/chapter22.04-Numerical-Error-and-Instability.ipynb
+    - file: notebooks/chapter22.05-Predictor-Corrector-Methods.ipynb
+    - file: notebooks/chapter22.06-Python-ODE-Solvers.ipynb
+    - file: notebooks/chapter22.07-Advanced-Topics.ipynb
+    - file: notebooks/chapter22.08-Summary-and-Problems.ipynb
+- file: notebooks/chapter23.00-ODE-Boundary-Value-Problems.ipynb
+  sections:
+    - file: notebooks/chapter23.01-ODE-Boundary-Value-Problem-Statement.ipynb
+    - file: notebooks/chapter23.02-The-Shooting-Method.ipynb
+    - file: notebooks/chapter23.03-Finite-Difference-Method.ipynb
+    - file: notebooks/chapter23.04-Numerical-Error-and-Instability.ipynb
+    - file: notebooks/chapter23.05-Summary-and-Problems.ipynb
+- file: notebooks/chapter24.00-Fourier-Transforms.ipynb
+  sections:
+    - file: notebooks/chapter24.01-The-Basics-of-waves.ipynb
+    - file: notebooks/chapter24.02-Discrete-Fourier-Transform.ipynb
+    - file: notebooks/chapter24.03-Fast-Fourier-Transform.ipynb
+    - file: notebooks/chapter24.04-FFT-in-Python.ipynb
+    - file: notebooks/chapter24.05-Summary-and-Problems.ipynb
+- file: notebooks/chapter25.00-Introduction-to-Data-Driven-Approach.ipynb
+  sections:
+    - file: notebooks/chapter25.01-Concept-of-Machine-Learning.ipynb
+    - file: notebooks/chapter25.02-Classification.ipynb
+    - file: notebooks/chapter25.03-Regression.ipynb
+    - file: notebooks/chapter25.04-Clustering.ipynb
+    - file: notebooks/chapter25.05-Summary-and-Problems.ipynb
+
+- file: notebooks/Appendix01-Getting-Started-with-Python-Windows.ipynb

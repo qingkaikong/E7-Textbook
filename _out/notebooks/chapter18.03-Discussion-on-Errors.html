@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussion on Errors &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Summary" href="chapter18.04-Summary-and-Problems.html" />
+    <link rel="prev" title="Approximations with Taylor Series" href="chapter18.02-Approximations-with-Taylor-Series.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.01-Expressing-Functions-with-Taylor-Series.html">
+     Expressing Functions with Taylor Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.02-Approximations-with-Taylor-Series.html">
+     Approximations with Taylor Series
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Discussion on Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter18.03-Discussion-on-Errors.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#truncation-errors-for-taylor-series">
+   Truncation errors for Taylor series
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimate-truncation-errors">
+   Estimate truncation errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#round-off-errors-for-taylor-series">
+   Round-off errors for Taylor series
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter18.02-Approximations-with-Taylor-Series.html"><span class="doc std std-doc">18.2 Approximations with Taylor Series</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter18.04-Summary-and-Problems.html"><span class="doc std std-doc">18.4 Summary and Problems</span></a>  &gt;</p>
+<div class="section" id="discussion-on-errors">
+<h1>Discussion on Errors<a class="headerlink" href="#discussion-on-errors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="truncation-errors-for-taylor-series">
+<h2>Truncation errors for Taylor series<a class="headerlink" href="#truncation-errors-for-taylor-series" title="Permalink to this headline">¶</a></h2>
+<p>When we are doing numerical analysis, there are usually two sources of error, <strong>round-off</strong> and <strong>truncation</strong> error. The round-off errors are due to the inexactness in the representation of real numbers on a computer and the arithmetic operations done with them. While the truncation errors are due to the approximate nature of the method used, they are usually from using an approximation in place of an exact mathematical procedure, such as that we use the Taylor series to approximate a function. For example, we can use Taylor series to approximate the function <span class="math notranslate nohighlight">\(e^x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[e^x = 1+x+\frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \dots\]</div>
+<p>Since it takes the infinite sequence to approximate the function, if we only take a few items, we will have a truncation error. For example, if we only use the first 4 items to approximate <span class="math notranslate nohighlight">\(e^2\)</span>, which will be:</p>
+<div class="math notranslate nohighlight">
+\[e^2 \approx 1+2+\frac{2^2}{2!} + \frac{2^3}{3!} = 6.3333\]</div>
+<p>We see there is an error associated with it, since we truncate the rest of the terms in the Taylor series. Therefore the function <span class="math notranslate nohighlight">\(f(x)\)</span> can be written as the Taylor series approximation plus a truncation error term:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = f_n(x) + E_n(x)\]</div>
+<p>with more terms we use, the approximation will be more close to the exact value. Let’s use Python to see the above example.</p>
+<p><strong>TRY IT!</strong> Approximate <span class="math notranslate nohighlight">\(e^2\)</span> using different order of Taylor series, and print out the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">+</span> \
+       <span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">-term, </span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The true e^2 is: </span><span class="se">\n</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Using 0-term, 1.0
+Using 1-term, 3.0
+Using 2-term, 5.0
+Using 3-term, 6.333333333333333
+Using 4-term, 7.0
+Using 5-term, 7.266666666666667
+Using 6-term, 7.355555555555555
+Using 7-term, 7.3809523809523805
+Using 8-term, 7.387301587301587
+Using 9-term, 7.3887125220458545
+The true e^2 is: 
+7.38905609893065
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="estimate-truncation-errors">
+<h2>Estimate truncation errors<a class="headerlink" href="#estimate-truncation-errors" title="Permalink to this headline">¶</a></h2>
+<p>We can see the higher order we use to approximate the function at the value, the closer we are to the true value. For each order we choose, there is an error associated with it, and the approximation is only useful if we have an idea of how accurate the approximation is. This is the motivation that we need to understand more about the errors.</p>
+<p>From the Taylor series, if we use only the first <span class="math notranslate nohighlight">\(n\)</span> terms, we can see:</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = f_n(x) + E_n(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(a)(x-a)^k}{k!} + E_n(x)
+\]</div>
+<p>The <span class="math notranslate nohighlight">\(E_n(x)\)</span> is the remainder of the Taylor series, or the truncation error that measures how far off the approximation <span class="math notranslate nohighlight">\(f_n(x)\)</span> is from <span class="math notranslate nohighlight">\(f(x)\)</span>. We can estimate the error using the <strong>Taylor Remainder Estimation Theorem</strong>, which states:</p>
+<p>If the function <span class="math notranslate nohighlight">\(f(x)\)</span> has <span class="math notranslate nohighlight">\(n+1\)</span> derivatives for all <span class="math notranslate nohighlight">\(x\)</span> in an interval <span class="math notranslate nohighlight">\(I\)</span> containing <span class="math notranslate nohighlight">\(a\)</span>, then, for each x in <span class="math notranslate nohighlight">\(I\)</span>, there exists <span class="math notranslate nohighlight">\(z\)</span> between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(a\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[ E_n(x) = \frac{f^{(n+1)}(z)(x-a)^{(n+1)}}{(n+1)!}
+\]</div>
+<p>In many times, if we know <span class="math notranslate nohighlight">\(M\)</span> is the maximum value of <span class="math notranslate nohighlight">\(|f^{(n+1)}|\)</span> in the interval, we will have:</p>
+<div class="math notranslate nohighlight">
+\[ |E_n(x)| \le \frac{M|x-a|^{(n+1)}}{(n+1)!}
+\]</div>
+<p>Therefore, we can get a bound for the truncation error using this theorem. Let’s see the example.</p>
+<p><strong>TRY IT!</strong> Estimate the remainder bound for the approximation using taylor series for <span class="math notranslate nohighlight">\(e^2\)</span> using n = 9.</p>
+<p>Let’s  work on the error when we use n = 9. We know that <span class="math notranslate nohighlight">\((e^x)' = e^x\)</span>, and, a = 0. Therefore, the error related to x = 2 is:</p>
+<div class="math notranslate nohighlight">
+\[ E_n(x) = \frac{f^{(9+1)}(z)(x)^{(9+1)}}{(9+1)!} = \frac{e^{z}2^{10}}{10!}
+\]</div>
+<p>Recall that $ 0 \le z \le 2$, and <span class="math notranslate nohighlight">\(e &lt; 3\)</span>, we will have</p>
+<div class="math notranslate nohighlight">
+\[ |E_n(x)| \le \frac{3^{2}2^{10}}{10!} = 0.00254
+\]</div>
+<p>Therefore, if we use Taylor series with n = 9 to approximate <span class="math notranslate nohighlight">\(e^2\)</span>, our absolute error should be less than  0.00254. Let’s also verifty it below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="mf">7.3887125220458545</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0003435768847959153
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="round-off-errors-for-taylor-series">
+<h2>Round-off errors for Taylor series<a class="headerlink" href="#round-off-errors-for-taylor-series" title="Permalink to this headline">¶</a></h2>
+<p>Numerically, to add many terms in a sum, we should be mindful of numerical accumulation of errors that is due to floating point round-off errors. Let us see the following example.</p>
+<p><strong>EXAMPLE:</strong> Approximate <span class="math notranslate nohighlight">\(e^{-30}\)</span> using different order of Taylor series, and print out the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exp</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">):</span>
+    <span class="n">exp</span> <span class="o">=</span> <span class="n">exp</span> <span class="o">+</span> \
+       <span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Using </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">-term, our result is </span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The true e^2 is: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Using 199-term, our result is -8.553016433669241e-05
+The true e^2 is: 9.357622968840175e-14
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the above example, it is clear that our estimation using Taylor series are not close to the true value anymore, no matter how many terms you include into the calculation. This is due to the round-off errors we discussed before. When using negative large arguments, in order to get a small result, the Taylor series need alternating large numbers to cancel to achieve that. We need many digits of precision in the series to capture both the large and the small numbers with enough remaining digits to get the result in the desired output precision. Thus we have this error in the above example.</p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter18.02-Approximations-with-Taylor-Series.html"><span class="doc std std-doc">18.2 Approximations with Taylor Series</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter18.04-Summary-and-Problems.html"><span class="doc std std-doc">18.4 Summary and Problems</span></a>  &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter18.02-Approximations-with-Taylor-Series.html" title="previous page">Approximations with Taylor Series</a>
+    <a class='right-next' id="next-link" href="chapter18.04-Summary-and-Problems.html" title="next page">Summary</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

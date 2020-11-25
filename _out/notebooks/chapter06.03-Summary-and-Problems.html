@@ -1,0 +1,812 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Object Oriented Programming (OOP)" href="chapter07.00-Object-Oriented-Programming.html" />
+    <link rel="prev" title="Divide and Conquer" href="chapter06.02-Divide-and-Conquer.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.01-Recursive-Functions.html">
+     Recursive Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.02-Divide-and-Conquer.html">
+     Divide and Conquer
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter06.03-Summary-and-Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter06.02-Divide-and-Conquer.html"><span class="doc std std-doc">6.2 Divide and Conquer</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <span class="xref myst">7.0 Objects and Classes</span> &gt;</p>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>A recursive function is a function that calls itself.</p></li>
+<li><p>Recursive functions are useful when problems have a hierarchical structure rather than an iterative structure.</p></li>
+<li><p>Divide and Conquer is a powerful problem-solving strategy that can be used to solve difficult problems.</p></li>
+</ol>
+</div>
+<div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Write a function <em>my_sum(lst)</em> where <em>lst</em> is a list, and the output is the sum of all the elements of <em>lst</em>. You can use recursion or iteration to solve the problem, but do not use Python’s function <em>sum</em>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_sum</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="c1"># Write your function code here</span>
+    
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 6</span>
+<span class="n">my_sum</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 5050</span>
+<span class="n">my_sum</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Chebyshev polynomials are defined recursively. Chebyshev polynomials are separated into two kinds: first and second. Chebyshev polynomials of the first kind, <span class="math notranslate nohighlight">\(T_n(x)\)</span>, and of the second kind, <span class="math notranslate nohighlight">\(U_n(x)\)</span>, are defined by the following recurrence relations:</p></li>
+</ol>
+<p>\begin{equation}
+T_n(x) = \begin{cases}
+1 &amp; \text{if <span class="math notranslate nohighlight">\(n=0\)</span>}\
+x &amp; \text{if <span class="math notranslate nohighlight">\(n=1\)</span>}\
+2xT_{n-1}(x)-T_{n-2}(x) &amp; \text{otherwise}\
+\end{cases}
+\end{equation}</p>
+<p>\begin{equation}
+U_n(x) = \begin{cases}
+1 &amp; \text{if <span class="math notranslate nohighlight">\(n=0\)</span>}\
+2x &amp; \text{if <span class="math notranslate nohighlight">\(n=1\)</span>}\
+2xU_{n-1}(x)-U_{n-2}(x) &amp; \text{otherwise}\
+\end{cases}
+\end{equation}</p>
+<p>Write a function <em>my_chebyshev_poly1(n,x)</em>, where the output <em>y</em> is the n-th Chebyshev polynomial of the first kind evaluated at <em>x</em>. Be sure your function can take list inputs for <em>x</em>. You may assume that <em>x</em> is a list. The output variable, <em>y</em>, must be a list also.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_chebyshev_poly1</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Write your function code here</span>
+    
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 1, 1, 1, 1]</span>
+<span class="n">my_chebyshev_poly1</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 2, 3, 4, 5]</span>
+<span class="n">my_chebyshev_poly1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 26, 99, 244, 485]</span>
+<span class="n">my_chebyshev_poly1</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>The Ackermann function, <em>A</em>, is a quickly growing function that is defined by the recursive relationship:</p></li>
+</ol>
+<p>\begin{equation}
+A(m, n) = \begin{cases}
+n+1 &amp;\text{if <span class="math notranslate nohighlight">\(m=0\)</span>}\
+A(m-1,1) &amp;\text{if  <span class="math notranslate nohighlight">\(m&gt;0\)</span> and <span class="math notranslate nohighlight">\(n=1\)</span>}\
+A(m-1,A(m,n-1)) &amp; \text{if  <span class="math notranslate nohighlight">\(m&gt;0\)</span> and <span class="math notranslate nohighlight">\(n&gt;0\)</span>}\
+\end{cases}
+\end{equation}</p>
+<p>Write a function <em>my_ackermann(m,n)</em>, where the output is the Ackermann function compuated for <em>m</em> and <em>n</em>.</p>
+<p><em>my_ackermann(4,4)</em> is so large that it would be difficult to write down. Although the Ackermann function does not have many practical uses, the inverse Ackermann function has several uses in robotic motion planning.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_ackermann</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># write your own function code here</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 3</span>
+<span class="n">my_ackermann</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 4</span>
+<span class="n">my_ackermann</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 9</span>
+<span class="n">my_ackermann</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 61</span>
+<span class="n">my_ackermann</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 125</span>
+<span class="n">my_ackermann</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>A function, <em>C(n,k)</em>, which computes the number of different ways of uniquely choosing <em>k</em> objects from <em>n</em> without repetition, is commonly used in many statistics applications. For example, how many three-flavored ice cream sundaes are there if there are 10 icecream flavors? To solve this problem we would have to compute <em>C(10,3)</em>, the number of ways of choosing three unique icecream flavors from 10. The function <em>C</em> is commonly called “<em>n</em> choose <em>k</em>.” You may assume that <em>n</em> and <em>k</em> are integers.</p></li>
+</ol>
+<p>If <em>n = k</em>, then clearly <em>C(n,k) = 1</em> because there is only way to choose <em>n</em> objects from <em>n</em> objects.</p>
+<p>If <em>k = 1</em>, then <em>C(n,k) = n</em> because choosing each of the <em>n</em> objects is a way of choosing one object from <em>n</em>. For all other cases, <em>C(n,k) = C(n-1,k) + C(n-1,k-1)</em>. Can you see why?</p>
+<p>Write a function <em>my_n_choose_k(n,k)</em> that computes the number of times <span class="math notranslate nohighlight">\(k\)</span> objects can be uniquely chosen from <span class="math notranslate nohighlight">\(n\)</span> objects without repetition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_n_choose_k</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 10</span>
+<span class="n">my_n_choose_k</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 1</span>
+<span class="n">my_n_choose_k</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 120</span>
+<span class="n">my_n_choose_k</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>In purchases paid in cash, the seller must return money that was overpaid. This is commonly referred to as “giving change.” The bills and coins required to properly give change can be defined by a recursive relationship. If the amount paid is more than \$100 more than the cost, then return a hundred-dollar bill along with the result of a recursive call to the change function with \$100 subtracted from the amount paid. If the amount paid is more than \$50 over the cost of the item, then return a fifty-dollar bill, along with the result of a recursive call to the change function with \$50 subtracted. Similar clauses can be given for every denomination of US currency. The denominations of US currency, in dollars, is 100, 50, 20, 10, 5, 1, 0.25, 0.10, 0.05, and 0.01. For this problem we will ignore the two-dollar bill, which is not in common circulation. You may assume that <em>cost</em> and
+<em>paid</em> are scalars, and that <em>paid &gt;= cost</em>. The output
+variable, <em>change</em>, must be a list as shown in
+the test case.</p></li>
+</ol>
+<p>Use recursion to program a function <em>my_change(cost, paid)</em> where <em>cost</em> is the cost of the item, <em>paid</em> is the amount paid, and the output <em>change</em> is a list of bills and coins that should be returned to the seller. Note: Watch out for the base case!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_change</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">paid</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">change</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [50.0, 20.0, 1.0, 1.0, 0.25, 0.10, 0.05, 0.01, 0.01, 0.01]</span>
+<span class="n">my_change</span><span class="p">(</span><span class="mf">27.57</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>The golden ratio, <span class="math notranslate nohighlight">\(\phi\)</span>, is the limit of <span class="math notranslate nohighlight">\(\frac{F(n+1)}{F(n)}\)</span> as <em>n</em> goes to infinity and <em>F(n)</em> is the <em>n</em>-th Fibonacci number, which can be shown to be exactly <span class="math notranslate nohighlight">\(\frac{1 + \sqrt{5}}{2}\)</span> and is approximately 1.62. We say that <span class="math notranslate nohighlight">\(G(n) = \frac{F(n+1)}{F(n)}\)</span> is the <em>n</em>-th approximation of the golden ratio, and <span class="math notranslate nohighlight">\(G(1) = 1\)</span>.</p></li>
+</ol>
+<p>It can be shown that <span class="math notranslate nohighlight">\(\phi\)</span> is also the limit of the continued fraction:</p>
+<div class="math notranslate nohighlight">
+\[\varphi = 1 + \dfrac{1}{1 + \dfrac{1}{1 + \dfrac{1}{1 + \ddots}}}.\]</div>
+<p>Write a recursive function with header <em>my_golden_ratio(n)</em>, where the output is the <em>n</em>-th approximation of the golden ratio according to the continued fraction recursive relationship. You should use the continued fraction approximation for the Golden ratio, not the <span class="math notranslate nohighlight">\(G(n) = F(n+1)/F(n)\)</span> definition. However for both definitions, <span class="math notranslate nohighlight">\(G(1) = 1\)</span>.</p>
+<p>Studies have shown that rectangles with aspect ratio (i.e., length divided by width) close to the golden ratio are more pleasing than rectangles that do not. What is the aspect ratio of many wide-screen TV’s and movie screens?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_golden_ratio</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">out</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 1.618181818181818</span>
+<span class="n">my_golden_ratio</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>The greatest common divisor of two integers <em>a</em> and <em>b</em> is the largest integer that divides both numbers without remainder, and the function to compute it is denoted by <em>gcd(a,b)</em>. The <em>gcd</em> function can be written recursively. If <em>b</em> equals 0, then <em>a</em> is the greatest common divisor. Otherwise, <em>gcd(a,b) = gcd(b,a%b)</em> where <em>a%b</em> is the remainder of <em>a</em> divided by <em>b</em>. Assume that <em>a</em> and <em>b</em> are integers.</p></li>
+</ol>
+<p>Write a recursive function <em>my_gcd(a,b)</em> that computes the greatest common divisor of <em>a</em> and <em>b</em>. Assume that <em>a</em> and <em>b</em> are integers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">gcd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 2</span>
+<span class="n">my_gcd</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 11</span>
+<span class="n">my_gcd</span><span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">121</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 1</span>
+<span class="n">my_gcd</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Pascal’s triangle is an arrangement of numbers such that each row is equivalent to the coefficients of the binomial expansion of <span class="math notranslate nohighlight">\((x + y)^{(p-1)}\)</span>, where <em>p</em> is some positive integer more than or equal to 1. For example, <span class="math notranslate nohighlight">\((x+y)^2 = 1 x^2 + 2 xy + 1 y^2\)</span> so the third row of Pascal’s triangle is 1 2 1.</p></li>
+</ol>
+<p>Let <span class="math notranslate nohighlight">\(R_{m}\)</span> represent the <em>m</em>-th row of Pascal’s triangle, and <span class="math notranslate nohighlight">\(R_m(n)\)</span> be the <span class="math notranslate nohighlight">\(n\)</span>-th element of the row. By definition, <span class="math notranslate nohighlight">\(R_m\)</span> has m elements, and <span class="math notranslate nohighlight">\(R_m(1) = R_m(n) = 1\)</span>. The remaining elements are computed by the following recursive relationship: <span class="math notranslate nohighlight">\(R_m(i) = R_{m-1}(i-1) + R_{m-1}(i)\)</span> for <span class="math notranslate nohighlight">\(i = 2,\ldots,m-1\)</span>. The first few rows of Pascal’s triangle are depicted in the following figure. You may assume that <em>m</em> is a strictly positive integer. The output variable, <em>row</em>, must be a list.</p>
+ <img src="./images/06.03.01-pascal_triangle.png" alt="pascal_triangle" width=150 title="Pascal's Triangle">
+<p>Write a function with <em>my_pascal_row(m)</em> where output variable <em>row</em> is the <em>m</em>-th row of the Pascal triangle. You may assume that <em>m</em> is a strictly positive integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_pascal_row</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">row</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1]</span>
+<span class="n">my_pascal_row</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 1]</span>
+<span class="n">my_pascal_row</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 2, 1]</span>
+<span class="n">my_pascal_row</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 3, 3, 1]</span>
+<span class="n">my_pascal_row</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: [1, 4, 6, 4, 1]</span>
+<span class="n">my_pascal_row</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Consider a <span class="math notranslate nohighlight">\(n\times{n}\)</span> matrix of the following form:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}A =
+\left[{\begin{array}{l&#64;{\quad}l&#64;{\quad}l&#64;{\quad}l&#64;{\quad}l}
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1\\ 
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\ 
+1 &amp; 0 &amp; 1 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0\\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+\end{array}}\right]
+\end{split}\]</div>
+<p>where the ones form a right spiral. Write a function <em>my_spiral_ones(n)</em> that produces an <span class="math notranslate nohighlight">\(n\times{n}\)</span> matrix of the given form. Take care that the recursive steps are in the correct order (i.e., the ones go right, then down, then left, then up, then right, etc.).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_spiral_ones</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Write your own function code here</span>
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: 1</span>
+<span class="n">my_spiral_ones</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output: </span>
+<span class="c1"># array([[1, 1],</span>
+<span class="c1">#       [0, 1]])</span>
+<span class="n">my_spiral_ones</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output:</span>
+<span class="c1">#array([[0, 1, 1],</span>
+<span class="c1">#       [0, 0, 1],</span>
+<span class="c1">#       [1, 1, 1]])</span>
+<span class="n">my_spiral_ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output:</span>
+<span class="c1">#array([[1, 0, 0, 0],</span>
+<span class="c1">#       [1, 0, 1, 1],</span>
+<span class="c1">#       [1, 0, 0, 1],</span>
+<span class="c1">#       [1, 1, 1, 1]])</span>
+<span class="n">my_spiral_ones</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output:</span>
+<span class="c1">#array([[1, 1, 1, 1, 1],</span>
+<span class="c1">#       [1, 0, 0, 0, 0],</span>
+<span class="c1">#       [1, 0, 1, 1, 0],</span>
+<span class="c1">#       [1, 0, 0, 1, 0],</span>
+<span class="c1">#       [1, 1, 1, 1, 0]])</span>
+<span class="n">my_spiral_ones</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="simple">
+<li><p>Rewrite <em>my_spiral_ones</em> without using recursion.</p></li>
+<li><p>Draw the recursion tree for <em>my_towers(4)</em>.</p></li>
+<li><p>Rewrite the Towers of Hanoi function in this chapter without using recursion.</p></li>
+<li><p>Draw the recursion tree for <em>my_quicksort([5 4 6 2 9 1 7 3])</em>.</p></li>
+<li><p>Rewrite the <em>quicksort</em> function in this chapter without using recursion.</p></li>
+</ol>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter06.02-Divide-and-Conquer.html"><span class="doc std std-doc">6.2 Divide and Conquer</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <span class="xref myst">7.0 Objects and Classes</span> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter06.02-Divide-and-Conquer.html" title="previous page">Divide and Conquer</a>
+    <a class='right-next' id="next-link" href="chapter07.00-Object-Oriented-Programming.html" title="next page">Object Oriented Programming (OOP)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

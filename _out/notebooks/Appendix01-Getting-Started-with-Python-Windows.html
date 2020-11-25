@@ -1,0 +1,459 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Python on Windows &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Summary" href="chapter25.05-Summary-and-Problems.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Appendix01-Getting-Started-with-Python-Windows.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-up-working-environment-on-windows">
+   Set up working environment on windows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#three-ways-to-run-python-code">
+   Three ways to run Python code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-zen-of-python">
+   The Zen of Python
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter01.00-Python-Basics.html"><span class="doc std std-doc">1.0 Python Basics</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter01.02-Python-as-A-Calculator.html"><span class="doc std std-doc">1.2 Python as A Calculator</span></a> &gt;</p>
+<div class="section" id="getting-started-with-python-on-windows">
+<h1>Getting Started with Python on Windows<a class="headerlink" href="#getting-started-with-python-on-windows" title="Permalink to this headline">¶</a></h1>
+<img align="left" src="https://www.python.org/static/community_logos/python-logo.png"><div class="section" id="set-up-working-environment-on-windows">
+<h2>Set up working environment on windows<a class="headerlink" href="#set-up-working-environment-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>Before we start to use Python, we need to set up our Python working environment on the computer. In this section, we will introduce the processes to get it started.</p>
+<p>There are different ways to install Python and related packages, here we recommend to use <a class="reference external" href="https://www.anaconda.com/download/">Anaconda</a> or <a class="reference external" href="https://conda.io/miniconda.html">Miniconda</a> to install and manage your packages. Depending on the <em>operating systems</em> (OS) you are using, i.e Windows, Mac OS X, or Linux, you need to download a specific installer for your machine. Both Anaconda and Miniconda are aiming to provide easy ways to manage Python work environment in scientific computing and data sciences.</p>
+<p>Here we will use Windows as an example to show you the install processes. For Mac and Linux users, please read <a class="reference internal" href="chapter01.01-Getting-Started-with-Python.html"><span class="doc std std-doc">chapter 1.1</span></a> for all the processes. The main differences between Anaconda and Miniconda are:</p>
+<ul class="simple">
+<li><p><strong>Anaconda</strong> is a complete distribution framework that includes the Python interpreter, package manager as well as the commonly used packages in scientific computing.</p></li>
+<li><p><strong>Miniconda</strong> is a light version of Anaconda that does not include the common packages, therefore, you need to install all the different packages by yourself. But it does have the Python interpreter and package manager.</p></li>
+</ul>
+<p>The option we choose here is to use Miniconda to manage our installation of the packages. This way we can only install the ones we need.</p>
+<p>The Miniconda install process is described below:</p>
+<p><strong>Step 1: Download the Miniconda installer from the <a class="reference external" href="https://conda.io/miniconda.html">website</a></strong></p>
+<p>Here you can choose a different installer based on your OS. We choose the windows installer and Python 3.7 as an example.</p>
+<img src="images/AP.01.1-miniconda_page.png" alt="Miniconda_download" title="The Miniconda download page, choose the installer based on your Operating System." width="500"/>
+<p><strong>Step 2: Run the installer by double click the installer:</strong></p>
+<p>After you run the installer, follow the guide and you will successfully install it.</p>
+<img src="images/AP.01.2-run_miniconda_installer.png" alt="Run_installer" title="Screen shot of running the installer." width="400"/>
+<p>One thing to note is that you can change the installation location by giving it an alternative location on your machine, we will use the default path here.</p>
+<img src="images/AP.01.3-default_miniconda_location.png" alt="Default_location" title="The default install location of your file system." width="400"/>
+<p>After installation, we can open the <strong>anaconda prompt</strong> (the equivalent terminal on Mac or Linux) from the start menue.</p>
+<img src="images/AP.01.4-open_anaconda_prompt.png" alt="Open_prompt" title="Open the anaconda prompt from the start menu." width="500"/>
+<p>Then we can check whether installation is success or not by typing the following commands:</p>
+<img src="images/AP.01.4-miniconda_check.png" alt="Quick_check" title="Quick way to check your if your installed Miniconda run properly." width="500"/>
+<p><strong>Step 3: Install the basic packages that used in this book</strong></p>
+<p>Let us first install some packages for our book - <code class="docutils literal notranslate"><span class="pre">ipython</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code>. We will talk more about the management of the packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span></code> later.</p>
+<img src="images/AP.01.5-install_packages.png" alt="Install_packages" title="Install process for the packages that will be used in the rest of the book." width="500"/></div>
+<div class="section" id="three-ways-to-run-python-code">
+<h2>Three ways to run Python code<a class="headerlink" href="#three-ways-to-run-python-code" title="Permalink to this headline">¶</a></h2>
+<p>There are different ways to run Python code, they all have different usages. In this section, we will quickly introduce the three different ways to get you started.</p>
+<p><strong>Using Python shell or Ipython shell</strong></p>
+<p>The easiest way to run Python code is through the Python shell or Ipython Shell (which stands for Interactive Python). The Ipython shell is richer than Python shell, such as Tab autocompletion, color-highlighted error messages, basic UNIX shell integration and so on. Since we just installed Ipython, let us try to run the “hello world” example with it. The way we launch either Python or Ipython shell is by typing it in a terminal (see the figure below). Then we can run Python command by typing it into the shell, by pressing <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, we immediately see the results from the command. For example, we can print out “Hello World” by typing <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello</span> <span class="pre">World&quot;)</span></code>:</p>
+<img src="images/AP.01.6-ipython_example.png" alt="Hello_world" title="Run Hello World in Ipython shell by typing the command, print is a function that we will learn later to print out anything within the parentheses." width="500"/>
+<p>In the above command, the <em>print()</em> is a function in Python, and “Hello World” is a string data type that we will introduce them later in the book.</p>
+<p><strong>Run Python script/file from command line</strong></p>
+<p>The second way to run Python code is to put all the commands into a file and save it as a file with extension <code class="docutils literal notranslate"><span class="pre">.py</span></code> (the extension of the file could be anything, but by convention, it is usually <code class="docutils literal notranslate"><span class="pre">.py</span></code>). For example, use your favorite text editor (Showing here is the <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a>), put the command in a file called <em>hello_world.py</em>:</p>
+<img src="images/AP.01.7-python_file_example.png" alt="Python_file" title="A Python script file example using Visual Studio Code. You type in the commands you want to execute and save the file with a proper name." width="500"/>
+<p>Then just run it from terminal:</p>
+<img src="images/AP.01.8-run_python_file.png" alt="Run_python" title="To run the Python script from command line, we can type python hello_world.py. This line tells Python that we will execute the commands that saved in this file." width="500"/>
+<p><strong>Using Jupyter Notebook</strong></p>
+<p>The third way to run Python is through <strong>Jupyter notebook</strong>. It is a very powerful browser-based Python environment, we will talk more about it in details later in this chapter. Here we just quickly see how we could run the code from a Jupyter notebook. Run the <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in the bash command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>Then you will see a local web page will pop up, from the upper right button to create a new Python3 notebook:</p>
+<img src="images/AP.01.9-launching_jupyter.png" alt="Launching_jupyter" title="To Launch a Jupyter notebook server, type jupyter notebook in the command line, which will open a browser page as shown here. Click new button on the top write, and choose Python3 will create a Python notebook to run Python code." width="500"/>
+<p>Running code in Jupyter notebook is easy, you type your code in the cell, and press <code class="docutils literal notranslate"><span class="pre">shift</span> <span class="pre">+</span> <span class="pre">enter</span></code> to run the cell, the results will be shown below the code.</p>
+<img src="images/AP.01.10-run_code_jupyter.png" alt="Notebook_example" title="Run the Hello World example within Jupyter notebook. Type the command in the code cell (the grey boxes) and press shift + enter to execute it." width="500"/></div>
+<div class="section" id="the-zen-of-python">
+<h2>The Zen of Python<a class="headerlink" href="#the-zen-of-python" title="Permalink to this headline">¶</a></h2>
+<p>Ok, in the previous section, we learned about how to set up our working environment and run Python in different ways. Let’s end this section by seeing the famous ‘The Zen of Python’ with running the following command in one of the 3 ways. You may not understand the outputs now, but with time, I am sure you will find how useful it is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</pre></div>
+</div>
+</div>
+</div>
+<!--NAVIGATION-->
+<p>&lt; <a class="reference internal" href="chapter01.00-Python-Basics.html"><span class="doc std std-doc">1.0 Python Basics</span></a> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter01.02-Python-as-A-Calculator.html"><span class="doc std std-doc">1.2 Python as A Calculator</span></a> &gt;</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter25.05-Summary-and-Problems.html" title="previous page">Summary</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

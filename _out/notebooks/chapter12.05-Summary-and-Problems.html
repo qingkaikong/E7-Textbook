@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary &#8212; Python Numerical Methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parallel Your Python" href="chapter13.00-Parallel-Your-Python.html" />
+    <link rel="prev" title="Animations and Movies" href="chapter12.04-Animations-and-Movies.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/book_cover.jpg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.00-Preface.html">
+   Preface
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter01.00-Python-Basics.html">
+   Chapter 1 Python Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
+   Chapter 2 Variables and Basic Data Structures
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter03.00-Functions.html">
+   Chapter 3 Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter04.00-Branching-Statements.html">
+   Branching Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter05.00-Iteration.html">
+   Iteration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter06.00-Recursion.html">
+   Recursion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
+   Object Oriented Programming (OOP)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter08.00-Complexity.html">
+   Complexity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
+   Representation of Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
+   Errors, Good Programming Practices, and Debugging
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
+   Reading and Writing Data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
+   Visualization and Plotting
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.01-2D-Plotting.html">
+     2D Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.02-3D-Plotting.html">
+     3D Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.03-Working-with-Maps.html">
+     Working with Maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.04-Animations-and-Movies.html">
+     Animations and Movies
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
+   Parallel Your Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
+   Linear Algebra and Systems of Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
+   Eigenvalues and Eigenvectors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
+   Least Squares Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter17.00-Interpolation.html">
+   Interpolation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter18.00-Series.html">
+   Series
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter19.00-Root-Finding.html">
+   Root Finding
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
+   Numerical Differentiation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
+   Numerical Integration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
+   Ordinary Differential Equation - Initial Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
+   Ordinary Differential Equation - Boundary Value Problems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
+   Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
+   Introduction to Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
+   Getting Started with Python on Windows
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/chapter12.05-Summary-and-Problems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://pythonnumericalmethods.berkeley.edu"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!--BOOK_INFORMATION-->
+<img align="left" style="padding-right:10px;" src="images/book_cover.jpg" width="120">
+<p><em>This notebook contains an excerpt from the <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Python Programming and Numerical Methods - A Guide for Engineers and Scientists</a>, the content is also available at <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Berkeley Python Numerical Methods</a>.</em></p>
+<p><em>The copyright of the book belongs to Elsevier. We also have this interactive book online for a better learning experience. The code is released under the <a class="reference external" href="https://opensource.org/licenses/MIT">MIT license</a>. If you find this content useful, please consider supporting the work on <a class="reference external" href="https://www.elsevier.com/books/python-programming-and-numerical-methods/kong/978-0-12-819549-9">Elsevier</a> or <a class="reference external" href="https://www.amazon.com/Python-Programming-Numerical-Methods-Scientists/dp/0128195495/ref=sr_1_1?dchild=1&amp;keywords=Python+Programming+and+Numerical+Methods+-+A+Guide+for+Engineers+and+Scientists&amp;qid=1604761352&amp;sr=8-1">Amazon</a>!</em></p>
+<!--NAVIGATION-->
+<p>&lt; <span class="xref myst">12.4 Animations and Movies</span> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html"><span class="doc std std-doc">CHAPTER 13.  Parallel Your Python</span></a> &gt;</p>
+<div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>Visualizing data is an essential tool in engineering and science.</p></li>
+<li><p>Python has many different library of plotting tools that can be used to visualize data.</p></li>
+<li><p>2D, 3D plots and maps are usually used in engineering and science to communicate research.</p></li>
+<li><p>Videos are a sequence of static images that displayed at certain speed.</p></li>
+</ol>
+</div>
+<div class="section" id="problems">
+<h1>Problems<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>A cycloid is the curve traced by a point located on the edge of a wheel rolling along a flat surface. The <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates of a cycloid generated from a wheel with radius, <span class="math notranslate nohighlight">\(r\)</span>, can be described by the parametric equations:</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(x = r(\phi - \sin{\phi})\)</span></p>
+<p><span class="math notranslate nohighlight">\(y = r(1 - \cos{\phi})\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\phi\)</span> is the number of radians that the wheel has rolled through.</p>
+<p>Generate a plot of the cycloid for <span class="math notranslate nohighlight">\(0 \le \phi \le 2\pi\)</span> using 1000 increments and <span class="math notranslate nohighlight">\(r = 3\)</span>. Give your plot a title and labels. Turn the grid on and modify the axis limits to make the plot neat.</p>
+<ol class="simple">
+<li><p>Consider the following function:</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(y(x) = \sqrt{\frac{100(1-0.01x^2)^2 + 0.02x^2}{(1-x^2)^2 + 0.1x^2}}.\)</span></p>
+<p>Generate a <span class="math notranslate nohighlight">\(2 \times 2\)</span> subplot of <span class="math notranslate nohighlight">\(y(x)\)</span> for <span class="math notranslate nohighlight">\(0 \le x \le 100\)</span> using <em>plot</em>, <em>semilogx</em>, <em>semilogy</em>, and <em>loglog</em>. Use a fine enough discretization in <em>x</em> to make the plot appear smooth. Give each plot axis labels and a title. Turn the grid on. Which plot seems to convey the most information?.</p>
+<ol class="simple">
+<li><p>Plot the functions <span class="math notranslate nohighlight">\(y_1(x) = 3 + \exp{-x}\sin{(6x)}\)</span> and <span class="math notranslate nohighlight">\(y_2(x) = 4 + \exp{(-x)}\cos{(6x)}\)</span> for <span class="math notranslate nohighlight">\(0 \le x \le 5\)</span> on a single axis. Give the plot axis labels, a title, and a legend.</p></li>
+<li><p>Generate 1000 normally distributed random numbers using the <em>np.random.randn</em> function. Look up the help for the <em>plt.hist</em> function. Use the <em>plt.hist</em> function to plot a histogram of the randomly generated numbers. Use the <em>plt.hist</em> function to distribute the randomly generated numbers into 10 bins. Create a bar graph of output of hist using the <em>plt.bar</em> function. It should look very similar to the plot produced by <em>plt.hist</em>.</p></li>
+</ol>
+<p>Do you think that the <em>np.random.randn</em> function is a good approximation of a normally distributed number?.</p>
+<ol class="simple">
+<li><p>Let the number of students with A’s, B’s, C’s, D’s, and F’s be contained in the list <em>grade_dist = [42, 85, 67, 20, 5]</em>. Use the <em>plt.pie</em> function to generate a pie chart of <em>grade_dist</em>. Put a title and legend on the pie chart.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(-4 \le x \le 4, -3 \le y \le 3\)</span>, and <span class="math notranslate nohighlight">\(z(x,y) = \frac{xy(x^2 - y^2)}{x^2 + y^2}\)</span>. Create arrays <em>x</em> and <em>y</em> with 100 evenly spaced points over the interval. Create meshgrids <em>X</em> and <em>Y</em> for <em>x</em> and <em>y</em> using the <em>meshgrid</em> function. Compute the matrix <em>Z</em> from <em>X</em> and <em>Y</em> . Create a <span class="math notranslate nohighlight">\(1 \times 2\)</span> subplot where the first figure is the 3D surface <em>Z</em> plotted using <em>plt.plot_surface</em> and the second figure is the 3D wireframe plot using <em>plt.plot_wireframe</em>, respectively. Give each axis a title and axis labels.</p></li>
+<li><p>Write a function <em>my_polygon(n)</em> that plots a regular polygon with <em>n</em> sides and radius 1. Recall that the radius of a regular polygon is the distance from its centroid to the vertices. Use <em>plt.axis(‘equal’)</em> to make the polygon look regular. Remember to give the axes a label and a title. You can use <em>plt.title</em> to title the plot according to the number of sides. Hint: This problem is significantly easier if you think in polar coordinates. Recall that a complete revolution around the unit circle is <span class="math notranslate nohighlight">\(2\pi\)</span> radians. Note: The first and last point on the polygon should be the point associated with the polar coordinate angles, <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span>, respectively.</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_polygon</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+</pre></div>
+</div>
+ <img src="./images/12.05.01-my_polygon_5.jpg" alt="my_polygon_5" title="Test case for problem 7 (plotting a polygon with 5 faces)" width="600"/>
+<ol class="simple">
+<li><p>Write a function <em>my_fun_plotter(f, x)</em> where f is a lambda function and x is an array. The function should plot <em>f</em> evaluated at <em>x</em>. Remember to label the x- and y-axis.</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_fun_plotter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.02-my_plotter.jpg" alt="my_plotter" title="Test case for problem 8" width="600"/>
+<ol class="simple">
+<li><p>Write a function with <em>my_poly_plotter (n,x)</em> that plots the polynomials <span class="math notranslate nohighlight">\(p_k(x) = x^k\)</span> for <span class="math notranslate nohighlight">\(k = 1,\ldots,n\)</span>. Make sure your plot has axis labels and a title.</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_poly_plotter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.03-my_poly_plotter.jpg" alt="my_poly_plotter" title="Test case for problem 9, function my_poly_plotter(n,x)" width="600"/>
+<ol class="simple">
+<li><p>Assume you have three points at the corner of an equilateral triangle, <span class="math notranslate nohighlight">\(P_1 = (0,0), P_2 = (0.5,\sqrt{2}/2)\)</span>, and <span class="math notranslate nohighlight">\(P_3 = (1,0)\)</span>. Now you want to generate another set of points <span class="math notranslate nohighlight">\(p_i = (x_i, y_i)\)</span> such that <span class="math notranslate nohighlight">\(p_1 = (0,0)\)</span> and <span class="math notranslate nohighlight">\(p_{i+1}\)</span> is the midpoint between <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(P_1\)</span> with 33% probability, the midpoint between <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(P_2\)</span> with 33% probability, and the midpoint between <span class="math notranslate nohighlight">\(p_i\)</span> and <span class="math notranslate nohighlight">\(P_3\)</span> with 33% probability. Write a function <em>my_sierpinski (n)</em> that generates the points <span class="math notranslate nohighlight">\(p_i\)</span> for <span class="math notranslate nohighlight">\(i = 1,\cdots,n\)</span>. The function should make a plot of the points using blue dots (i.e., ‘b.’ as the third argument to the <em>plt.plot</em> function).</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_sierpinski</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.04-my_sierpinski.jpg" alt="my_sierpinski" title="Test case for problem 10, function my_sierpinski(100)" width="600"/>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_sierpinski</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.05-my_sierpinski_10000.jpg" alt="my_sierpinski" title="Test case for problem 10, function my_sierpinski(10000)" width="600"/>
+<ol class="simple">
+<li><p>Assume you are generating a set of points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> where <span class="math notranslate nohighlight">\(x_1 = 0\)</span> and <span class="math notranslate nohighlight">\(y_1 = 0\)</span>. The points <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> for <span class="math notranslate nohighlight">\(i = 2,\cdots,n\)</span> is generated according to the following probabilistic relationship:</p></li>
+</ol>
+<p>With 1% probability:</p>
+<p><span class="math notranslate nohighlight">\(x_i = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_i = 0.16y_{i-1}\)</span></p>
+<p>With 7% probability:</p>
+<p><span class="math notranslate nohighlight">\(x_i = 0.2x_{i-1} - 0.26y_{i-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_i = 0.23x_{i-1} + 0.22y_{i-1} + 1.6\)</span></p>
+<p>With 7% probability:</p>
+<p><span class="math notranslate nohighlight">\(x_i = -0.15x_{i-1} + 0.28y_{i-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_i = 0.26x_{i-1} + 0.24y_{i-1} + 0.44\)</span></p>
+<p>With 85% probability:</p>
+<p><span class="math notranslate nohighlight">\(x_i = 0.85x_{i-1} + 0.04y_{i-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(y_i = -0.04x_{i-1} + 0.85y_{i-1} + 1.6\)</span></p>
+<p>Write a function <em>my_fern (n)</em> that generates the points <span class="math notranslate nohighlight">\((x_i,y_i)\)</span> for <span class="math notranslate nohighlight">\(i = 1,\ldots,n\)</span> and plots them using blue dots. Also use <em>plt.axis(‘equal’)</em> and <em>plt.axis(‘off’)</em> to make the plot looks nicer.</p>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_fern</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.06-my_fern.jpg" alt="my_fern" title="Test case for problem 11, function my_fern(100)" width="600"/>
+<p>Try your function for n = 10000. The image generated is called a stochastic fractal. Many times it is cheaper (i.e. requires less space) to store the fractal generating code rather than the image. This makes stochastic fractals useful for image compression.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_fern</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.07-my_fern_10000.jpg" alt="my_fern" title="Test case for problem 11, function my_fern(10000)" width="600"/>
+<ol class="simple">
+<li><p>Write a function <em>my_parametric_plotter (x,y,t)</em> where <em>x</em> and <em>y</em> are function objects <em>x (t)</em> and <em>y (t)</em>, respectively, and <em>t</em> is a one-dimensional~array. The function <em>my_parametric_plotter</em> should produce the curve <span class="math notranslate nohighlight">\((x(t), y(t), t)\)</span> in a three-dimensional plot. Be sure to give your plot a title and axis labels.</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">my_parametric_plotter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+   
+</pre></div>
+</div>
+ <img src="./images/12.05.08-my_parametric.jpg" alt="my_parametric" title="Test case for problem 12, function my_parametric_plotter(f, g, np.linspace(0, 6*np.pi, 100))" width="600"/>
+<ol class="simple">
+<li><p>Write a function <em>my_surface_plotter(f, x, y, option)</em> where <em>f</em> is a function object <em>f (x,y)</em>. The function <em>my_surface_plotter</em> should produce a 3D surface plot of <em>f (x,y)</em> using <em>plot_surface</em> if option is the string ‘surface’. It should produce a contour plot of <em>f (x,y)</em> if the option is the string ‘contour’. Assume that <em>x</em> and <em>y</em> are one-dimensional arrays or lists. Remember to give the plot a title and axis labels.</p></li>
+</ol>
+<p>Test cases:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mpl_toolkits</span> <span class="kn">import</span> <span class="n">mplot3d</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">my_surface_plotter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="s1">&#39;surface&#39;</span><span class="p">)</span>
+<span class="n">my_surface_plotter</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="s1">&#39;contour&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+ <img src="./images/12.05.09-my_surface_plotter_surface.jpg" alt="my_surface_plotter" title="Test case for problem 13, function my_surface_plotter(f, np.linspace(-1, 1, 20), np.linspace(-2, 2, 40), 'surface')" width="600"/>
+  <img src="./images/12.05.10-my_surface_plotter_contour.jpg" alt="my_surface_plotter" title="Test case for problem 13, function my_surface_plotter(f, np.linspace(-1, 1, 20), np.linspace(-2, 2, 40), 'contour')" width="600"/>
+<ol class="simple">
+<li><p>Write a line of code that generates the following error:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span><span class="p">:</span> <span class="n">x</span> <span class="ow">and</span> <span class="n">y</span> <span class="n">must</span> <span class="n">have</span> <span class="n">same</span> <span class="n">first</span> <span class="n">dimension</span><span class="p">,</span> <span class="o">...</span> 
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>We could make maps using different Web Map Tile Service (WMTS) online in <em>cartopy</em>. Plot an earth-night map as the one showing below for the main part of North America, with the extent latitude from 19.50139 to 64.85694 and longitude from -128.75583 to -68.01197. Hint: check out the gallery on <em>cartopy</em> website.</p></li>
+</ol>
+ <img src="./images/12.05.11-earth-night.jpg" alt="Earth night" title="Result plot for problem 15" width="1000"/><!--NAVIGATION-->
+<p>&lt; <span class="xref myst">12.4 Animations and Movies</span> | <a class="reference internal" href="Index.html"><span class="doc std std-doc">Contents</span></a> | <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html"><span class="doc std std-doc">CHAPTER 13.  Parallel Your Python</span></a> &gt;</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chapter12.04-Animations-and-Movies.html" title="previous page">Animations and Movies</a>
+    <a class='right-next' id="next-link" href="chapter13.00-Parallel-Your-Python.html" title="next page">Parallel Your Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
