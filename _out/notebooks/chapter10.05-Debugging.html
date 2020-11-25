@@ -1,23 +1,41 @@
 
-
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debugging &#8212; Python Numerical Methods</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -25,12 +43,10 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -43,8 +59,8 @@
     <link rel="next" title="Summary" href="chapter10.06-Summary-and-Problems.html" />
     <link rel="prev" title="Type Checking" href="chapter10.04-Type-Checking.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -66,70 +82,355 @@
   <h1 class="site-logo" id="site-title">Python Numerical Methods</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="current nav sidenav_l1">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Index.html">
+   Python Programming And Numerical Methods: A Guide For Engineers And Scientists
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="chapter00.00-Preface.html">
    Preface
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter01.00-Python-Basics.html">
    Chapter 1 Python Basics
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.01-Getting-Started-with-Python.html">
+     Getting Started with Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.02-Python-as-A-Calculator.html">
+     Python as a Calculator
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.03-Managing-Packages.html">
+     Managing Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.04-Introduction-to-Jupyter-Notebook.html">
+     Introduction to Jupyter Notebook
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.05-Logial-Expressions-and-Operators.html">
+     Logical Expressions and Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter01.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter02.00-Variables-and-Basic-Data-Structures.html">
    Chapter 2 Variables and Basic Data Structures
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.01-Variables-and-Assignment.html">
+     Variables and Assignment
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.02-Data-Structure-Strings.html">
+     Data Structure - Strings
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.03-Data-Structure-Lists.html">
+     Data Structure - Lists
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.04-Data-Structure-Tuples.html">
+     Data Structure - Tuples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.05-Data-Structure-Sets.html">
+     Data Structure - Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.06-Data-Structure-Dictionaries.html">
+     Data Structure - Dictionaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.07-Introducing_numpy_arrays.html">
+     Introducing Numpy Arrays
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter03.00-Functions.html">
    Chapter 3 Functions
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.01-Function-Basics.html">
+     Function Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.02-Local-Variables-and-Global-Variables.html">
+     Local Variables and Global Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.03-Nested-Functions.html">
+     Nested functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.04-Lambda-Functions.html">
+     Lambda Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.05-Functions-as-Arguments-to-Functions.html">
+     Functions as Arguments to Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter03.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter04.00-Branching-Statements.html">
    Branching Statements
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter04.01-If-Else-Statements.html">
+     If-Else Statements
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter04.02-Ternary-Operators.html">
+     Ternary Operators
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter04.03-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter04.03-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter05.00-Iteration.html">
    Iteration
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.01-For-Loops.html">
+     For-Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.02-While-Loops.html">
+     While Loops
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.03-Comprehensions.html">
+     Comprehensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter05.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter06.00-Recursion.html">
    Recursion
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.01-Recursive-Functions.html">
+     Recursive Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.02-Divide-and-Conquer.html">
+     Divide and Conquer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.03-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter06.03-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter07.00-Object-Oriented-Programming.html">
    Object Oriented Programming (OOP)
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.01-Introduction-to-OOP.html">
+     Introduction to OOP
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.02-Class-and-Object.html">
+     Class and Object
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.03-Inheritance-Encapsulation-and-Polymorphism.html">
+     Inheritance, Encapsulation and Polymorphism
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter07.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter08.00-Complexity.html">
    Complexity
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.01-Complexity-and-Big-O.html">
+     Complexity and Big-O Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.02-Complexity-Matters.html">
+     Complexity Matters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.03-The-Profiler.html">
+     The Profiler
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter08.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter09.00-Representation-of-Numbers.html">
    Representation of Numbers
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter09.01-BaseN-and-Binary.html">
+     Base-N and Binary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter09.02-Floating-Point-Numbers.html">
+     Floating Point Numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter09.03-Roundoff-Errors.html">
+     Round-off Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter09.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter09.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="chapter10.00-Errors-Practices-Debugging.html">
    Errors, Good Programming Practices, and Debugging
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="chapter10.01-Error-Types.html">
      Error Types
@@ -166,81 +467,594 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter11.00-Reading-and-Writing-Data.html">
    Reading and Writing Data
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.01-TXT-Files.html">
+     TXT Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.02-CSV-Files.html">
+     CSV Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.03-Pickle-Files.html">
+     Pickle Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.04-JSON-Files.html">
+     JSON Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.05-HDF5-Files.html">
+     HDF5 Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter11.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter12.00-Visualization-and-Plotting.html">
    Visualization and Plotting
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.01-2D-Plotting.html">
+     2D Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.02-3D-Plotting.html">
+     3D Plotting
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.03-Working-with-Maps.html">
+     Working with Maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.04-Animations-and-Movies.html">
+     Animations and Movies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter12.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter13.00-Parallel-Your-Python.html">
    Parallel Your Python
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter13.01-Parallel-Computing-Basics.html">
+     Parallel Computing Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter13.02-Multiprocessing.html">
+     Multiprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter13.03-Use-joblib.html">
+     Use joblib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter13.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter13.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter14.00-Linear-Algebra-and-Systems-of-Linear-Equations.html">
    Linear Algebra and Systems of Linear Equations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.01-Basics-of-Linear-Algebra.html">
+     Basics of Linear Algebra
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.02-Linear-Transformations.html">
+     Linear Transformations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.03-Systems-of-Linear-Equations.html">
+     Systems of Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.04-Solutions-to-Systems-of-Linear-Equations.html">
+     Solutions to Systems of Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.05-Solve-Systems-of-Linear-Equations-in-Python.html">
+     Solve Systems of Linear Equations in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.06-Matrix-Inversion.html">
+     Matrix Inversion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.07-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter14.07-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter15.00-Eigenvalues-and-Eigenvectors.html">
    Eigenvalues and Eigenvectors
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.01-Eigenvalues-and-Eigenvectors-Problem-Statement.html">
+     Eigenvalues and Eigenvectors Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.02-The-Power-Method.html">
+     The Power Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.03-The-QR-Method.html">
+     The QR Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.04-Eigenvalues-and-Eigenvectors-in-Python.html">
+     Eigenvalues and Eigenvectors in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter15.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter16.00-Least-Squares-Regression.html">
    Least Squares Regression
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.01-Least-Squares-Regression-Problem-Statement.html">
+     Least Squares Regression Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.02-Least-Squares-Regression-Derivation-Linear-Algebra.html">
+     Least Squares Regression Derivation (Linear Algebra)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.03-Least-Squares-Regression-Derivation-Multivariable-Calculus.html">
+     Least Squares Regression Derivation (Multivariable Calculus)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.04-Least-Squares-Regression-in-Python.html">
+     Least Squares Regression in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.05-Least-Square-Regression-for-Nonlinear-Functions.html">
+     Least Square Regression for Nonlinear Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter16.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter17.00-Interpolation.html">
    Interpolation
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.01-Interpolation-Problem-Statement.html">
+     Interpolation Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.02-Linear-Interpolation.html">
+     Linear Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.03-Cubic-Spline-Interpolation.html">
+     Cubic Spline Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.04-Lagrange-Polynomial-Interpolation.html">
+     Lagrange Polynomial Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.05-Newtons-Polynomial-Interpolation.html">
+     Newton’s Polynomial Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter17.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter18.00-Series.html">
    Series
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.01-Expressing-Functions-with-Taylor-Series.html">
+     Expressing Functions with Taylor Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.02-Approximations-with-Taylor-Series.html">
+     Approximations with Taylor Series
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.03-Discussion-on-Errors.html">
+     Discussion on Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.04-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter18.04-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter19.00-Root-Finding.html">
    Root Finding
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.01-Root-Finding-Problem-Statement.html">
+     Root Finding Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.02-Tolerance.html">
+     Tolerance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.03-Bisection-Method.html">
+     Bisection Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.04-Newton-Raphson-Method.html">
+     Newton-Raphson Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.05-Root-Finding-in-Python.html">
+     Root Finding in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter19.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter20.00-Numerical-Differentiation.html">
    Numerical Differentiation
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.01-Numerical-Differentiation-Problem-Statement.html">
+     Numerical Differentiation Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.02-Finite-Difference-Approximating-Derivatives.html">
+     Finite Difference Approximating Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.03-Approximating-of-Higher-Order-Derivatives.html">
+     Approximating of Higher Order Derivatives
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.04-Numerical-Differentiation-with-Noise.html">
+     Numerical Differentiation with Noise
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter20.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter21.00-Numerical-Integration.html">
    Numerical Integration
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.01-Numerical-Integration-Problem-Statement.html">
+     Numerical Integration Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.02-Riemanns-Integral.html">
+     Riemanns Integral
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.03-Trapezoid-Rule.html">
+     Trapezoid Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.04-Simpsons-Rule.html">
+     Simpson’s Rule
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.05-Computing-Integrals-in-Python.html">
+     Computing Integrals in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.06-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter21.06-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter22.00-ODE-Initial-Value-Problems.html">
    Ordinary Differential Equation - Initial Value Problems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.01-ODE-Initial-Value-Problem-Statement.html">
+     ODE Initial Value Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.02-Reduction-of-Order.html">
+     Reduction of Order
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.03-The-Euler-Method.html">
+     The Euler Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.04-Numerical-Error-and-Instability.html">
+     Numerical Error and Instability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.05-Predictor-Corrector-Methods.html">
+     Predictor-Corrector and Runge Kutta Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.06-Python-ODE-Solvers.html">
+     Python ODE Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.07-Advanced-Topics.html">
+     Advanced Topics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter22.08-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter23.00-ODE-Boundary-Value-Problems.html">
    Ordinary Differential Equation - Boundary Value Problems
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.01-ODE-Boundary-Value-Problem-Statement.html">
+     ODE Boundary Value Problem Statement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.02-The-Shooting-Method.html">
+     The Shooting Methods
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.03-Finite-Difference-Method.html">
+     Finite Difference Method
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.04-Numerical-Error-and-Instability.html">
+     Numerical Error and Instability (BVP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter24.00-Fourier-Transforms.html">
    Fourier Transform
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="chapter25.00-Introduction-to-Data-Driven-Approach.html">
-   Introduction to Machine Learning
-  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.01-The-Basics-of-waves.html">
+     The Basics of Waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.02-Discrete-Fourier-Transform.html">
+     Discrete Fourier Transform (DFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.03-Fast-Fourier-Transform.html">
+     Fast Fourier Transform (FFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.04-FFT-in-Python.html">
+     FFT in Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter24.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Appendix01-Getting-Started-with-Python-Windows.html">
@@ -249,9 +1063,11 @@
  </li>
 </ul>
 
-</nav>
+</nav> <!-- To handle the deprecated key -->
 
- <!-- To handle the deprecated key -->
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
 
 </div>
 
@@ -276,11 +1092,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -292,8 +1108,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -312,7 +1128,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -321,8 +1138,9 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -344,6 +1162,7 @@
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -366,7 +1185,7 @@
 <p>If we run the code which stops at an exception, we could call %debug. For example, we have a function that squares the input number and then add itself, as shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     
     <span class="n">sq</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">sq</span> <span class="o">+=</span> <span class="n">x</span>
@@ -378,7 +1197,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -403,18 +1222,18 @@
 <p>After we have this exception, we could activate the debugger by using the magic command - %debug, which will open an interactive debugger for you. You can type in commands in the debugger to get useful information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">debug</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">debug</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; [0;32m&lt;ipython-input-1-3fc6a3900214&gt;[0m(3)[0;36msquare_number[0;34m()[0m
-[0;32m      1 [0;31m[0;32mdef[0m [0msquare_number[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
-[0m[0;32m      2 [0;31m[0;34m[0m[0m
-[0m[0;32m----&gt; 3 [0;31m    [0msq[0m [0;34m=[0m [0mx[0m[0;34m**[0m[0;36m2[0m[0;34m[0m[0m
-[0m[0;32m      4 [0;31m    [0msq[0m [0;34m+=[0m [0mx[0m[0;34m[0m[0m
-[0m[0;32m      5 [0;31m[0;34m[0m[0m
-[0m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; <span class=" -Color -Color-Green">&lt;ipython-input-1-3fc6a3900214&gt;</span>(3)<span class=" -Color -Color-Cyan">square_number</span><span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">      1 def</span> square_number<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">):</span>
+<span class=" -Color -Color-Green">      2 </span>
+<span class=" -Color -Color-Green">----&gt; 3 </span><span class=" -Color -Color-Red">    </span>sq <span class=" -Color -Color-Blue">=</span> x<span class=" -Color -Color-Blue">**</span><span class=" -Color -Color-Cyan">2</span>
+<span class=" -Color -Color-Green">      4 </span><span class=" -Color -Color-Red">    </span>sq <span class=" -Color -Color-Blue">+=</span> x
+<span class=" -Color -Color-Green">      5 </span>
+
 ipdb&gt; h
 
 Documented commands (type help &lt;topic&gt;):
@@ -468,19 +1287,19 @@ ipdb&gt; q
 <p>We could also turn on the debugger before we even run the code and then turn it off after we finish running the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pdb</span> <span class="n">on</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pdb</span> on
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Automatic pdb calling has been turned ON
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Automatic pdb calling has been turned ON
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="s1">&#39;10&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -500,13 +1319,13 @@ ipdb&gt; q
 <span class="ne">TypeError</span>: unsupported operand type(s) for ** or pow(): &#39;str&#39; and &#39;int&#39;
 </pre></div>
 </div>
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; [0;32m&lt;ipython-input-1-3fc6a3900214&gt;[0m(3)[0;36msquare_number[0;34m()[0m
-[0;32m      1 [0;31m[0;32mdef[0m [0msquare_number[0m[0;34m([0m[0mx[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0m
-[0m[0;32m      2 [0;31m[0;34m[0m[0m
-[0m[0;32m----&gt; 3 [0;31m    [0msq[0m [0;34m=[0m [0mx[0m[0;34m**[0m[0;36m2[0m[0;34m[0m[0m
-[0m[0;32m      4 [0;31m    [0msq[0m [0;34m+=[0m [0mx[0m[0;34m[0m[0m
-[0m[0;32m      5 [0;31m[0;34m[0m[0m
-[0m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; <span class=" -Color -Color-Green">&lt;ipython-input-1-3fc6a3900214&gt;</span>(3)<span class=" -Color -Color-Cyan">square_number</span><span class=" -Color -Color-Blue">()</span>
+<span class=" -Color -Color-Green">      1 def</span> square_number<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">):</span>
+<span class=" -Color -Color-Green">      2 </span>
+<span class=" -Color -Color-Green">----&gt; 3 </span><span class=" -Color -Color-Red">    </span>sq <span class=" -Color -Color-Blue">=</span> x<span class=" -Color -Color-Blue">**</span><span class=" -Color -Color-Cyan">2</span>
+<span class=" -Color -Color-Green">      4 </span><span class=" -Color -Color-Red">    </span>sq <span class=" -Color -Color-Blue">+=</span> x
+<span class=" -Color -Color-Green">      5 </span>
+
 ipdb&gt; p x
 &#39;10&#39;
 ipdb&gt; c
@@ -516,13 +1335,13 @@ ipdb&gt; c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s turn off the debugger</span>
-<span class="o">%</span><span class="n">pdb</span> <span class="n">off</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s turn off the debugger</span>
+<span class="o">%</span><span class="k">pdb</span> off
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Automatic pdb calling has been turned OFF
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Automatic pdb calling has been turned OFF
 </pre></div>
 </div>
 </div>
@@ -533,14 +1352,14 @@ ipdb&gt; c
 <p>It is often very useful to insert a breakpoint into your code. A breakpoint is a line in your code at which Python will stop when the function is run.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pdb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pdb</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     
     <span class="n">sq</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
     
@@ -556,12 +1375,12 @@ ipdb&gt; c
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square_number</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; &lt;ipython-input-8-e48ec2675aea&gt;(8)square_number()
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt; &lt;ipython-input-8-e48ec2675aea&gt;(8)square_number()
 -&gt; sq += x
 (Pdb) l
   3  	    sq = x**2
@@ -580,7 +1399,7 @@ ipdb&gt; c
 (Pdb) c
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>12
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
 </pre></div>
 </div>
 </div>
@@ -638,7 +1457,10 @@ ipdb&gt; c
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>
