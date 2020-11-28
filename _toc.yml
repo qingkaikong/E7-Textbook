@@ -25,6 +25,7 @@
   file: notebooks/Index
 
 - file: notebooks/chapter00.00-Preface.ipynb
+- file: notebooks/chapter00.01-Acknowledgment.ipynb
 - file: notebooks/chapter01.00-Python-Basics.ipynb
   sections:
     - file: notebooks/chapter01.01-Getting-Started-with-Python.ipynb
@@ -42,6 +43,7 @@
     - file: notebooks/chapter02.05-Data-Structure-Sets.ipynb
     - file: notebooks/chapter02.06-Data-Structure-Dictionaries.ipynb
     - file: notebooks/chapter02.07-Introducing_numpy_arrays.ipynb
+    - file: notebooks/chapter02.08-Summary-and-Problems.ipynb
 - file: notebooks/chapter03.00-Functions.ipynb
   sections:
     - file: notebooks/chapter03.01-Function-Basics.ipynb
@@ -53,7 +55,6 @@
 - file: notebooks/chapter04.00-Branching-Statements.ipynb
   sections:
     - file: notebooks/chapter04.01-If-Else-Statements.ipynb
-    - file: notebooks/chapter04.02-Summary-and-Problems.ipynb
     - file: notebooks/chapter04.02-Ternary-Operators.ipynb
     - file: notebooks/chapter04.03-Summary-and-Problems.ipynb
 - file: notebooks/chapter05.00-Iteration.ipynb
@@ -72,7 +73,6 @@
     - file: notebooks/chapter07.01-Introduction-to-OOP.ipynb
     - file: notebooks/chapter07.02-Class-and-Object.ipynb
     - file: notebooks/chapter07.03-Inheritance-Encapsulation-and-Polymorphism.ipynb
-    - file: notebooks/chapter07.03-Inheritance.ipynb
     - file: notebooks/chapter07.04-Summary-and-Problems.ipynb
 - file: notebooks/chapter08.00-Complexity.ipynb
   sections:
@@ -107,7 +107,6 @@
     - file: notebooks/chapter12.01-2D-Plotting.ipynb
     - file: notebooks/chapter12.02-3D-Plotting.ipynb
     - file: notebooks/chapter12.03-Working-with-Maps.ipynb
-    - file: notebooks/chapter12.03-Working-with-Maps_files
     - file: notebooks/chapter12.04-Animations-and-Movies.ipynb
     - file: notebooks/chapter12.05-Summary-and-Problems.ipynb
 - file: notebooks/chapter13.00-Parallel-Your-Python.ipynb
@@ -161,7 +160,6 @@
     - file: notebooks/chapter19.03-Bisection-Method.ipynb
     - file: notebooks/chapter19.04-Newton-Raphson-Method.ipynb
     - file: notebooks/chapter19.05-Root-Finding-in-Python.ipynb
-    # - file: notebooks/chapter19.05-Summary-and-Problems.ipynb
     - file: notebooks/chapter19.06-Summary-and-Problems.ipynb
 - file: notebooks/chapter20.00-Numerical-Differentiation.ipynb
   sections:
@@ -194,7 +192,8 @@
     - file: notebooks/chapter23.02-The-Shooting-Method.ipynb
     - file: notebooks/chapter23.03-Finite-Difference-Method.ipynb
     - file: notebooks/chapter23.04-Numerical-Error-and-Instability.ipynb
-    - file: notebooks/chapter23.05-Summary-and-Problems.ipynb
+    - file: notebooks/chapter23.05-Python-ODE-Solvers.ipynb
+    - file: notebooks/chapter23.06-Summary-and-Problems.ipynb
 - file: notebooks/chapter24.00-Fourier-Transforms.ipynb
   sections:
     - file: notebooks/chapter24.01-The-Basics-of-waves.ipynb
