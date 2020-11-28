@@ -100,6 +100,11 @@
    Preface
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter00.01-Acknowledgment.html">
+   Acknowledgment
+  </a>
+ </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="chapter01.00-Python-Basics.html">
    Chapter 1. Python Basics
@@ -182,6 +187,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="chapter02.07-Introducing_numpy_arrays.html">
      Introducing Numpy Arrays
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.08-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter02.08-Summary-and-Problems.html#problems">
+     Problems
     </a>
    </li>
   </ul>
@@ -1004,12 +1019,17 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chapter23.05-Summary-and-Problems.html">
+    <a class="reference internal" href="chapter23.05-Python-ODE-Solvers.html">
+     Python ODE Solvers (BVP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter23.06-Summary-and-Problems.html">
      Summary
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chapter23.05-Summary-and-Problems.html#problems">
+    <a class="reference internal" href="chapter23.06-Summary-and-Problems.html#problems">
      Problems
     </a>
    </li>
@@ -1049,6 +1069,45 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="chapter24.05-Summary-and-Problems.html#problems">
+     Problems
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="chapter25.00-Introduction-to-Machine-Learning.html">
+   Chapter 25. Introduction to Machine Learning
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.01-Concept-of-Machine-Learning.html">
+     Concept of Machine Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.02-Classification.html">
+     Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.03-Regression.html">
+     Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.04-Clustering.html">
+     Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.05-Summary-and-Problems.html">
+     Summary
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="chapter25.05-Summary-and-Problems.html#problems">
      Problems
     </a>
    </li>
@@ -1213,16 +1272,16 @@
 <ol class="simple">
 <li><p>Chebyshev polynomials are defined recursively. Chebyshev polynomials are separated into two kinds: first and second. Chebyshev polynomials of the first kind, <span class="math notranslate nohighlight">\(T_n(x)\)</span>, and of the second kind, <span class="math notranslate nohighlight">\(U_n(x)\)</span>, are defined by the following recurrence relations:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-25569ea9-770d-4f83-8a69-2d4343a19466">
-<span class="eqno">(3)<a class="headerlink" href="#equation-25569ea9-770d-4f83-8a69-2d4343a19466" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8607b748-5e28-4681-8b21-a7d20c01590e">
+<span class="eqno">(3)<a class="headerlink" href="#equation-8607b748-5e28-4681-8b21-a7d20c01590e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 T_n(x) = \begin{cases}
     1 &amp; \text{if $n=0$}\\
     x &amp; \text{if $n=1$}\\
     2xT_{n-1}(x)-T_{n-2}(x) &amp; \text{otherwise}\\
     \end{cases}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-1cfdbd07-7896-4b6b-8563-b0e48a64ae86">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1cfdbd07-7896-4b6b-8563-b0e48a64ae86" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75771402-1f9f-4e2d-bc80-92cfe23585b8">
+<span class="eqno">(4)<a class="headerlink" href="#equation-75771402-1f9f-4e2d-bc80-92cfe23585b8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 U_n(x) = \begin{cases}
     1 &amp; \text{if $n=0$}\\
     2x &amp; \text{if $n=1$}\\
@@ -1274,8 +1333,8 @@ U_n(x) = \begin{cases}
 <ol class="simple">
 <li><p>The Ackermann function, <em>A</em>, is a quickly growing function that is defined by the recursive relationship:</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-58ceb19b-6cd6-4d11-9d57-84e65bea27c9">
-<span class="eqno">(5)<a class="headerlink" href="#equation-58ceb19b-6cd6-4d11-9d57-84e65bea27c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3525a4d1-bfe3-4f94-948b-86cd5c62c602">
+<span class="eqno">(5)<a class="headerlink" href="#equation-3525a4d1-bfe3-4f94-948b-86cd5c62c602" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 A(m, n) = \begin{cases}
     n+1 &amp;\text{if $m=0$}\\
     A(m-1,1) &amp;\text{if  $m&gt;0$ and $n=1$}\\

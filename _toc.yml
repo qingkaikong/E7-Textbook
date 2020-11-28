@@ -201,7 +201,7 @@
     - file: notebooks/chapter24.03-Fast-Fourier-Transform.ipynb
     - file: notebooks/chapter24.04-FFT-in-Python.ipynb
     - file: notebooks/chapter24.05-Summary-and-Problems.ipynb
-- file: notebooks/chapter25.00-Introduction-to-Data-Driven-Approach.ipynb
+- file: notebooks/chapter25.00-Introduction-to-Machine-Learning.ipynb
   sections:
     - file: notebooks/chapter25.01-Concept-of-Machine-Learning.ipynb
     - file: notebooks/chapter25.02-Classification.ipynb
