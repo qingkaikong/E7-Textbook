@@ -9,9 +9,9 @@ execute:
 repository:
   url: https://pythonnumericalmethods.berkeley.edu
 
-# launch_buttons:
-#     binderhub_url: https://mybinder.org
-#     jupyterhub_url: https://datahub.berkeley.edu
+launch_buttons:
+  binderhub_url: https://mybinder.org
+  jupyterhub_url: https://datahub.berkeley.edu
 
 html:
 #   favicon: content/images/favicon.ico
