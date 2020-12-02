@@ -1216,8 +1216,8 @@
 <p>A <strong>recursive</strong> function is a function that makes calls to itself. It works like the loops we described before, but sometimes it the situation is better to use recursion than loops.</p>
 <p>Every recursive function has two components: a <strong>base case</strong> and a <strong>recursive step</strong>. The <strong>base case</strong> is usually the smallest input and has an easily verifiable solution. This is also the mechanism that stops the function from calling itself forever. The <strong>recursive step</strong> is the set of all cases where a <strong>recursive call</strong>, or a function call to itself, is made.</p>
 <p>As an example, we show how recursion can be used to define and compute the factorial of an integer number. The factorial of an integer <span class="math notranslate nohighlight">\(n\)</span> is <span class="math notranslate nohighlight">\(1 \times 2 \times 3 \times ... \times (n - 1) \times n\)</span>. The recursive definition can be written:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e87da334-cd2f-4a8e-8167-9f0d213fc166">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e87da334-cd2f-4a8e-8167-9f0d213fc166" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6bf6b8f2-82ca-4456-89cd-bcb1eed73ae3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-6bf6b8f2-82ca-4456-89cd-bcb1eed73ae3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f(n) = \begin{cases}
     1 &amp;\text{if $n=1$}\\
     n \times f(n-1) &amp; \text{otherwise}\\
@@ -1266,8 +1266,8 @@ f(n) = \begin{cases}
 <p>The order of recursive calls can be depicted by a recursion tree shown in the following figure for <code class="docutils literal notranslate"><span class="pre">factorial(3)</span></code>. A recursion tree is a diagram of the function calls connected by numbered arrows to depict the order in which the calls were made.</p>
 <a class="reference internal image-reference" href="../_images/06.01.01-Recursion_tree_for_factorial.png"><img alt="../_images/06.01.01-Recursion_tree_for_factorial.png" src="../_images/06.01.01-Recursion_tree_for_factorial.png" style="width: 200px;" /></a>
 <p>Fibonacci numbers were originally developed to model the idealized population growth of rabbits. Since then, they have been found to be significant in any naturally occurring phenomena. The Fibonacci numbers can be generated using the following recursive formula. Note that the recursive step contains two recursive calls and that there are also two base cases (i.e., two cases that cause the recursion to stop).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6d39edc-29da-48b6-a047-289fb349d9ad">
-<span class="eqno">(2)<a class="headerlink" href="#equation-d6d39edc-29da-48b6-a047-289fb349d9ad" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8c06b779-e232-4cdc-bf9e-7e2ec502479c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-8c06b779-e232-4cdc-bf9e-7e2ec502479c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 F(n) = \begin{cases}
     1 &amp;\text{if $n=1$}\\
     1 &amp;\text{if $n=2$}\\
